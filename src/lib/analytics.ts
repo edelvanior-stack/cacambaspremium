@@ -48,12 +48,20 @@ export const trackInitialPageView = () => {
 // ============================================================
 
 /**
- * Track WhatsApp button click via dataLayer
- * Format is compatible with Google Tag Manager and Google Ads
+ * Track WhatsApp button click as Google Ads conversion + dataLayer event.
+ * Fires the conversion BEFORE the WhatsApp link opens.
  */
 export const trackWhatsAppClick = (source: string) => {
   if (typeof window === "undefined") return;
 
+  // 1. Google Ads conversion event
+  if (window.gtag) {
+    window.gtag('event', 'conversion', {
+      'send_to': 'AW-18121358771/6iQqCM7d08ocELP798BD',
+    });
+  }
+
+  // 2. dataLayer push (for GTM compatibility)
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({
     event: "whatsapp_click",
