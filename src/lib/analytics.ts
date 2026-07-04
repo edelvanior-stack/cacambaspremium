@@ -2,55 +2,13 @@
 // ANALYTICS & TRACKING - Caçambas Premium
 // ============================================================
 
-// Google Analytics 4 Measurement ID
-export const GA4_ID = "G-XXXXXXXXXX";
-
-// Google Tag Manager Container ID
-export const GTM_ID = "GTM-XXXXXXX";
-
-// Google Ads Conversion ID (AW-XXXXXXXXX)
-export const GADS_ID = "AW-XXXXXXXXX";
+// Google Ads Conversion ID
+export const GADS_ID = "AW-18121358771";
 
 // ============================================================
 // INITIALIZATION
 // ============================================================
-
-/**
- * Initialize Google Analytics 4
- * Only runs when GA4_ID is a real value (not placeholder)
- */
-export const initGA = () => {
-  if (typeof window === "undefined") return;
-  if (!GA4_ID || GA4_ID === "G-XXXXXXXXXX") return;
-
-  // Prevent duplicate initialization
-  if ((window as any).__gaInitialized) return;
-  (window as any).__gaInitialized = true;
-
-  // Create gtag function on window if not exists
-  window.dataLayer = window.dataLayer || [];
-  
-  // @ts-ignore - gtag is injected by external script or created here
-  window.gtag = window.gtag || function (...args: unknown[]) {
-    window.dataLayer.push(args);
-  };
-
-  // Load gtag.js script
-  const script = document.createElement("script");
-  script.src = `https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`;
-  script.async = true;
-  document.head.appendChild(script);
-
-  // Configure GA4 with correct settings for SPA
-  window.gtag('js', new Date());
-  window.gtag('config', GA4_ID, {
-    send_page_view: false, // We'll track page views manually in SPA
-    cookie_domain: 'cacambaspremium.com.br',
-    site_speed_sample_rate: 1,
-    allow_google_signals: false,
-    allow_display_features: true,
-  });
-};
+// Google Ads Tag initialized directly in index.html as requested.
 
 // ============================================================
 // SPA ROUTE TRACKING
@@ -64,7 +22,6 @@ let lastTrackedPath: string | null = null;
  */
 export const trackPageView = (path?: string, title?: string) => {
   if (typeof window === "undefined") return;
-  if (!GA4_ID || GA4_ID === "G-XXXXXXXXXX") return;
   
   const currentPath = path || location.pathname + location.search;
   
@@ -75,7 +32,7 @@ export const trackPageView = (path?: string, title?: string) => {
   window.gtag?.('event', 'page_view', {
     page_path: currentPath,
     page_title: title || document.title,
-    send_to: GA4_ID,
+    send_to: GADS_ID,
   });
 };
 

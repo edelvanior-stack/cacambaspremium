@@ -2,7 +2,7 @@ import { ArrowRight, Hammer, Building2, TreePine, Paintbrush } from "lucide-reac
 import type { ComponentType } from "react";
 import { trackWhatsAppClick } from "../lib/analytics";
 
-const WA_LINK = "https://wa.me/5547992579095";
+const WA_LINK = "https://wa.me/5547992089548";
 
 type Service = {
   icon: ComponentType<{ className?: string }>;

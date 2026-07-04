@@ -27,7 +27,7 @@ export default function WhyChooseUs({ serviceImage }: { serviceImage: string }) 
               <img
                 src={serviceImage}
                 alt="Profissional ao lado de caçamba de entulho"
-                className="relative rounded-3xl shadow-2xl shadow-slate-900/10 w-full h-[260px] sm:h-auto sm:aspect-[4/5] object-cover object-center"
+                className="relative rounded-3xl shadow-2xl shadow-slate-900/10 w-full h-auto object-contain"
                 loading="lazy"
               />
               {/* FIX: Responsivo para celular com tamanho e posicionamento adequados */}

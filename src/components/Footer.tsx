@@ -2,7 +2,7 @@ import { MapPin, Phone, Mail, ArrowUp } from "lucide-react";
 import Logo from "./Logo";
 import { trackWhatsAppClick } from "../lib/analytics";
 
-const WA_LINK = "https://wa.me/5547992579095";
+const WA_LINK = "https://wa.me/5547992089548";
 
 const LINKS = [
   { label: "Início", href: "#inicio" },
@@ -45,7 +45,7 @@ export default function Footer() {
               className="inline-flex items-center gap-2 text-orange-400 hover:text-orange-300 text-xs sm:text-sm font-semibold transition-colors"
             >
               <Phone className="w-4 h-4" />
-              (47) 99257-9095
+              (47) 99208-9548
             </a>
           </div>
 
@@ -92,7 +92,7 @@ export default function Footer() {
               <div className="flex items-start gap-3">
                 <Phone className="w-4 h-4 text-orange-400 mt-0.5 flex-shrink-0" />
                 <a href={WA_LINK} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick('footer_phone_2')} className="text-slate-400 hover:text-white text-xs sm:text-sm transition-colors">
-                  +55 47 99257-9095
+                  +55 47 99208-9548
                 </a>
               </div>
               <div className="flex items-start gap-3">

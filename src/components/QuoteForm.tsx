@@ -2,7 +2,7 @@ import { useState, useRef, ChangeEvent, FormEvent } from "react";
 import { X, CheckCircle2, Send, ImageIcon, ShieldCheck } from "lucide-react";
 import { trackWhatsAppClick } from "@/lib/analytics";
 
-const WA_NUMBER = "5547992579095";
+const WA_NUMBER = "5547992089548";
 
 const CIDADES = [
   "Itajaí",

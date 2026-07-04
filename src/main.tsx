@@ -2,13 +2,10 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import { initGA, trackInitialPageView, initScrollObserver } from "./lib/analytics";
+import { trackInitialPageView, initScrollObserver } from "./lib/analytics";
 
 // Initialize GA4 on client
 if (typeof window !== "undefined") {
-  // Initialize GA4 (only if real ID is configured)
-  initGA();
-  
   // Track initial page view after a tick to ensure DOM is ready
   requestAnimationFrame(() => {
     trackInitialPageView();

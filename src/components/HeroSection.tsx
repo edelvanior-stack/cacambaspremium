@@ -1,7 +1,7 @@
 import { ArrowRight, Shield, Clock, Truck } from "lucide-react";
 import { trackWhatsAppClick } from "@/lib/analytics";
 
-const WA_LINK = "https://wa.me/5547992579095";
+const WA_LINK = "https://wa.me/5547992089548";
 
 export default function HeroSection({ heroImage }: { heroImage: string }) {
   return (

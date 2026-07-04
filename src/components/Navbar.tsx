@@ -13,7 +13,7 @@ const NAV_LINKS = [
   { label: "Contato", href: "#contato" },
 ];
 
-const WA_LINK = "https://wa.me/5547992579095";
+const WA_LINK = "https://wa.me/5547992089548";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);

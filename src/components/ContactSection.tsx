@@ -2,10 +2,10 @@ import { MapPin, Phone, Clock, ArrowRight } from "lucide-react";
 import QuoteForm from "./QuoteForm";
 import { trackWhatsAppClick } from "../lib/analytics";
 
-const WA_LINK = "https://wa.me/5547992579095";
+const WA_LINK = "https://wa.me/5547992089548";
 
 const CONTACT_INFO = [
-  { icon: Phone, label: "WhatsApp", value: "(47) 99257-9095", href: "https://wa.me/5547992579095" },
+  { icon: Phone, label: "WhatsApp", value: "(47) 99208-9548", href: "https://wa.me/5547992089548" },
   { icon: MapPin, label: "Localização", value: "Itajaí, Santa Catarina", href: null },
   { icon: Clock, label: "Horário", value: "Seg a Sáb • 7h às 18h", href: null },
 ];

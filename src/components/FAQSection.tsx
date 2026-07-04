@@ -24,7 +24,7 @@ const FAQS = [
   },
   {
     q: "Como solicitar uma caçamba?",
-    a: "É muito simples! Basta entrar em contato pelo nosso WhatsApp (47) 99257-9095 informando o endereço da obra e o tipo de resíduo. Respondemos em poucos minutos e enviamos a caçamba em até 2 horas.",
+    a: "É muito simples! Basta entrar em contato pelo nosso WhatsApp (47) 99208-9548 informando o endereço da obra e o tipo de resíduo. Respondemos em poucos minutos e enviamos a caçamba em até 2 horas.",
   },
   {
     q: "Qual o valor da locação?",
