@@ -3,7 +3,7 @@
 // ============================================================
 
 // Google Ads Conversion ID
-export const GADS_ID = "AW-18121358771";
+export const GADS_ID = "AW-17696330213";
 
 // ============================================================
 // INITIALIZATION
@@ -57,7 +57,9 @@ export const trackWhatsAppClick = (source: string) => {
   // 1. Google Ads conversion event
   if (window.gtag) {
     window.gtag('event', 'conversion', {
-      'send_to': 'AW-18121358771/6iQqCM7d08ocELP798BD',
+      'send_to': 'AW-17696330213/xk9ZCLPj-8wcEOWjovZB',
+      'value': 1.0,
+      'currency': 'BRL',
     });
   }
 
