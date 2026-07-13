@@ -54,10 +54,18 @@ export const trackInitialPageView = () => {
 export const trackWhatsAppClick = (source: string) => {
   if (typeof window === "undefined") return;
 
-  // 1. Google Ads conversion event
+  // 1. Google Ads conversion events (disparando ambos em paralelo)
   if (window.gtag) {
+    // Conversão original
     window.gtag('event', 'conversion', {
       'send_to': 'AW-17696330213/xk9ZCLPj-8wcEOWjovZB',
+      'value': 1.0,
+      'currency': 'BRL',
+    });
+
+    // Nova conversão (Concretiza Brasil)
+    window.gtag('event', 'conversion', {
+      'send_to': 'AW-18121358771/6iQqCM7d08ocELP798BD',
       'value': 1.0,
       'currency': 'BRL',
     });
@@ -89,6 +97,13 @@ export const trackFormSubmit = () => {
       event_label: 'quote_form',
       value: 1,
       send_to: GADS_ID,
+    });
+
+    // Disparando o evento de conversão do novo ID no envio do formulário de orçamento também
+    window.gtag('event', 'conversion', {
+      'send_to': 'AW-18121358771/6iQqCM7d08ocELP798BD',
+      'value': 1.0,
+      'currency': 'BRL',
     });
   }
 };
