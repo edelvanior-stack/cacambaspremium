@@ -6,7 +6,7 @@ const WA_LINK = "https://wa.me/5547992089548";
 
 const CONTACT_INFO = [
   { icon: Phone, label: "WhatsApp", value: "(47) 99208-9548", href: "https://wa.me/5547992089548" },
-  { icon: MapPin, label: "Localização", value: "Itajaí, Santa Catarina", href: null },
+  { icon: MapPin, label: "Endereço Oficial", value: "Rua Eredes Serpa, 1003 - Cordeiros, Itajaí - SC", href: null },
   { icon: Clock, label: "Horário", value: "Seg a Sáb • 7h às 18h", href: null },
 ];
 

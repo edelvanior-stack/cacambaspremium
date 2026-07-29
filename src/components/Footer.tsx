@@ -1,5 +1,7 @@
-import { MapPin, Phone, Mail, ArrowUp } from "lucide-react";
+import { useState } from "react";
+import { MapPin, Phone, ArrowUp, ShieldCheck } from "lucide-react";
 import Logo from "./Logo";
+import LegalModal from "./LegalModal";
 import { trackWhatsAppClick } from "../lib/analytics";
 
 const WA_LINK = "https://wa.me/5547992089548";
@@ -23,20 +25,25 @@ const SERVICES = [
 ];
 
 export default function Footer() {
+  const [modalType, setModalType] = useState<"privacy" | "terms" | null>(null);
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
     <footer className="bg-slate-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 pb-8">
-        {/* FIX: Better grid on small screens */}
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 mb-12 sm:mb-14">
-          {/* Brand — span 2 cols on mobile */}
+          {/* Brand */}
           <div className="col-span-2 sm:col-span-1">
             <Logo light size="sm" className="mb-4" />
-            <p className="text-slate-400 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-5">
-              Empresa especializada em locação de caçambas de entulho no litoral norte de Santa Catarina.
-              Mais de 12 anos de experiência no mercado.
+            <p className="text-slate-400 text-xs sm:text-sm leading-relaxed mb-3">
+              Locação de caçambas de entulho em Itajaí e litoral catarinense.
             </p>
+            <div className="text-xs text-slate-400 space-y-1 mb-4">
+              <p><strong className="text-slate-300">Razão Social:</strong> Helio da Rosa Junior</p>
+              <p><strong className="text-slate-300">Nome Fantasia:</strong> Jr Entulhos (Caçambas Premium)</p>
+              <p><strong className="text-slate-300">CNPJ:</strong> 08.038.618/0001-52</p>
+              <p><strong className="text-slate-300">Abertura:</strong> 30/05/2006 (~20 anos de atuação)</p>
+            </div>
             <a
               href={WA_LINK}
               target="_blank"
@@ -79,48 +86,53 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact — span 2 cols on mobile */}
+          {/* Contact */}
           <div className="col-span-2 sm:col-span-1">
             <h4 className="font-display font-bold text-xs sm:text-sm uppercase tracking-wider text-slate-300 mb-4 sm:mb-5">
-              Contato
+              Endereço Oficial
             </h4>
             <div className="space-y-3 sm:space-y-4">
               <div className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-orange-400 mt-0.5 flex-shrink-0" />
-                <p className="text-slate-400 text-xs sm:text-sm">Itajaí, Santa Catarina — Brasil</p>
+                <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                  Rua Eredes Serpa, 1003, Bairro Cordeiros, Itajaí - SC, CEP 88310-630
+                </p>
               </div>
               <div className="flex items-start gap-3">
                 <Phone className="w-4 h-4 text-orange-400 mt-0.5 flex-shrink-0" />
                 <a href={WA_LINK} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick('footer_phone_2')} className="text-slate-400 hover:text-white text-xs sm:text-sm transition-colors">
-                  +55 47 99208-9548
+                  (47) 99208-9548
                 </a>
               </div>
-              <div className="flex items-start gap-3">
-                <Mail className="w-4 h-4 text-orange-400 mt-0.5 flex-shrink-0" />
-                <a href="mailto:contato@cacambaspremium.com.br" className="text-slate-400 hover:text-white text-xs sm:text-sm transition-colors">
-                  contato@locacamba.com.br
-                </a>
+              <div className="flex items-center gap-2 text-xs text-emerald-400 pt-1">
+                <ShieldCheck className="w-4 h-4" />
+                Empresa Regularizada • CNPJ Ativo
               </div>
             </div>
           </div>
         </div>
 
         <div className="border-t border-slate-800 pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
-          <p className="text-slate-500 text-xs sm:text-sm">
-            © {new Date().getFullYear()} Caçambas Premium — Todos os direitos reservados.
+          <p className="text-slate-500 text-xs sm:text-sm text-center sm:text-left">
+            © {new Date().getFullYear()} Jr Entulhos / Caçambas Premium (Helio da Rosa Junior - CNPJ 08.038.618/0001-52). Todos os direitos reservados.
           </p>
           <div className="flex items-center gap-4">
-            <a href="#faq" className="text-slate-500 hover:text-slate-300 text-xs sm:text-sm transition-colors">
+            <button
+              onClick={() => setModalType("terms")}
+              className="text-slate-400 hover:text-white text-xs sm:text-sm transition-colors underline cursor-pointer"
+            >
               Termos de Uso
-            </a>
-            <a href="#faq" className="text-slate-500 hover:text-slate-300 text-xs sm:text-sm transition-colors">
+            </button>
+            <button
+              onClick={() => setModalType("privacy")}
+              className="text-slate-400 hover:text-white text-xs sm:text-sm transition-colors underline cursor-pointer"
+            >
               Política de Privacidade
-            </a>
+            </button>
           </div>
         </div>
       </div>
 
-      {/* FIX: Adjust back-to-top to not conflict with WhatsApp button */}
       <button
         onClick={scrollToTop}
         className="fixed bottom-24 sm:bottom-28 right-4 sm:right-6 z-40 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-slate-800 hover:bg-slate-700 text-white flex items-center justify-center shadow-lg transition-all hover:-translate-y-1"
@@ -128,6 +140,12 @@ export default function Footer() {
       >
         <ArrowUp className="w-4 h-4 sm:w-5 sm:h-5" />
       </button>
+
+      <LegalModal
+        isOpen={!!modalType}
+        onClose={() => setModalType(null)}
+        type={modalType}
+      />
     </footer>
   );
 }

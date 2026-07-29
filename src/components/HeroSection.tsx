@@ -27,7 +27,7 @@ export default function HeroSection({ heroImage }: { heroImage: string }) {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 glass rounded-full px-3 sm:px-4 py-1.5 sm:py-2 mb-6 sm:mb-8">
             <div className="w-2 h-2 rounded-full bg-orange-400 animate-pulse" />
-            <span className="text-white/90 text-xs sm:text-sm font-medium">Atendimento 24h • Entrega Rápida</span>
+            <span className="text-white/90 text-xs sm:text-sm font-medium">Atendimento Rápido • 20 Anos de Mercado</span>
           </div>
 
           {/* Headline */}
@@ -70,9 +70,9 @@ export default function HeroSection({ heroImage }: { heroImage: string }) {
           {/* Trust Pills */}
           <div className="flex flex-wrap gap-2 sm:gap-3">
             {[
-              { icon: Shield, text: "Empresa Licenciada" },
-              { icon: Clock, text: "Entrega em até 2h" },
-              { icon: Truck, text: "Frota Própria" },
+              { icon: Shield, text: "CNPJ Ativo desde 2006" },
+              { icon: Clock, text: "Entrega e Retirada Ágeis" },
+              { icon: Truck, text: "Caçambas 3m³, 4m³ e 5m³" },
             ].map(({ icon: Icon, text }) => (
               <div key={text} className="flex items-center gap-1.5 sm:gap-2 glass rounded-full px-3 sm:px-4 py-1.5 sm:py-2">
                 <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-orange-400" />

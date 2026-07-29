@@ -19,12 +19,12 @@ const FAQS = [
     a: "Resíduos de construção civil como concreto, tijolos, cerâmica, argamassa, madeira, ferragens, terra e pedras. Não é permitido o descarte de lixo orgânico, materiais perigosos, produtos químicos, pneus ou lixo hospitalar.",
   },
   {
-    q: "Vocês possuem licença ambiental?",
-    a: "Sim! Somos uma empresa totalmente regularizada com todas as licenças ambientais necessárias para o transporte e destinação correta de resíduos da construção civil.",
+    q: "A empresa possui CNPJ ativo e registro oficial?",
+    a: "Sim! Operamos com Razão Social Helio da Rosa Junior (CNPJ: 08.038.618/0001-52), nome fantasia Jr Entulhos / Caçambas Premium. Atuamos regularmente no mercado desde 30/05/2006 (aproximadamente 20 anos de experiência) em Itajaí e região.",
   },
   {
     q: "Como solicitar uma caçamba?",
-    a: "É muito simples! Basta entrar em contato pelo nosso WhatsApp (47) 99208-9548 informando o endereço da obra e o tipo de resíduo. Respondemos em poucos minutos e enviamos a caçamba em até 2 horas.",
+    a: "É muito simples! Basta entrar em contato pelo nosso WhatsApp (47) 99208-9548 informando o endereço da obra e o tipo de resíduo. Respondemos rapidamente e alinhamos o prazo de entrega.",
   },
   {
     q: "Qual o valor da locação?",
