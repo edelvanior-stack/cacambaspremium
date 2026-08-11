@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+
+Host: https://cacambaspremium.com.br
+Sitemap: https://cacambaspremium.com.br/sitemap.xml
