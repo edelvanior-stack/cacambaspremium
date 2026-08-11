@@ -58,7 +58,7 @@ export const trackWhatsAppClick = (source: string) => {
   if (window.gtag) {
     // Conversão original
     window.gtag('event', 'conversion', {
-      'send_to': 'AW-17696330213/xk9ZCLPj-8wcEOWjovZB',
+      'send_to': 'AW-17696330213/vmiTCOf4798cEOWjovZB',
       'value': 1.0,
       'currency': 'BRL',
     });
