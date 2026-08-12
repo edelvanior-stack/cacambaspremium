@@ -10,7 +10,7 @@
 
       gtag('config', 'AW-17696330213');
 
-      // Automatic Page Load Conversion Event for Solicitar cotação (6)
+      // Conversão Existente: Solicitar cotação (6) - PRESERVADA
       gtag('event', 'conversion', {
         'send_to': 'AW-17696330213/vmiTCOf4798cEOWjovZB'
       });
@@ -23,6 +23,28 @@
         };
         gtag('event', 'conversion', {
             'send_to': 'AW-17696330213/vmiTCOf4798cEOWjovZB',
+            'event_callback': callback
+        });
+        return false;
+      }
+
+      // Conversão Nova: Solicitar cotação (9) - ADICIONADA
+      gtag('event', 'conversion', {
+        'send_to': 'AW-17696330213/6iCLCMCy2-AcEOWjovZB',
+        'value': 1.0,
+        'currency': 'BRL'
+      });
+
+      function gtag_report_conversion_9(url) {
+        var callback = function () {
+          if (typeof(url) != 'undefined') {
+            window.location = url;
+          }
+        };
+        gtag('event', 'conversion', {
+            'send_to': 'AW-17696330213/6iCLCMCy2-AcEOWjovZB',
+            'value': 1.0,
+            'currency': 'BRL',
             'event_callback': callback
         });
         return false;

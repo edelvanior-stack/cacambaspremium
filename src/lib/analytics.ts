@@ -44,17 +44,17 @@ export const trackInitialPageView = () => {
 };
 
 // ============================================================
-// WHATSAPP CONVERSION TRACKING
+// WHATSAPP CONVERSION TRACKING - EXISTENTE (Solicitar cotação 6)
 // ============================================================
 
 /**
  * Track WhatsApp button click as Google Ads conversion + dataLayer event.
- * Fires the conversion BEFORE the WhatsApp link opens.
+ * Conversão Existente: AW-17696330213/vmiTCOf4798cEOWjovZB (PRESERVADA)
  */
 export const trackWhatsAppClick = (source: string) => {
   if (typeof window === "undefined") return;
 
-  // 1. Google Ads conversion event
+  // 1. Google Ads conversion event (Existente)
   if (window.gtag) {
     window.gtag('event', 'conversion', {
       'send_to': 'AW-17696330213/vmiTCOf4798cEOWjovZB',
@@ -67,6 +67,36 @@ export const trackWhatsAppClick = (source: string) => {
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({
     event: "whatsapp_click",
+    category: "conversion",
+    action: "click",
+    label: source,
+  });
+};
+
+// ============================================================
+// WHATSAPP CONVERSION TRACKING - NOVA (Solicitar cotação 9)
+// ============================================================
+
+/**
+ * Track WhatsApp button click for NEW action: Solicitar cotação (9)
+ * send_to: 'AW-17696330213/6iCLCMCy2-AcEOWjovZB'
+ */
+export const trackWhatsAppClick9 = (source: string) => {
+  if (typeof window === "undefined") return;
+
+  // 1. Google Ads conversion event (Nova)
+  if (window.gtag) {
+    window.gtag('event', 'conversion', {
+      'send_to': 'AW-17696330213/6iCLCMCy2-AcEOWjovZB',
+      'value': 1.0,
+      'currency': 'BRL',
+    });
+  }
+
+  // 2. dataLayer push (for GTM compatibility)
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: "whatsapp_click_9",
     category: "conversion",
     action: "click",
     label: source,

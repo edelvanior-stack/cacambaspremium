@@ -1,5 +1,5 @@
 import { ArrowRight, Shield, Clock, Truck } from "lucide-react";
-import { trackWhatsAppClick } from "@/lib/analytics";
+import { trackWhatsAppClick, trackWhatsAppClick9 } from "@/lib/analytics";
 
 const WA_LINK = "https://wa.me/5547992089548";
 
@@ -45,7 +45,7 @@ export default function HeroSection({ heroImage }: { heroImage: string }) {
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-10 sm:mb-16">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-10 sm:mb-16">
             <a
               href={WA_LINK}
               target="_blank"
@@ -65,6 +65,16 @@ export default function HeroSection({ heroImage }: { heroImage: string }) {
             >
               Nossos Serviços
             </a>
+
+            {/* Botão Temporário de Teste Exclusivo - Conversão (9) */}
+            <button
+              id="btn-test-conversion-9"
+              type="button"
+              onClick={() => trackWhatsAppClick9('test_button_9')}
+              className="flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-3 rounded-2xl text-xs sm:text-sm font-bold transition-all cursor-pointer border border-emerald-400/50 shadow-lg"
+            >
+              TESTE: Solicitar Cotação (9)
+            </button>
           </div>
 
           {/* Trust Pills */}
