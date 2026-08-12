@@ -28,7 +28,7 @@
         return false;
       }
 
-      // Conversão Nova: Solicitar cotação (9) - ADICIONADA
+      // Conversão Existente: Solicitar cotação (9) - PRESERVADA
       gtag('event', 'conversion', {
         'send_to': 'AW-17696330213/6iCLCMCy2-AcEOWjovZB',
         'value': 1.0,
@@ -43,6 +43,28 @@
         };
         gtag('event', 'conversion', {
             'send_to': 'AW-17696330213/6iCLCMCy2-AcEOWjovZB',
+            'value': 1.0,
+            'currency': 'BRL',
+            'event_callback': callback
+        });
+        return false;
+      }
+
+      // Conversão Nova: Solicitar cotação (11) - ADICIONADA
+      gtag('event', 'conversion', {
+        'send_to': 'AW-17696330213/hO97CLP6y-AcEOWjovZB',
+        'value': 1.0,
+        'currency': 'BRL'
+      });
+
+      function gtag_report_conversion_11(url) {
+        var callback = function () {
+          if (typeof(url) != 'undefined') {
+            window.location = url;
+          }
+        };
+        gtag('event', 'conversion', {
+            'send_to': 'AW-17696330213/hO97CLP6y-AcEOWjovZB',
             'value': 1.0,
             'currency': 'BRL',
             'event_callback': callback

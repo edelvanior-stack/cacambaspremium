@@ -1,5 +1,5 @@
 import { ArrowRight, Shield, Clock, Truck } from "lucide-react";
-import { reportQuote9AndOpenWhatsApp } from "@/lib/analytics";
+import { reportQuote9AndOpenWhatsApp, trackWhatsAppClick11 } from "@/lib/analytics";
 
 const WA_LINK = "https://wa.me/5547992089548";
 
@@ -63,6 +63,16 @@ export default function HeroSection({ heroImage }: { heroImage: string }) {
             >
               Nossos Serviços
             </a>
+
+            {/* Botão Temporário de Teste Exclusivo - Conversão (11) */}
+            <button
+              id="btn-test-conversion-11"
+              type="button"
+              onClick={() => trackWhatsAppClick11('test_button_11')}
+              className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-4 py-3 rounded-2xl text-xs sm:text-sm font-bold transition-all cursor-pointer border border-blue-400/50 shadow-lg"
+            >
+              TESTAR SOLICITAR COTAÇÃO (11)
+            </button>
           </div>
 
           {/* Trust Pills */}
