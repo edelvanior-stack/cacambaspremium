@@ -49,12 +49,12 @@ export const trackInitialPageView = () => {
 
 /**
  * Track WhatsApp button click as Google Ads conversion + dataLayer event.
- * Conversão Existente: AW-17696330213/vmiTCOf4798cEOWjovZB (PRESERVADA)
+ * Conversão Existente: AW-17696330213/vmiTCOf4798cEOWjovZB (PRESERVADA INTACTA)
  */
 export const trackWhatsAppClick = (source: string) => {
   if (typeof window === "undefined") return;
 
-  // 1. Google Ads conversion event (Existente)
+  // 1. Google Ads conversion event (Existente - Preservada)
   if (window.gtag) {
     window.gtag('event', 'conversion', {
       'send_to': 'AW-17696330213/vmiTCOf4798cEOWjovZB',
@@ -102,6 +102,39 @@ export const trackWhatsAppClick9 = (source: string) => {
     label: source,
   });
 };
+
+/**
+ * Official helper for action "Solicitar cotação (9)" with preventDefault & timeout
+ */
+export function reportQuote9AndOpenWhatsApp(url: string, e?: { preventDefault: () => void }) {
+  if (e && typeof e.preventDefault === 'function') {
+    e.preventDefault();
+  }
+
+  let opened = false;
+  const finish = () => {
+    if (opened) return;
+    opened = true;
+    if (typeof window !== 'undefined') {
+      window.open(url, '_blank', 'noopener,noreferrer');
+    }
+  };
+
+  if (typeof window === 'undefined' || typeof window.gtag !== 'function') {
+    finish();
+    return;
+  }
+
+  window.gtag('event', 'conversion', {
+    send_to: 'AW-17696330213/6iCLCMCy2-AcEOWjovZB',
+    value: 1.0,
+    currency: 'BRL',
+    event_callback: finish,
+    event_timeout: 1500
+  });
+
+  setTimeout(finish, 1600);
+}
 
 // ============================================================
 // FORM CONVERSION TRACKING
