@@ -1,5 +1,5 @@
 import { ArrowRight, Shield, Clock, Truck } from "lucide-react";
-import { reportQuote9AndOpenWhatsApp } from "@/lib/analytics";
+import { trackWhatsAppClick } from "@/lib/analytics";
 
 const WA_LINK = "https://wa.me/5547992089548";
 
@@ -48,7 +48,9 @@ export default function HeroSection({ heroImage }: { heroImage: string }) {
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-10 sm:mb-16">
             <a
               href={WA_LINK}
-              onClick={(e) => reportQuote9AndOpenWhatsApp(WA_LINK, e)}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackWhatsAppClick('hero_section')}
               className="group flex items-center justify-center gap-2 sm:gap-3 bg-orange-500 hover:bg-orange-400 text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl text-base sm:text-lg font-bold transition-all hover:shadow-2xl hover:shadow-orange-500/30 hover:-translate-y-0.5 cursor-pointer"
             >
               <svg className="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="currentColor">

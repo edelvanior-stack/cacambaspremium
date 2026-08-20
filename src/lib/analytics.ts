@@ -2,13 +2,11 @@
 // ANALYTICS & TRACKING - Caçambas Premium
 // ============================================================
 
-// Google Ads Conversion ID
+// Google Ads Base ID
 export const GADS_ID = "AW-17696330213";
 
-// ============================================================
-// INITIALIZATION
-// ============================================================
-// Google Ads Tag initialized directly in index.html as requested.
+// Google Ads WhatsApp Conversion ID
+export const GADS_CONVERSION_WHATSAPP = "AW-17696330213/bNhvCPSvh-UcEOWjovZB";
 
 // ============================================================
 // SPA ROUTE TRACKING
@@ -44,22 +42,20 @@ export const trackInitialPageView = () => {
 };
 
 // ============================================================
-// WHATSAPP CONVERSION TRACKING - EXISTENTE (Solicitar cotação 6)
+// WHATSAPP CONVERSION TRACKING - OFICIAL
 // ============================================================
 
 /**
  * Track WhatsApp button click as Google Ads conversion + dataLayer event.
- * Conversão Existente (6): AW-17696330213/vmiTCOf4798cEOWjovZB (PRESERVADA INTACTA)
+ * send_to: AW-17696330213/bNhvCPSvh-UcEOWjovZB
  */
 export const trackWhatsAppClick = (source: string) => {
   if (typeof window === "undefined") return;
 
-  // 1. Google Ads conversion event (Existente 6)
+  // 1. Google Ads conversion event
   if (window.gtag) {
-    window.gtag('event', 'conversion', {
-      'send_to': 'AW-17696330213/vmiTCOf4798cEOWjovZB',
-      'value': 1.0,
-      'currency': 'BRL',
+    window.gtag("event", "conversion", {
+      send_to: "AW-17696330213/bNhvCPSvh-UcEOWjovZB",
     });
   }
 
@@ -72,132 +68,6 @@ export const trackWhatsAppClick = (source: string) => {
     label: source,
   });
 };
-
-// ============================================================
-// WHATSAPP CONVERSION TRACKING - EXISTENTE (Solicitar cotação 9)
-// ============================================================
-
-/**
- * Track WhatsApp button click for action: Solicitar cotação (9)
- * Conversão Existente (9): AW-17696330213/6iCLCMCy2-AcEOWjovZB (PRESERVADA INTACTA)
- */
-export const trackWhatsAppClick9 = (source: string) => {
-  if (typeof window === "undefined") return;
-
-  // 1. Google Ads conversion event (Existente 9)
-  if (window.gtag) {
-    window.gtag('event', 'conversion', {
-      'send_to': 'AW-17696330213/6iCLCMCy2-AcEOWjovZB',
-      'value': 1.0,
-      'currency': 'BRL',
-    });
-  }
-
-  // 2. dataLayer push (for GTM compatibility)
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({
-    event: "whatsapp_click_9",
-    category: "conversion",
-    action: "click",
-    label: source,
-  });
-};
-
-/**
- * Official helper for action "Solicitar cotação (9)" with preventDefault & timeout
- */
-export function reportQuote9AndOpenWhatsApp(url: string, e?: { preventDefault: () => void }) {
-  if (e && typeof e.preventDefault === 'function') {
-    e.preventDefault();
-  }
-
-  let opened = false;
-  const finish = () => {
-    if (opened) return;
-    opened = true;
-    if (typeof window !== 'undefined') {
-      window.open(url, '_blank', 'noopener,noreferrer');
-    }
-  };
-
-  if (typeof window === 'undefined' || typeof window.gtag !== 'function') {
-    finish();
-    return;
-  }
-
-  window.gtag('event', 'conversion', {
-    send_to: 'AW-17696330213/6iCLCMCy2-AcEOWjovZB',
-    value: 1.0,
-    currency: 'BRL',
-    event_callback: finish,
-    event_timeout: 1500
-  });
-
-  setTimeout(finish, 1600);
-}
-
-// ============================================================
-// WHATSAPP CONVERSION TRACKING - NOVA (Solicitar cotação 11)
-// ============================================================
-
-/**
- * Track WhatsApp button click for NEW action: Solicitar cotação (11)
- * send_to: 'AW-17696330213/hO97CLP6y-AcEOWjovZB'
- */
-export const trackWhatsAppClick11 = (source: string) => {
-  if (typeof window === "undefined") return;
-
-  // 1. Google Ads conversion event (Nova 11)
-  if (window.gtag) {
-    window.gtag('event', 'conversion', {
-      'send_to': 'AW-17696330213/hO97CLP6y-AcEOWjovZB',
-      'value': 1.0,
-      'currency': 'BRL',
-    });
-  }
-
-  // 2. dataLayer push (for GTM compatibility)
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({
-    event: "whatsapp_click_11",
-    category: "conversion",
-    action: "click",
-    label: source,
-  });
-};
-
-/**
- * Official helper for action "Solicitar cotação (11)" with preventDefault & timeout (Item 11)
- */
-export function openWhatsAppWithConversion11(url: string, e?: { preventDefault: () => void }) {
-  if (e && typeof e.preventDefault === 'function') {
-    e.preventDefault();
-  }
-
-  let opened = false;
-  const finish = () => {
-    if (opened) return;
-    opened = true;
-    if (typeof window !== 'undefined') {
-      window.open(url, '_blank', 'noopener,noreferrer');
-    }
-  };
-
-  if (typeof window === 'undefined' || typeof window.gtag !== 'function') {
-    finish();
-    return;
-  }
-
-  window.gtag('event', 'conversion', {
-    send_to: 'AW-17696330213/hO97CLP6y-AcEOWjovZB',
-    value: 1.0,
-    currency: 'BRL',
-    event_callback: finish,
-    event_timeout: 1500
-  });
-
-  setTimeout(finish, 1600);
-}
 
 // ============================================================
 // FORM CONVERSION TRACKING
