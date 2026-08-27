@@ -18,19 +18,16 @@ export default function HeroSection({ heroImage }: { heroImage: string }) {
         <div className="hero-overlay absolute inset-0" />
       </div>
 
-      {/* Decorative blur shapes */}
       <div className="absolute top-20 right-10 w-72 h-72 bg-orange-500/10 rounded-full blur-3xl" />
       <div className="absolute bottom-20 left-10 w-96 h-96 bg-orange-600/10 rounded-full blur-3xl" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-24 pb-16 md:pt-32 md:pb-24">
         <div className="max-w-3xl">
-          {/* Badge */}
           <div className="inline-flex items-center gap-2 glass rounded-full px-3 sm:px-4 py-1.5 sm:py-2 mb-6 sm:mb-8">
             <div className="w-2 h-2 rounded-full bg-orange-400 animate-pulse" />
             <span className="text-white/90 text-xs sm:text-sm font-medium">Atendimento Rápido • 20 Anos de Mercado</span>
           </div>
 
-          {/* Headline */}
           <h1 className="font-display font-extrabold text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-[1.08] mb-5 sm:mb-6 tracking-tight">
             Locação de{" "}
             <span className="gradient-text">Caçambas</span>
@@ -38,13 +35,11 @@ export default function HeroSection({ heroImage }: { heroImage: string }) {
             de Entulho
           </h1>
 
-          {/* Subheadline */}
           <p className="text-base sm:text-xl text-white/75 max-w-xl mb-8 sm:mb-10 leading-relaxed font-light">
             Solução profissional para descarte de entulhos em Itajaí e em todo o
             estado de Santa Catarina. Preço justo, entrega ágil e compromisso com o meio ambiente.
           </p>
 
-          {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-10 sm:mb-16">
             
               href={WA_LINK}
@@ -67,7 +62,6 @@ export default function HeroSection({ heroImage }: { heroImage: string }) {
             </a>
           </div>
 
-          {/* Trust Pills */}
           <div className="flex flex-wrap gap-2 sm:gap-3">
             {[
               { icon: Shield, text: "CNPJ Ativo desde 2006" },
