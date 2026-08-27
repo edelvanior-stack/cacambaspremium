@@ -40,13 +40,13 @@ export default function HeroSection({ heroImage }: { heroImage: string }) {
 
           {/* Subheadline */}
           <p className="text-base sm:text-xl text-white/75 max-w-xl mb-8 sm:mb-10 leading-relaxed font-light">
-            Solução profissional para descarte de entulhos em Itajaí e região.
-            Preço justo, entrega ágil e compromisso com o meio ambiente.
+            Solução profissional para descarte de entulhos em Itajaí e em todo o
+            estado de Santa Catarina. Preço justo, entrega ágil e compromisso com o meio ambiente.
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-10 sm:mb-16">
-            <a
+            
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
@@ -59,7 +59,7 @@ export default function HeroSection({ heroImage }: { heroImage: string }) {
               Solicitar Orçamento
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
             </a>
-            <a
+            
               href="#servicos"
               className="flex items-center justify-center gap-2 glass text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl text-base sm:text-lg font-semibold hover:bg-white/15 transition-all"
             >
