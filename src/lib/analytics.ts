@@ -48,24 +48,39 @@ export const trackInitialPageView = () => {
 /**
  * Track WhatsApp button click as Google Ads conversion + dataLayer event.
  * send_to: AW-17696330213/bNhvCPSvh-UcEOWjovZB
+ *
+ * DEDUPLICATION: the site has multiple WhatsApp CTAs (navbar, hero, footer,
+ * floating button, etc). Without this guard, a single visitor clicking more
+ * than one of them fires multiple Google Ads conversions for what is really
+ * one lead, inflating conversion counts and skewing CPA/optimization.
+ * Only the FIRST WhatsApp click per browser session is sent to Google Ads;
+ * every click is still recorded in dataLayer for full-funnel analytics.
  */
+const WHATSAPP_CONVERSION_SESSION_KEY = "cp_wa_conversion_sent";
+
 export const trackWhatsAppClick = (source: string) => {
   if (typeof window === "undefined") return;
 
-  // 1. Google Ads conversion event
-  if (window.gtag) {
+  const alreadyConverted = window.sessionStorage?.getItem(WHATSAPP_CONVERSION_SESSION_KEY);
+
+  // 1. Google Ads conversion event — only once per session
+  if (window.gtag && !alreadyConverted) {
     window.gtag("event", "conversion", {
       send_to: "AW-17696330213/bNhvCPSvh-UcEOWjovZB",
     });
+    window.sessionStorage?.setItem(WHATSAPP_CONVERSION_SESSION_KEY, "1");
   }
 
-  // 2. dataLayer push (for GTM compatibility)
+  // 2. dataLayer push (for GTM compatibility) — recorded on every click,
+  // so you can still see engagement with each button, just not double-billed
+  // as separate Google Ads conversions.
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({
     event: "whatsapp_click",
     category: "conversion",
     action: "click",
     label: source,
+    counted_as_conversion: !alreadyConverted,
   });
 };
 
