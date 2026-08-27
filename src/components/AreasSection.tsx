@@ -9,6 +9,14 @@ const CITIES = [
   { name: "Piçarras", highlight: false },
   { name: "Itapema", highlight: false },
   { name: "Brusque", highlight: false },
+  { name: "Joinville", highlight: false },
+  { name: "Blumenau", highlight: false },
+  { name: "Florianópolis", highlight: false },
+  { name: "São José", highlight: false },
+  { name: "Palhoça", highlight: false },
+  { name: "Criciúma", highlight: false },
+  { name: "Chapecó", highlight: false },
+  { name: "Jaraguá do Sul", highlight: false },
 ];
 
 export default function AreasSection() {
@@ -24,7 +32,7 @@ export default function AreasSection() {
             <span className="gradient-text">Atuamos</span>
           </h2>
           <p className="text-slate-500 text-base sm:text-lg max-w-2xl mx-auto">
-            Atendemos as principais cidades do litoral norte de Santa Catarina com agilidade e comprometimento.
+            Atendemos Itajaí e região com atendimento imediato, além de entregas em todo o estado de Santa Catarina.
           </p>
         </div>
 
