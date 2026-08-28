@@ -8,12 +8,12 @@ type Reason = {
 };
 
 const REASONS: Reason[] = [
-  { icon: Clock, title: "Entrega Rápida", desc: "Caçamba na sua obra em até 2 horas após a confirmação do pedido." },
+  { icon: Clock, title: "Entrega Ágil", desc: "Posicionamento e retirada da caçamba alinhados com o cronograma da sua obra." },
   { icon: DollarSign, title: "Preço Justo", desc: "Valores transparentes sem taxas escondidas. O melhor custo-benefício da região." },
-  { icon: Shield, title: "Empresa Licenciada", desc: "Atuamos em conformidade com todas as normas ambientais e licenças necessárias." },
-  { icon: Leaf, title: "Compromisso Ambiental", desc: "Destinação correta dos resíduos em aterros e usinas de reciclagem licenciadas." },
-  { icon: Headphones, title: "Suporte Dedicado", desc: "Atendimento humanizado via WhatsApp, telefone ou presencial. Sempre disponíveis." },
-  { icon: Truck, title: "Frota Própria", desc: "Veículos modernos e bem mantidos para garantir agilidade e segurança." },
+  { icon: Shield, title: "CNPJ Regularizado", desc: "Empresa constituída sob o CNPJ 08.038.618/0001-52 em atividade regular desde 2006." },
+  { icon: Leaf, title: "Destinação Responsável", desc: "Encaminhamento correto dos resíduos de construção e reformas para locais autorizados." },
+  { icon: Headphones, title: "Suporte Dedicado", desc: "Atendimento direto e personalizado via WhatsApp e telefone com agilidade." },
+  { icon: Truck, title: "Equipamentos Adequados", desc: "Caçambas e veículos apropriados para transporte seguro de entulhos e resíduos." },
 ];
 
 export default function WhyChooseUs({ serviceImage }: { serviceImage: string }) {
@@ -27,18 +27,20 @@ export default function WhyChooseUs({ serviceImage }: { serviceImage: string }) 
               <img
                 src={serviceImage}
                 alt="Profissional ao lado de caçamba de entulho"
+                width={1536}
+                height={1024}
                 className="relative rounded-3xl shadow-2xl shadow-slate-900/10 w-full h-auto object-contain"
                 loading="lazy"
+                decoding="async"
               />
-              {/* FIX: Responsivo para celular com tamanho e posicionamento adequados */}
               <div className="flex absolute -bottom-4 right-3 sm:-bottom-6 sm:-right-6 glass-light rounded-2xl p-3 sm:p-5 shadow-xl animate-float">
                 <div className="flex items-center gap-2.5 sm:gap-3">
                   <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-full bg-orange-100 flex items-center justify-center flex-shrink-0">
                     <Shield className="w-4 h-4 sm:w-6 sm:h-6 text-orange-600" />
                   </div>
                   <div>
-                    <p className="font-display font-bold text-slate-900 text-sm sm:text-lg leading-tight">98%</p>
-                    <p className="text-slate-500 text-[11px] sm:text-xs">Satisfação dos Clientes</p>
+                    <p className="font-display font-bold text-slate-900 text-xs sm:text-base leading-tight">Desde 2006</p>
+                    <p className="text-slate-500 text-[10px] sm:text-xs font-medium">CNPJ 08.038.618/0001-52</p>
                   </div>
                 </div>
               </div>
@@ -55,7 +57,7 @@ export default function WhyChooseUs({ serviceImage }: { serviceImage: string }) 
                 <span className="gradient-text">Obra Merece</span>
               </h2>
               <p className="text-slate-500 text-base sm:text-lg mb-8 sm:mb-10">
-                Mais de uma década entregando excelência em locação de caçambas no litoral catarinense.
+                Aproximadamente 20 anos de tradição e atuação contínua no segmento de locação de caçambas em Itajaí e região.
               </p>
             </div>
 

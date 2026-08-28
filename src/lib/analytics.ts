@@ -2,13 +2,11 @@
 // ANALYTICS & TRACKING - Caçambas Premium
 // ============================================================
 
-// Google Ads Conversion ID
+// Google Ads Base ID
 export const GADS_ID = "AW-17696330213";
 
-// ============================================================
-// INITIALIZATION
-// ============================================================
-// Google Ads Tag initialized directly in index.html as requested.
+// Google Ads WhatsApp Conversion ID
+export const GADS_CONVERSION_WHATSAPP = "AW-17696330213/bNhvCPSvh-UcEOWjovZB";
 
 // ============================================================
 // SPA ROUTE TRACKING
@@ -44,30 +42,20 @@ export const trackInitialPageView = () => {
 };
 
 // ============================================================
-// WHATSAPP CONVERSION TRACKING
+// WHATSAPP CONVERSION TRACKING - OFICIAL
 // ============================================================
 
 /**
  * Track WhatsApp button click as Google Ads conversion + dataLayer event.
- * Fires the conversion BEFORE the WhatsApp link opens.
+ * send_to: AW-17696330213/bNhvCPSvh-UcEOWjovZB
  */
 export const trackWhatsAppClick = (source: string) => {
   if (typeof window === "undefined") return;
 
-  // 1. Google Ads conversion events (disparando ambos em paralelo)
+  // 1. Google Ads conversion event
   if (window.gtag) {
-    // Conversão original
-    window.gtag('event', 'conversion', {
-      'send_to': 'AW-17696330213/xk9ZCLPj-8wcEOWjovZB',
-      'value': 1.0,
-      'currency': 'BRL',
-    });
-
-    // Nova conversão (Concretiza Brasil)
-    window.gtag('event', 'conversion', {
-      'send_to': 'AW-18121358771/6iQqCM7d08ocELP798BD',
-      'value': 1.0,
-      'currency': 'BRL',
+    window.gtag("event", "conversion", {
+      send_to: "AW-17696330213/bNhvCPSvh-UcEOWjovZB",
     });
   }
 
@@ -97,13 +85,6 @@ export const trackFormSubmit = () => {
       event_label: 'quote_form',
       value: 1,
       send_to: GADS_ID,
-    });
-
-    // Disparando o evento de conversão do novo ID no envio do formulário de orçamento também
-    window.gtag('event', 'conversion', {
-      'send_to': 'AW-18121358771/6iQqCM7d08ocELP798BD',
-      'value': 1.0,
-      'currency': 'BRL',
     });
   }
 };

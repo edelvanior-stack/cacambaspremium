@@ -12,8 +12,7 @@ import FloatingWhatsApp from "./components/FloatingWhatsApp";
 import ScrollReveal from "./components/ScrollReveal";
 import serviceImg from "./assets/service.jpg";
 
-// Imagem do cabeçalho original enviada no primeiro projeto
-const HERO_IMG = "https://media.base44.com/images/public/6a4785e5a6672f064827f000/5230fd26c_generated_cdaf3987.png";
+const HERO_IMG = "/images/hero.webp";
 const SERVICE_IMG = serviceImg;
 
 export default function App() {

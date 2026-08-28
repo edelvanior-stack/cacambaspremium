@@ -36,28 +36,16 @@ export default function ScrollReveal() {
       { threshold: 0.2 }
     );
     
-    // Initial observation
-    const observe = () => {
-      // Observe elements for reveal animation
-      const elements = document.querySelectorAll(".reveal:not(.visible)");
-      elements.forEach((el) => revealObserver.observe(el));
-      
-      // Observe sections for page view tracking
-      sections.forEach((el) => sectionObserver.observe(el));
-    };
-
-    observe();
-
-    // Re-observe on DOM mutations (for dynamic content)
-    const mutationObserver = new MutationObserver(() => {
-      observe();
-    });
-    mutationObserver.observe(document.body, { childList: true, subtree: true });
+    // Observe elements for reveal animation on mount
+    const elements = document.querySelectorAll(".reveal:not(.visible)");
+    elements.forEach((el) => revealObserver.observe(el));
+    
+    // Observe sections for page view tracking on mount
+    sections.forEach((el) => sectionObserver.observe(el));
 
     return () => {
       revealObserver.disconnect();
       sectionObserver.disconnect();
-      mutationObserver.disconnect();
     };
   }, []);
 
