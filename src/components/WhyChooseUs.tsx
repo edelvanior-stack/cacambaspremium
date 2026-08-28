@@ -29,6 +29,8 @@ export default function WhyChooseUs({ serviceImage }: { serviceImage: string }) 
                 alt="Profissional ao lado de caçamba de entulho"
                 className="relative rounded-3xl shadow-2xl shadow-slate-900/10 w-full h-auto object-contain"
                 loading="lazy"
+                width={1536}
+                height={1024}
               />
               <div className="flex absolute -bottom-4 right-3 sm:-bottom-6 sm:-right-6 glass-light rounded-2xl p-3 sm:p-5 shadow-xl animate-float">
                 <div className="flex items-center gap-2.5 sm:gap-3">
