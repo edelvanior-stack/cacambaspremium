@@ -42,8 +42,8 @@ export default function HeroSection({ heroImage }: { heroImage: string }) {
 
           {/* Subheadline */}
           <p className="text-base sm:text-xl text-white/75 max-w-xl mb-8 sm:mb-10 leading-relaxed font-light">
-            Solução profissional para descarte de entulhos em Itajaí e em todo o
-            estado de Santa Catarina. Preço justo, entrega ágil e compromisso com o meio ambiente.
+            Solução profissional para descarte de entulhos em Itajaí e região.
+            Preço justo, entrega ágil e compromisso com o meio ambiente.
           </p>
 
           {/* CTA Buttons */}
