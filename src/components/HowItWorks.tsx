@@ -17,19 +17,19 @@ const STEPS: Step[] = [
     icon: MessageCircle,
     step: "01",
     title: "Solicite pelo WhatsApp",
-    desc: "Envie uma mensagem com o endereço da obra e o tipo de resíduo. Respondemos em minutos!",
+    desc: "Envie uma mensagem informando o endereço da sua obra e o tipo de resíduo. Fale conosco pelo WhatsApp!",
   },
   {
     icon: Truck,
     step: "02",
     title: "Receba a Caçamba",
-    desc: "Entregamos a caçamba no local combinado em até 2 horas. Pontualidade garantida.",
+    desc: "Após a confirmação do pedido, combinamos a entrega da caçamba para o endereço informado.",
   },
   {
     icon: CheckCircle2,
     step: "03",
     title: "Coletamos o Entulho",
-    desc: "Quando estiver cheia, é só avisar. Retiramos e fazemos a destinação correta dos resíduos.",
+    desc: "Quando finalizar, é só nos avisar pelo WhatsApp para agendarmos a retirada da caçamba.",
   },
 ];
 
@@ -57,7 +57,6 @@ export default function HowItWorks() {
                 <div className="hidden md:block absolute top-16 left-[60%] w-[80%] h-px bg-gradient-to-r from-orange-300 to-orange-100" />
               )}
               <div className="relative text-center group">
-                {/* FIX: Smaller step icon on mobile */}
                 <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-3xl bg-orange-50 flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:bg-orange-100 transition-colors relative">
                   <Icon className="w-7 h-7 sm:w-9 sm:h-9 text-orange-600" />
                   <span className="absolute -top-2 -right-2 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-orange-600 text-white text-xs font-bold flex items-center justify-center">

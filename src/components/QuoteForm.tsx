@@ -7,18 +7,17 @@ const WA_NUMBER = BUSINESS.whatsapp;
 
 const CIDADES = [...BUSINESS.cities];
 
-const TAMANHOS = ["3m³", "4m³", "5m³", "Não tenho certeza, preciso de ajuda"];
+const TAMANHOS = [
+  "Tamanhos disponíveis — consulte pelo WhatsApp",
+  "Não tenho certeza, preciso de ajuda",
+];
 
 const TIPOS = [
   "Entulho de Construção",
   "Reforma",
   "Demolição",
   "Madeira",
-  "Gesso",
-  "Terra",
-  "Entulho de Jardim",
-  "Misto",
-  "Outro",
+  "Outro / Consultar",
 ];
 
 const inputBase =
@@ -157,7 +156,7 @@ export default function QuoteForm() {
         </h3>
         <p className="text-slate-500 text-sm sm:text-base leading-relaxed max-w-md mx-auto mb-6 sm:mb-7">
           Abrimos o WhatsApp com a sua mensagem pronta para envio. Basta confirmar no app e nossa equipe
-          responderá em poucos minutos com o melhor orçamento. 🚛
+          responderá pelo WhatsApp com as informações do seu orçamento. 🚛
         </p>
         <button
           onClick={resetForm}
@@ -419,7 +418,7 @@ export default function QuoteForm() {
 
       <div className="flex items-center justify-center gap-2 text-[10px] sm:text-xs text-slate-400">
         <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-500" />
-        Seus dados estão seguros. Sem spam, compromisso ou taxa oculta.
+        Seus dados estão seguros. Atendimento direto e sem burocracia.
       </div>
     </form>
   );

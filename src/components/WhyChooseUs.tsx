@@ -8,12 +8,12 @@ type Reason = {
 };
 
 const REASONS: Reason[] = [
-  { icon: Clock, title: "Entrega Ágil", desc: "Posicionamento e retirada da caçamba alinhados com o cronograma da sua obra." },
-  { icon: DollarSign, title: "Preço Justo", desc: "Valores transparentes sem taxas escondidas. O melhor custo-benefício da região." },
+  { icon: Clock, title: "Entrega e Retirada", desc: "Posicionamento e retirada da caçamba alinhados com o cronograma da sua obra." },
+  { icon: DollarSign, title: "Orçamento Sob Medida", desc: "Consulte valores e condições para o seu endereço diretamente pelo WhatsApp." },
   { icon: Shield, title: "Empresa Confiável", desc: "Equipe especializada e compromisso com a satisfação do cliente na locação." },
-  { icon: Leaf, title: "Destinação Responsável", desc: "Encaminhamento correto dos resíduos de construção e reformas para locais autorizados." },
-  { icon: Headphones, title: "Suporte Dedicado", desc: "Atendimento direto e personalizado via WhatsApp e telefone com agilidade." },
-  { icon: Truck, title: "Equipamentos Adequados", desc: "Caçambas e veículos apropriados para transporte seguro de entulhos e resíduos." },
+  { icon: Leaf, title: "Materiais e Orientações", desc: "Orientamos o cliente sobre os materiais aceitos antes da locação." },
+  { icon: Headphones, title: "Suporte Dedicado", desc: "Atendimento direto e personalizado via WhatsApp." },
+  { icon: Truck, title: "Equipamentos Adequados", desc: "Caçambas e veículos apropriados para transporte seguro de entulhos de obras." },
 ];
 
 export default function WhyChooseUs({ serviceImage }: { serviceImage: string }) {
@@ -39,8 +39,8 @@ export default function WhyChooseUs({ serviceImage }: { serviceImage: string }) 
                     <Shield className="w-4 h-4 sm:w-6 sm:h-6 text-orange-600" />
                   </div>
                   <div>
-                    <p className="font-display font-bold text-slate-900 text-xs sm:text-base leading-tight">Desde 2006</p>
-                    <p className="text-slate-500 text-[10px] sm:text-xs font-medium">Empresa Confiável</p>
+                    <p className="font-display font-bold text-slate-900 text-xs sm:text-base leading-tight">Atendimento Direto</p>
+                    <p className="text-slate-500 text-[10px] sm:text-xs font-medium">Via WhatsApp</p>
                   </div>
                 </div>
               </div>
@@ -57,14 +57,13 @@ export default function WhyChooseUs({ serviceImage }: { serviceImage: string }) 
                 <span className="gradient-text">Obra Merece</span>
               </h2>
               <p className="text-slate-500 text-base sm:text-lg mb-8 sm:mb-10">
-                Aproximadamente 20 anos de tradição e atuação contínua no segmento de locação de caçambas em Curitiba e região Metropolitana.
+                Locação de caçambas para obras e reformas em Curitiba e Região Metropolitana, com atendimento direto pelo WhatsApp.
               </p>
             </div>
 
             <div className="grid sm:grid-cols-2 gap-5 sm:gap-6">
               {REASONS.map(({ icon: Icon, title, desc }) => (
                 <div key={title} className="reveal flex items-start gap-3 sm:gap-4 group">
-                  {/* FIX: Smaller icon on mobile */}
                   <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-orange-50 flex items-center justify-center flex-shrink-0 group-hover:bg-orange-100 transition-colors">
                     <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-orange-600" />
                   </div>

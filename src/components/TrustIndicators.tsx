@@ -3,7 +3,7 @@ import { MapPin, Globe, Package, MessageCircle } from "lucide-react";
 const STATS = [
   { icon: MapPin, textValue: "Curitiba", label: "Atendimento Local" },
   { icon: Globe, textValue: "RMC", label: "Região Metropolitana" },
-  { icon: Package, textValue: "3m³ a 5m³", label: "Opções de Caçambas" },
+  { icon: Package, textValue: "Caçambas", label: "Tamanhos — Consulte no WhatsApp" },
   { icon: MessageCircle, textValue: "WhatsApp", label: "Atendimento Direto" },
 ];
 

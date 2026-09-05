@@ -72,7 +72,7 @@ export default function LegalModal({ isOpen, onClose, type }: LegalModalProps) {
 
               <h4 className="font-display font-bold text-slate-900 text-base">2. Resíduos Permitidos e Proibidos</h4>
               <p>
-                As caçambas destinam-se exclusivamente ao recolhimento de entulhos de construção civil, reformas, demolições e podas. É estritamente proibido o descarte de resíduos perigosos, lixo hospitalar, produtos químicos, pneus ou lixo doméstico orgânico.
+                As caçambas destinam-se exclusivamente ao recolhimento de entulhos de construção civil, reformas e demolições. É estritamente proibido o descarte de resíduos perigosos, lixo hospitalar, produtos químicos, pneus ou lixo doméstico orgânico.
               </p>
 
               <h4 className="font-display font-bold text-slate-900 text-base">3. Posicionamento e Normas Municipais</h4>

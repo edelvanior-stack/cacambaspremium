@@ -19,9 +19,9 @@ const LINKS = [
 
 const SERVICES = [
   "Caçamba de Entulho",
-  "Limpeza de Terreno",
+  "Caçamba para Demolição",
   "Resíduos de Obra",
-  "Resíduos Comerciais",
+  "Reformas Comerciais",
   "Reformas Residenciais",
 ];
 

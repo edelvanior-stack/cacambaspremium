@@ -9,27 +9,27 @@ import { BUSINESS } from "@/config/business";
 const FAQS = [
   {
     q: "Qual o tamanho da caçamba?",
-    a: "Trabalhamos com caçambas de 3m³, 4m³ e 5m³. A mais utilizada é a de 5m³, ideal para reformas residenciais e pequenas obras. Nossa equipe ajuda a escolher o tamanho ideal para sua necessidade.",
+    a: "Consulte os tamanhos de caçambas disponíveis para o seu endereço diretamente pelo nosso WhatsApp. Nossa equipe orienta na escolha ideal para a sua obra.",
   },
   {
     q: "Quanto tempo posso ficar com a caçamba?",
-    a: "O período padrão é de 3 a 5 dias úteis. Caso precise de mais tempo, entre em contato conosco para combinar uma extensão. Cobramos apenas uma pequena taxa adicional por dia excedente.",
+    a: "O período padrão e as condições de permanência são alinhados no momento da solicitação. Caso precise de mais tempo, basta nos avisar pelo WhatsApp.",
   },
   {
     q: "O que pode ser colocado na caçamba?",
-    a: "Resíduos de construção civil como concreto, tijolos, cerâmica, argamassa, madeira, ferragens, terra e pedras. Não é permitido o descarte de lixo orgânico, materiais perigosos, produtos químicos, pneus ou lixo hospitalar.",
+    a: "Resíduos de obras e reformas como alvenaria, concreto, tijolos, cerâmica, argamassa e madeira. Para outros materiais ou itens especiais, consulte previamente nossa equipe pelo WhatsApp. Não é permitido o descarte de lixo orgânico, produtos químicos, pneus ou lixo hospitalar.",
   },
   {
     q: "Como solicitar uma caçamba?",
-    a: `É muito simples! Basta entrar em contato pelo nosso WhatsApp ${BUSINESS.whatsappDisplay} informando o endereço da obra e o tipo de resíduo. Respondemos rapidamente e alinhamos o prazo de entrega.`,
+    a: `Basta entrar em contato pelo nosso WhatsApp ${BUSINESS.whatsappDisplay} informando o endereço da obra e o tipo de resíduo. Nossa equipe atenderá você para alinhar todos os detalhes.`,
   },
   {
     q: "Qual o valor da locação?",
-    a: "O valor varia conforme o tamanho da caçamba e a localidade da entrega. Solicite um orçamento sem compromisso pelo WhatsApp e teremos prazer em enviar o melhor preço.",
+    a: "O valor varia conforme a localidade e o endereço de entrega. Solicite sua cotação pelo WhatsApp informando o seu bairro para passarmos os valores.",
   },
   {
-    q: "Vocês trabalham aos finais de semana?",
-    a: "Sim! Nosso atendimento funciona de segunda a sábado, e disponibilizamos entregas emergenciais aos domingos e feriados mediante agendamento prévio.",
+    q: "Vocês atendem aos finais de semana?",
+    a: "Consulte nossa equipe pelo WhatsApp para verificar a disponibilidade de agendamento conforme a necessidade da sua obra.",
   },
   {
     q: "A caçamba pode ficar na rua?",

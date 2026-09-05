@@ -6,7 +6,7 @@ import { BUSINESS } from "@/config/business";
 const CONTACT_INFO = [
   { icon: Phone, label: "WhatsApp", value: BUSINESS.whatsappDisplay, href: BUSINESS.whatsappLink },
   { icon: MapPin, label: "Endereço", value: `${BUSINESS.address.street}, ${BUSINESS.address.number} - ${BUSINESS.address.neighborhood}, ${BUSINESS.address.city} - ${BUSINESS.address.state}`, href: null },
-  { icon: Clock, label: "Horário", value: "Seg a Sáb • 7h às 18h", href: null },
+  { icon: Clock, label: "Atendimento", value: "Fale conosco pelo WhatsApp", href: BUSINESS.whatsappLink },
 ];
 
 export default function ContactSection() {
@@ -22,7 +22,7 @@ export default function ContactSection() {
             <span className="gradient-text">Orçamento</span>
           </h2>
           <p className="text-slate-500 text-base sm:text-lg max-w-2xl mx-auto">
-            Preencha o formulário abaixo e envie diretamente para nosso WhatsApp. Respondemos em poucos minutos!
+            Preencha o formulário abaixo e envie diretamente para nosso WhatsApp. Retornaremos com as informações do seu orçamento!
           </p>
         </div>
 
@@ -34,7 +34,6 @@ export default function ContactSection() {
           <div className="lg:col-span-2 reveal space-y-4 sm:space-y-5">
             {CONTACT_INFO.map(({ icon: Icon, label, value, href }) => (
               <div key={label} className="bg-white rounded-2xl border border-slate-100 p-4 sm:p-6 flex items-center gap-3 sm:gap-4">
-                {/* FIX: Smaller icon container on mobile */}
                 <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-orange-50 flex items-center justify-center flex-shrink-0">
                   <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-orange-600" />
                 </div>
