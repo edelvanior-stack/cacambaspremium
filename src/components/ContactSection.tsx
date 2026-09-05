@@ -1,12 +1,11 @@
 import { MapPin, Phone, Clock, ArrowRight } from "lucide-react";
 import QuoteForm from "./QuoteForm";
 import { trackWhatsAppClick } from "../lib/analytics";
-
-const WA_LINK = "https://wa.me/5547992089548";
+import { BUSINESS } from "@/config/business";
 
 const CONTACT_INFO = [
-  { icon: Phone, label: "WhatsApp", value: "(47) 99208-9548", href: "https://wa.me/5547992089548" },
-  { icon: MapPin, label: "Endereço Oficial", value: "Rua Eredes Serpa, 1003 - Cordeiros, Itajaí - SC", href: null },
+  { icon: Phone, label: "WhatsApp", value: BUSINESS.whatsappDisplay, href: BUSINESS.whatsappLink },
+  { icon: MapPin, label: "Endereço", value: `${BUSINESS.address.street}, ${BUSINESS.address.number} - ${BUSINESS.address.neighborhood}, ${BUSINESS.address.city} - ${BUSINESS.address.state}`, href: null },
   { icon: Clock, label: "Horário", value: "Seg a Sáb • 7h às 18h", href: null },
 ];
 
@@ -53,7 +52,7 @@ export default function ContactSection() {
             ))}
 
             <a
-              href={WA_LINK}
+              href={BUSINESS.whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackWhatsAppClick('contact_section_direct')}

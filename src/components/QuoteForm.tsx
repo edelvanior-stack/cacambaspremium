@@ -1,19 +1,11 @@
 import { useState, useRef, ChangeEvent, FormEvent } from "react";
 import { X, CheckCircle2, Send, ImageIcon, ShieldCheck } from "lucide-react";
 import { trackWhatsAppClick } from "@/lib/analytics";
+import { BUSINESS } from "@/config/business";
 
-const WA_NUMBER = "5547992089548";
+const WA_NUMBER = BUSINESS.whatsapp;
 
-const CIDADES = [
-  "Itajaí",
-  "Balneário Camboriú",
-  "Camboriú",
-  "Navegantes",
-  "Penha",
-  "Piçarras",
-  "Itapema",
-  "Brusque",
-];
+const CIDADES = [...BUSINESS.cities];
 
 const TAMANHOS = ["3m³", "4m³", "5m³", "Não tenho certeza, preciso de ajuda"];
 
@@ -230,7 +222,7 @@ export default function QuoteForm() {
             value={form.telefone}
             onChange={set("telefone")}
             aria-invalid={!!errors.telefone}
-            placeholder="(47) 99999-9999"
+            placeholder="(41) 99999-9999"
             className={`${inputBase} ${errors.telefone ? "border-red-300" : "border-slate-200"}`}
           />
         </Field>

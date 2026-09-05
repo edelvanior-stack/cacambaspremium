@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { MapPin, Phone, ArrowUp, ShieldCheck } from "lucide-react";
+import { MapPin, Phone, ArrowUp } from "lucide-react";
 import Logo from "./Logo";
 import LegalModal from "./LegalModal";
 import { trackWhatsAppClick } from "../lib/analytics";
+import { BUSINESS } from "@/config/business";
 
-const WA_LINK = "https://wa.me/5547992089548";
+const WA_LINK = BUSINESS.whatsappLink;
 
 const LINKS = [
   { label: "Início", href: "#inicio" },
@@ -35,15 +36,9 @@ export default function Footer() {
           {/* Brand */}
           <div className="col-span-2 sm:col-span-1">
             <Logo light size="sm" className="mb-4" />
-            <p className="text-slate-400 text-xs sm:text-sm leading-relaxed mb-3">
-              Locação de caçambas de entulho em Itajaí e litoral catarinense.
+            <p className="text-slate-400 text-xs sm:text-sm leading-relaxed mb-4">
+              Locação de caçambas de entulho em Curitiba e Região Metropolitana.
             </p>
-            <div className="text-xs text-slate-400 space-y-1 mb-4">
-              <p><strong className="text-slate-300">Razão Social:</strong> Helio da Rosa Junior</p>
-              <p><strong className="text-slate-300">Nome Fantasia:</strong> Jr Entulhos (Caçambas Premium)</p>
-              <p><strong className="text-slate-300">CNPJ:</strong> 08.038.618/0001-52</p>
-              <p><strong className="text-slate-300">Abertura:</strong> 30/05/2006 (~20 anos de atuação)</p>
-            </div>
             <a
               href={WA_LINK}
               target="_blank"
@@ -52,7 +47,7 @@ export default function Footer() {
               className="inline-flex items-center gap-2 text-orange-400 hover:text-orange-300 text-xs sm:text-sm font-semibold transition-colors"
             >
               <Phone className="w-4 h-4" />
-              (47) 99208-9548
+              {BUSINESS.whatsappDisplay}
             </a>
           </div>
 
@@ -89,24 +84,20 @@ export default function Footer() {
           {/* Contact */}
           <div className="col-span-2 sm:col-span-1">
             <h4 className="font-display font-bold text-xs sm:text-sm uppercase tracking-wider text-slate-300 mb-4 sm:mb-5">
-              Endereço Oficial
+              Endereço
             </h4>
             <div className="space-y-3 sm:space-y-4">
               <div className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-orange-400 mt-0.5 flex-shrink-0" />
                 <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
-                  Rua Eredes Serpa, 1003, Bairro Cordeiros, Itajaí - SC, CEP 88310-630
+                  {BUSINESS.address.street}, {BUSINESS.address.number}, {BUSINESS.address.neighborhood}, {BUSINESS.address.city} - {BUSINESS.address.state}, CEP {BUSINESS.address.postalCode}
                 </p>
               </div>
               <div className="flex items-start gap-3">
                 <Phone className="w-4 h-4 text-orange-400 mt-0.5 flex-shrink-0" />
                 <a href={WA_LINK} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick('footer_phone_2')} className="text-slate-400 hover:text-white text-xs sm:text-sm transition-colors">
-                  (47) 99208-9548
+                  {BUSINESS.whatsappDisplay}
                 </a>
-              </div>
-              <div className="flex items-center gap-2 text-xs text-emerald-400 pt-1">
-                <ShieldCheck className="w-4 h-4" />
-                Empresa Regularizada • CNPJ Ativo
               </div>
             </div>
           </div>
@@ -114,7 +105,7 @@ export default function Footer() {
 
         <div className="border-t border-slate-800 pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
           <p className="text-slate-500 text-xs sm:text-sm text-center sm:text-left">
-            © {new Date().getFullYear()} Jr Entulhos / Caçambas Premium (Helio da Rosa Junior - CNPJ 08.038.618/0001-52). Todos os direitos reservados.
+            © {new Date().getFullYear()} {BUSINESS.brand}. Todos os direitos reservados.
           </p>
           <div className="flex items-center gap-4">
             <button

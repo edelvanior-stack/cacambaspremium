@@ -1,17 +1,21 @@
 import { MapPin, CheckCircle2 } from "lucide-react";
+import { BUSINESS } from "@/config/business";
 
 const CITIES = [
-  { name: "Itajaí", highlight: true },
-  { name: "Balneário Camboriú", highlight: true },
-  { name: "Camboriú", highlight: false },
-  { name: "Navegantes", highlight: false },
-  { name: "Penha", highlight: false },
-  { name: "Piçarras", highlight: false },
-  { name: "Itapema", highlight: false },
-  { name: "Brusque", highlight: false },
+  { name: "Curitiba", highlight: true },
+  { name: "São José dos Pinhais", highlight: true },
+  { name: "Pinhais", highlight: false },
+  { name: "Araucária", highlight: false },
+  { name: "Colombo", highlight: false },
+  { name: "Fazenda Rio Grande", highlight: false },
+  { name: "Campo Largo", highlight: false },
 ];
 
 export default function AreasSection() {
+  const addressQuery = encodeURIComponent(
+    `${BUSINESS.address.street}, ${BUSINESS.address.number}, ${BUSINESS.address.neighborhood}, ${BUSINESS.address.city} - ${BUSINESS.address.state}`
+  );
+
   return (
     <section id="regioes" className="py-16 sm:py-20 md:py-28 bg-slate-50/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -24,7 +28,7 @@ export default function AreasSection() {
             <span className="gradient-text">Atuamos</span>
           </h2>
           <p className="text-slate-500 text-base sm:text-lg max-w-2xl mx-auto">
-            Atendemos as principais cidades do litoral norte de Santa Catarina com agilidade e comprometimento.
+            Atendemos Curitiba e Região Metropolitana. Consulte a disponibilidade para o seu endereço.
           </p>
         </div>
 
@@ -40,7 +44,7 @@ export default function AreasSection() {
               }`}
             >
               <MapPin className={`w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 ${highlight ? "text-orange-200" : "text-orange-500"}`} />
-              {/* FIX: Allow text wrapping for long names like "Balneário Camboriú" */}
+              {/* FIX: Allow text wrapping for long names like "São José dos Pinhais" */}
               <span className={`font-semibold text-xs sm:text-sm md:text-base leading-tight ${highlight ? "" : "text-slate-700"}`}>
                 {name}
               </span>
@@ -50,8 +54,8 @@ export default function AreasSection() {
 
         <div className="reveal max-w-4xl mx-auto rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
           <iframe
-            title="Localização Caçambas Premium - Itajaí SC"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d113893.74373987938!2d-48.73!3d-26.91!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94d8b1c5c5c5c5c5%3A0x0!2sItaja%C3%AD%2C%20SC!5e0!3m2!1spt-BR!2sbr"
+            title="Localização Caçambas Premium - Curitiba PR"
+            src={`https://www.google.com/maps?q=${addressQuery}&output=embed`}
             className="w-full h-48 sm:h-64 md:h-80"
             style={{ border: 0 }}
             allowFullScreen

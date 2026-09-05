@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { X } from "lucide-react";
 import { trackWhatsAppClick } from "../lib/analytics";
+import { BUSINESS } from "@/config/business";
 
-const WA_LINK = "https://wa.me/5547992089548?text=Olá! Gostaria de solicitar um orçamento para locação de caçamba.";
+const WA_LINK = `${BUSINESS.whatsappLink}?text=${encodeURIComponent("Olá! Gostaria de solicitar um orçamento para locação de caçamba.")}`;
 
 export default function FloatingWhatsApp() {
   const [showTooltip, setShowTooltip] = useState(false);

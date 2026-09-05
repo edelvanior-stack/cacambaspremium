@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import Logo from "./Logo";
 import { trackWhatsAppClick } from "../lib/analytics";
+import { BUSINESS } from "@/config/business";
 
 const NAV_LINKS = [
   { label: "Início", href: "#inicio" },
@@ -13,7 +14,7 @@ const NAV_LINKS = [
   { label: "Contato", href: "#contato" },
 ];
 
-const WA_LINK = "https://wa.me/5547992089548";
+const WA_LINK = BUSINESS.whatsappLink;
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);

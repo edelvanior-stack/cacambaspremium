@@ -1,4 +1,5 @@
 import { X, Shield, FileText } from "lucide-react";
+import { BUSINESS } from "@/config/business";
 
 type LegalModalProps = {
   isOpen: boolean;
@@ -24,7 +25,7 @@ export default function LegalModal({ isOpen, onClose, type }: LegalModalProps) {
               <h3 className="font-display font-bold text-lg text-slate-900">
                 {isPrivacy ? "Política de Privacidade" : "Termos de Uso"}
               </h3>
-              <p className="text-xs text-slate-500">Jr Entulhos • Caçambas Premium</p>
+              <p className="text-xs text-slate-500">{BUSINESS.brand}</p>
             </div>
           </div>
           <button
@@ -38,21 +39,18 @@ export default function LegalModal({ isOpen, onClose, type }: LegalModalProps) {
 
         {/* Content */}
         <div className="p-6 sm:p-8 overflow-y-auto space-y-5 text-slate-600 text-xs sm:text-sm leading-relaxed">
-          {/* Identificação Oficial */}
+          {/* Identificação */}
           <div className="bg-orange-50/60 border border-orange-100 rounded-2xl p-4 space-y-1 text-slate-700">
-            <p className="font-bold text-slate-900">Dados da Empresa:</p>
-            <p><strong className="text-slate-800">Razão Social:</strong> Helio da Rosa Junior</p>
-            <p><strong className="text-slate-800">Nome Fantasia:</strong> Jr Entulhos (operando comercialmente como "Caçambas Premium")</p>
-            <p><strong className="text-slate-800">CNPJ:</strong> 08.038.618/0001-52 (Abertura: 30/05/2006)</p>
-            <p><strong className="text-slate-800">Endereço:</strong> Rua Eredes Serpa, 1003, Bairro Cordeiros, Itajaí - SC, CEP 88310-630</p>
-            <p><strong className="text-slate-800">Contato:</strong> (47) 99208-9548</p>
+            <p className="font-bold text-slate-900">{BUSINESS.brand}</p>
+            <p><strong className="text-slate-800">Endereço:</strong> {BUSINESS.address.street}, {BUSINESS.address.number}, {BUSINESS.address.neighborhood}, {BUSINESS.address.city} - {BUSINESS.address.state}, CEP {BUSINESS.address.postalCode}</p>
+            <p><strong className="text-slate-800">Contato:</strong> {BUSINESS.whatsappDisplay}</p>
           </div>
 
           {isPrivacy ? (
             <>
               <h4 className="font-display font-bold text-slate-900 text-base">1. Coleta e Tratamento de Dados (LGPD)</h4>
               <p>
-                Em conformidade com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018), a empresa <strong>Helio da Rosa Junior (CNPJ: 08.038.618/0001-52)</strong> informa que os dados pessoais fornecidos nos formulários do site (como nome, telefone, e-mail e endereço de entrega) são coletados exclusivamente para a prestação de serviços de locação de caçambas, orçamento e comunicação com o cliente.
+                Em conformidade com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018), a <strong>{BUSINESS.brand}</strong> informa que os dados pessoais fornecidos nos formulários do site (como nome, telefone, e-mail e endereço de entrega) são coletados exclusivamente para a prestação de serviços de locação de caçambas, orçamento e comunicação com o cliente.
               </p>
 
               <h4 className="font-display font-bold text-slate-900 text-base">2. Compartilhamento e Segurança</h4>
@@ -62,14 +60,14 @@ export default function LegalModal({ isOpen, onClose, type }: LegalModalProps) {
 
               <h4 className="font-display font-bold text-slate-900 text-base">3. Direitos do Titular</h4>
               <p>
-                O usuário pode solicitar a qualquer momento a confirmação, correção, atualização ou eliminação de seus dados pessoais armazenados, mediante contato via WhatsApp no número (47) 99208-9548.
+                O usuário pode solicitar a qualquer momento a confirmação, correção, atualização ou eliminação de seus dados pessoais armazenados, mediante contato via WhatsApp no número {BUSINESS.whatsappDisplay}.
               </p>
             </>
           ) : (
             <>
               <h4 className="font-display font-bold text-slate-900 text-base">1. Condições Gerais de Locação</h4>
               <p>
-                Os serviços de locação de caçambas são prestados por <strong>Helio da Rosa Junior (CNPJ: 08.038.618/0001-52)</strong>, operando comercialmente sob a marca Caçambas Premium / Jr Entulhos. O prazo de permanência da caçamba no local da obra e as condições de pagamento são acordados no momento da solicitação de orçamento.
+                Os serviços de locação de caçambas são prestados pela <strong>{BUSINESS.brand}</strong>. O prazo de permanência da caçamba no local da obra e as condições de pagamento são acordados no momento da solicitação de orçamento.
               </p>
 
               <h4 className="font-display font-bold text-slate-900 text-base">2. Resíduos Permitidos e Proibidos</h4>

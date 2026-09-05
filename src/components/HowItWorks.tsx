@@ -1,8 +1,9 @@
 import { MessageCircle, Truck, CheckCircle2, ArrowRight } from "lucide-react";
 import type { ComponentType } from "react";
 import { trackWhatsAppClick } from "../lib/analytics";
+import { BUSINESS } from "@/config/business";
 
-const WA_LINK = "https://wa.me/5547992089548";
+const WA_LINK = BUSINESS.whatsappLink;
 
 type Step = {
   icon: ComponentType<{ className?: string }>;
