@@ -18,7 +18,7 @@ export default function ScrollReveal() {
 
     // Track SPA page views on section visibility
     const sections = document.querySelectorAll('[id]');
-    let currentSection = "";
+    let currentSection = "inicio";
     
     const sectionObserver = new IntersectionObserver(
       (entries) => {

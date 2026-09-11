@@ -8,49 +8,45 @@ import { BUSINESS } from "@/config/business";
 
 const FAQS = [
   {
-    q: "Qual o tamanho da caçamba?",
-    a: "Consulte os tamanhos de caçambas disponíveis para o seu endereço diretamente pelo nosso WhatsApp. Nossa equipe orienta na escolha ideal para a sua obra.",
+    q: "Qual o tamanho ideal de caçamba para minha obra?",
+    a: "Oferecemos caçambas de 3m³, 4m³, 5m³ e 7m³. A caçamba de 3m³ é indicada para pequenas reformas (banheiro, cozinha). Para reformas maiores ou demolições, recomendamos 5m³ ou 7m³. Se tiver dúvidas, nossa equipe orienta pelo WhatsApp.",
+  },
+  {
+    q: "Quanto custa alugar uma caçamba em Curitiba?",
+    a: "O valor varia conforme o tamanho da caçamba e o endereço de entrega. Solicite sua cotação pelo WhatsApp informando o bairro e o tipo de material para receber o valor atualizado.",
+  },
+  {
+    q: "Vocês entregam no meu bairro?",
+    a: `Atendemos Curitiba e Região Metropolitana, incluindo São José dos Pinhais, Pinhais, Araucária, Colombo, Fazenda Rio Grande e Campo Largo. Consulte a disponibilidade para o seu endereço pelo WhatsApp ${BUSINESS.whatsappDisplay}.`,
   },
   {
     q: "Quanto tempo posso ficar com a caçamba?",
-    a: "O período padrão e as condições de permanência são alinhados no momento da solicitação. Caso precise de mais tempo, basta nos avisar pelo WhatsApp.",
+    a: "O período de permanência é combinado no momento da solicitação. Caso precise de mais tempo, basta nos avisar pelo WhatsApp para alinharmos a prorrogação.",
   },
   {
-    q: "O que pode ser colocado na caçamba?",
-    a: "Resíduos de obras e reformas como alvenaria, concreto, tijolos, cerâmica, argamassa e madeira. Para outros materiais ou itens especiais, consulte previamente nossa equipe pelo WhatsApp. Não é permitido o descarte de lixo orgânico, produtos químicos, pneus ou lixo hospitalar.",
+    q: "O que pode e o que não pode colocar na caçamba?",
+    a: "Pode: entulho de obras e reformas como concreto, alvenaria, tijolos, cerâmica, argamassa e madeira de obra. Não pode: lixo orgânico, produtos químicos, pneus, lixo hospitalar. Para outros materiais, consulte nossa equipe antes.",
   },
   {
-    q: "Como solicitar uma caçamba?",
-    a: `Basta entrar em contato pelo nosso WhatsApp ${BUSINESS.whatsappDisplay} informando o endereço da obra e o tipo de resíduo. Nossa equipe atenderá você para alinhar todos os detalhes.`,
-  },
-  {
-    q: "Qual o valor da locação?",
-    a: "O valor varia conforme a localidade e o endereço de entrega. Solicite sua cotação pelo WhatsApp informando o seu bairro para passarmos os valores.",
-  },
-  {
-    q: "Vocês atendem aos finais de semana?",
-    a: "Consulte nossa equipe pelo WhatsApp para verificar a disponibilidade de agendamento conforme a necessidade da sua obra.",
-  },
-  {
-    q: "A caçamba pode ficar na rua?",
-    a: "Sim, a caçamba pode ser posicionada na rua desde que siga as normas da prefeitura local. Orientamos sobre a sinalização e posicionamento correto para garantir segurança.",
+    q: "Como solicitar uma caçamba pelo WhatsApp?",
+    a: `Clique em qualquer botão de WhatsApp do site ou envie uma mensagem para ${BUSINESS.whatsappDisplay} informando o endereço, tipo de material e o tamanho desejado. Nossa equipe retorna com o orçamento.`,
   },
 ];
 
 export default function FAQSection() {
   return (
-    <section id="faq" className="py-20 md:py-28">
+    <section id="faq" className="py-14 sm:py-20 md:py-24">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-14 reveal">
+        <div className="text-center mb-10 sm:mb-14 reveal">
           <span className="inline-block text-orange-600 font-semibold text-sm tracking-wider uppercase mb-3">
             Perguntas Frequentes
           </span>
-          <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 mb-4">
+          <h2 className="font-display font-extrabold text-2xl sm:text-4xl text-slate-900 mb-4">
             Dúvidas{" "}
             <span className="gradient-text">Frequentes</span>
           </h2>
-          <p className="text-slate-500 text-lg">
-            Encontre as respostas para as perguntas mais comuns sobre nossos serviços.
+          <p className="text-slate-500 text-base sm:text-lg">
+            As respostas para as dúvidas mais comuns sobre locação de caçambas.
           </p>
         </div>
 

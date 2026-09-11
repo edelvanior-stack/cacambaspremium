@@ -1,16 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { MapPin, Phone, ArrowUp } from "lucide-react";
 import Logo from "./Logo";
 import LegalModal from "./LegalModal";
 import { trackWhatsAppClick } from "../lib/analytics";
 import { BUSINESS } from "@/config/business";
 
-const WA_LINK = BUSINESS.whatsappLink;
-
 const LINKS = [
   { label: "Início", href: "#inicio" },
-  { label: "Serviços", href: "#servicos" },
-  { label: "Por Que Nós", href: "#porque" },
+  { label: "Tamanhos", href: "#tamanhos" },
   { label: "Como Funciona", href: "#como-funciona" },
   { label: "Regiões", href: "#regioes" },
   { label: "FAQ", href: "#faq" },
@@ -27,6 +24,14 @@ const SERVICES = [
 
 export default function Footer() {
   const [modalType, setModalType] = useState<"privacy" | "terms" | null>(null);
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setShowScrollTop(window.scrollY > 400);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
@@ -40,7 +45,7 @@ export default function Footer() {
               Locação de caçambas de entulho em Curitiba e Região Metropolitana.
             </p>
             <a
-              href={WA_LINK}
+              href={BUSINESS.whatsappLinkWithMessage}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackWhatsAppClick('footer_phone_1')}
@@ -73,7 +78,7 @@ export default function Footer() {
             <ul className="space-y-2 sm:space-y-3">
               {SERVICES.map((s) => (
                 <li key={s}>
-                  <a href="#servicos" className="text-slate-400 hover:text-white text-xs sm:text-sm transition-colors">
+                  <a href="#tamanhos" className="text-slate-400 hover:text-white text-xs sm:text-sm transition-colors">
                     {s}
                   </a>
                 </li>
@@ -95,7 +100,7 @@ export default function Footer() {
               </div>
               <div className="flex items-start gap-3">
                 <Phone className="w-4 h-4 text-orange-400 mt-0.5 flex-shrink-0" />
-                <a href={WA_LINK} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick('footer_phone_2')} className="text-slate-400 hover:text-white text-xs sm:text-sm transition-colors">
+                <a href={BUSINESS.whatsappLinkWithMessage} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick('footer_phone_2')} className="text-slate-400 hover:text-white text-xs sm:text-sm transition-colors">
                   {BUSINESS.whatsappDisplay}
                 </a>
               </div>
@@ -104,7 +109,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-slate-800 pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
-          <p className="text-slate-500 text-xs sm:text-sm text-center sm:text-left">
+          <p className="text-slate-400 text-xs sm:text-sm text-center sm:text-left">
             © {new Date().getFullYear()} {BUSINESS.brand}. Todos os direitos reservados.
           </p>
           <div className="flex items-center gap-4">
@@ -124,13 +129,16 @@ export default function Footer() {
         </div>
       </div>
 
-      <button
-        onClick={scrollToTop}
-        className="fixed bottom-24 sm:bottom-28 right-4 sm:right-6 z-40 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-slate-800 hover:bg-slate-700 text-white flex items-center justify-center shadow-lg transition-all hover:-translate-y-1"
-        aria-label="Voltar ao topo"
-      >
-        <ArrowUp className="w-4 h-4 sm:w-5 sm:h-5" />
-      </button>
+      {/* Scroll to top — positioned higher on mobile to clear the WhatsApp bar */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-20 md:bottom-8 right-4 sm:right-6 z-40 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-slate-800/90 hover:bg-slate-700 text-white flex items-center justify-center shadow-lg transition-all hover:-translate-y-1 cursor-pointer"
+          aria-label="Voltar ao topo"
+        >
+          <ArrowUp className="w-4 h-4 sm:w-5 sm:h-5" />
+        </button>
+      )}
 
       <LegalModal
         isOpen={!!modalType}

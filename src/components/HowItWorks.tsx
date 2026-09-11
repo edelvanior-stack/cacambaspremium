@@ -1,9 +1,5 @@
-import { MessageCircle, Truck, CheckCircle2, ArrowRight } from "lucide-react";
+import { MessageCircle, Truck, CheckCircle2 } from "lucide-react";
 import type { ComponentType } from "react";
-import { trackWhatsAppClick } from "../lib/analytics";
-import { BUSINESS } from "@/config/business";
-
-const WA_LINK = BUSINESS.whatsappLink;
 
 type Step = {
   icon: ComponentType<{ className?: string }>;
@@ -16,41 +12,41 @@ const STEPS: Step[] = [
   {
     icon: MessageCircle,
     step: "01",
-    title: "Solicite pelo WhatsApp",
-    desc: "Envie uma mensagem informando o endereço da sua obra e o tipo de resíduo. Fale conosco pelo WhatsApp!",
+    title: "Fale pelo WhatsApp",
+    desc: "Envie uma mensagem com o endereço da obra e o tipo de material que precisa descartar.",
   },
   {
     icon: Truck,
     step: "02",
     title: "Receba a Caçamba",
-    desc: "Após a confirmação do pedido, combinamos a entrega da caçamba para o endereço informado.",
+    desc: "Combinamos a entrega da caçamba diretamente no local da sua obra ou reforma.",
   },
   {
     icon: CheckCircle2,
     step: "03",
-    title: "Coletamos o Entulho",
-    desc: "Quando finalizar, é só nos avisar pelo WhatsApp para agendarmos a retirada da caçamba.",
+    title: "Retirada",
+    desc: "Quando finalizar, avise pelo WhatsApp e retiramos a caçamba do local.",
   },
 ];
 
 export default function HowItWorks() {
   return (
-    <section id="como-funciona" className="py-16 sm:py-20 md:py-28">
+    <section id="como-funciona" className="py-14 sm:py-20 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 sm:mb-16 reveal">
+        <div className="text-center mb-10 sm:mb-14 reveal">
           <span className="inline-block text-orange-600 font-semibold text-sm tracking-wider uppercase mb-3">
             Como Funciona
           </span>
           <h2 className="font-display font-extrabold text-2xl sm:text-4xl md:text-5xl text-slate-900 mb-4">
-            Simples, Rápido e{" "}
+            Simples e{" "}
             <span className="gradient-text">Sem Burocracia</span>
           </h2>
           <p className="text-slate-500 text-base sm:text-lg max-w-2xl mx-auto">
-            Em apenas 3 passos você resolve o descarte de entulho da sua obra.
+            Em 3 passos você resolve o descarte de entulho da sua obra.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 sm:gap-8 mb-10 sm:mb-14">
+        <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
           {STEPS.map(({ icon: Icon, step, title, desc }, i) => (
             <div key={step} className="reveal relative">
               {i < 2 && (
@@ -68,19 +64,6 @@ export default function HowItWorks() {
               </div>
             </div>
           ))}
-        </div>
-
-        <div className="text-center reveal">
-          <a
-            href={WA_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => trackWhatsAppClick('how_it_works')}
-            className="inline-flex items-center gap-3 bg-orange-600 hover:bg-orange-700 text-white px-8 sm:px-10 py-3.5 sm:py-4 rounded-2xl text-base sm:text-lg font-bold transition-all hover:shadow-xl hover:shadow-orange-600/25 hover:-translate-y-0.5"
-          >
-            Começar Agora
-            <ArrowRight className="w-5 h-5" />
-          </a>
         </div>
       </div>
     </section>

@@ -21,12 +21,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="noopener" />
     
-    <!-- Preload LCP Hero Image -->
+    <!-- Preload LCP Hero Image (Mobile & Desktop) -->
+    <link
+      rel="preload"
+      as="image"
+      href="/images/hero-mobile.webp"
+      type="image/webp"
+      media="(max-width: 640px)"
+      fetchpriority="high"
+    />
     <link
       rel="preload"
       as="image"
       href="/images/hero.webp"
       type="image/webp"
+      media="(min-width: 641px)"
       fetchpriority="high"
     />
 
@@ -35,8 +44,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="preconnect" href="https://www.google-analytics.com" />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" /></noscript>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" /></noscript>
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -50,14 +59,14 @@
     <link rel="canonical" href="https://cacambaspremium.com.br/" />
     
     <!-- SEO Meta Tags -->
-    <title>Caçambas Premium | Locação de Caçambas em Curitiba e Região</title>
-    <meta name="description" content="Locação de caçambas de entulho em Curitiba, São José dos Pinhais, Pinhais, Araucária, Colombo e região. Solicite seu orçamento pelo WhatsApp." />
-    <meta name="keywords" content="caçamba Curitiba, aluguel de caçamba Curitiba, locação de caçamba Curitiba, caçamba de entulho Curitiba, disk caçamba Curitiba, tele entulho Curitiba, caçamba São José dos Pinhais, caçamba Pinhais, caçamba Araucária, caçamba Colombo, caçamba Fazenda Rio Grande, caçamba Campo Largo, retirada de entulho Curitiba" />
+    <title>Aluguel de Caçamba em Curitiba | Caçambas Premium - Orçamento WhatsApp</title>
+    <meta name="description" content="Aluguel de caçamba de entulho em Curitiba e Região Metropolitana. Caçambas de 3m³ a 7m³. Solicite orçamento pelo WhatsApp. Entrega e retirada." />
+    <meta name="keywords" content="aluguel de caçamba curitiba, locação de caçamba curitiba, caçamba de entulho curitiba, disk caçamba curitiba, caçamba curitiba preço, caçamba são josé dos pinhais, caçamba pinhais, caçamba araucária, caçamba colombo, caçamba fazenda rio grande, caçamba campo largo, retirada de entulho curitiba" />
     
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Caçambas Premium | Locação de Caçambas em Curitiba e Região" />
-    <meta property="og:description" content="Locação de caçambas para obras e reformas em Curitiba e Região Metropolitana. Solicite seu orçamento pelo WhatsApp." />
+    <meta property="og:title" content="Aluguel de Caçamba em Curitiba | Caçambas Premium - Orçamento WhatsApp" />
+    <meta property="og:description" content="Aluguel de caçamba de entulho em Curitiba e Região Metropolitana. Caçambas de 3m³ a 7m³. Solicite orçamento pelo WhatsApp." />
     <meta property="og:url" content="https://cacambaspremium.com.br/" />
     <meta property="og:locale" content="pt_BR" />
     <meta property="og:site_name" content="Caçambas Premium" />
@@ -67,8 +76,8 @@
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Caçambas Premium | Locação de Caçambas em Curitiba e Região" />
-    <meta name="twitter:description" content="Caçambas de entulho em Curitiba e Região Metropolitana. Solicite seu orçamento pelo WhatsApp." />
+    <meta name="twitter:title" content="Aluguel de Caçamba em Curitiba | Caçambas Premium - Orçamento WhatsApp" />
+    <meta name="twitter:description" content="Aluguel de caçamba de entulho em Curitiba e Região Metropolitana. Caçambas de 3m³ a 7m³. Solicite orçamento pelo WhatsApp." />
     <meta name="twitter:image" content="https://cacambaspremium.com.br/og-image.jpg" />
     
     <!-- Schema.org - Organization -->
@@ -115,7 +124,6 @@
         "@type": "GeoShape",
         "name": "Curitiba e Região Metropolitana do Paraná"
       },
-      "openingHours": "Mo-Sa 07:00-18:00",
       "sameAs": [
         "https://wa.me/5541991414452"
       ]
@@ -134,6 +142,64 @@
         "@type": "SearchAction",
         "target": "https://cacambaspremium.com.br/search?q={search_term_string}"
       }
+    }
+    </script>
+
+    <!-- Schema.org - FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qual o tamanho ideal de caçamba para minha obra?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oferecemos caçambas de 3m³, 4m³, 5m³ e 7m³. A caçamba de 3m³ é indicada para pequenas reformas. Para reformas maiores ou demolições, recomendamos 5m³ ou 7m³."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quanto custa alugar uma caçamba em Curitiba?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "O valor varia conforme o tamanho da caçamba e o endereço de entrega. Solicite sua cotação pelo WhatsApp para receber o valor atualizado."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Vocês entregam no meu bairro?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Atendemos Curitiba e Região Metropolitana, incluindo São José dos Pinhais, Pinhais, Araucária, Colombo, Fazenda Rio Grande e Campo Largo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quanto tempo posso ficar com a caçamba?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "O período de permanência é combinado no momento da solicitação. Caso precise de mais tempo, basta nos avisar pelo WhatsApp."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "O que pode e o que não pode colocar na caçamba?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pode: entulho de obras como concreto, alvenaria, tijolos, cerâmica, argamassa e madeira. Não pode: lixo orgânico, produtos químicos, pneus, lixo hospitalar."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Como solicitar uma caçamba pelo WhatsApp?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Clique em qualquer botão de WhatsApp do site ou envie uma mensagem informando o endereço, material e tamanho desejado."
+          }
+        }
+      ]
     }
     </script>
   </head>
