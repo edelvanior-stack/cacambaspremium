@@ -198,7 +198,7 @@ export default function QuickContactSection() {
 
                     <div className="flex items-center justify-center gap-1.5 text-xs text-slate-500 mt-2.5">
                       <ShieldCheck className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                      <span>Seus dados estão seguros</span>
+                      <span>Seus dados serão usados apenas para o seu orçamento.</span>
                     </div>
                   </div>
                 </form>

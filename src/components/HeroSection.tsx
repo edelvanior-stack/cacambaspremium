@@ -37,7 +37,7 @@ export default function HeroSection({ heroImage }: { heroImage: string }) {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 glass rounded-full px-3 sm:px-4 py-1.5 sm:py-2 mb-6 sm:mb-8">
             <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-            <span className="text-white/90 text-xs sm:text-sm font-medium">Atendimento agora pelo WhatsApp</span>
+            <span className="text-white/90 text-xs sm:text-sm font-medium">Atendimento pelo WhatsApp</span>
           </div>
 
           {/* H1 — SEO + Commercial Intent */}

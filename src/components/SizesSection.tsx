@@ -2,6 +2,11 @@ import { ArrowRight, HelpCircle } from "lucide-react";
 import { BUSINESS } from "@/config/business";
 import { trackWhatsAppClick } from "@/lib/analytics";
 
+const getSizeWhatsAppLink = (volume: string) => {
+  const text = `Olá! Vim pelo Google e gostaria de consultar o valor da caçamba de ${volume}.\n\nCidade/Bairro:\nMaterial:\nPara quando preciso:`;
+  return `${BUSINESS.whatsappLink}?text=${encodeURIComponent(text)}`;
+};
+
 export default function SizesSection() {
   const helpWhatsAppLink = `${BUSINESS.whatsappLink}?text=${encodeURIComponent(
     "Olá, preciso de ajuda para escolher o tamanho da caçamba."
@@ -71,7 +76,7 @@ export default function SizesSection() {
 
               {/* Card CTA button */}
               <a
-                href={BUSINESS.whatsappLinkWithMessage}
+                href={getSizeWhatsAppLink(size.volume)}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackWhatsAppClick(`sizes_${size.volume}`)}

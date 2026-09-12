@@ -418,7 +418,7 @@ export default function QuoteForm() {
 
       <div className="flex items-center justify-center gap-2 text-[10px] sm:text-xs text-slate-400">
         <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-500" />
-        Seus dados estão seguros. Atendimento direto e sem burocracia.
+        Seus dados serão usados apenas para o seu orçamento.
       </div>
     </form>
   );

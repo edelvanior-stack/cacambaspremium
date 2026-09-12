@@ -14,7 +14,7 @@ export default function FinalCTA() {
 
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center reveal">
         <h2 className="font-display font-extrabold text-2xl sm:text-4xl md:text-5xl text-white mb-4">
-          Precisa de uma Caçamba <span className="text-orange-400">Agora?</span>
+          Precisa de uma <span className="text-orange-400">Caçamba?</span>
         </h2>
         <p className="text-white/65 text-base sm:text-lg max-w-xl mx-auto mb-8 sm:mb-10">
           Solicite pelo WhatsApp e receba seu orçamento.

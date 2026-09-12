@@ -25,8 +25,8 @@ const BENEFITS: Benefit[] = [
   },
   {
     icon: Shield,
-    title: "Empresa Confiável",
-    description: "Equipe especializada em locação de caçambas",
+    title: "Atendimento Direto",
+    description: "Fale diretamente com a equipe para consultar tamanho, valor e disponibilidade.",
   },
   {
     icon: MapPin,
