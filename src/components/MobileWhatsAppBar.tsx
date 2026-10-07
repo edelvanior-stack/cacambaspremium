@@ -11,17 +11,17 @@ export default function MobileWhatsAppBar() {
       target="_blank"
       rel="noopener noreferrer"
       onClick={() => trackWhatsAppClick("mobile_bottom_bar")}
-      className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-[#25D366] active:bg-[#20BD5A] h-14 shadow-lg shadow-black/20 flex items-center justify-center gap-2 text-white font-bold text-xs sm:text-sm tracking-normal sm:tracking-wide px-3 sm:px-4 pb-[env(safe-area-inset-bottom,0px)]"
-      aria-label="Consultar preço no WhatsApp"
+      className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-[#25D366] active:bg-[#20BD5A] h-14 shadow-lg shadow-black/25 flex items-center justify-center gap-2.5 text-white font-extrabold text-sm tracking-wide px-3 sm:px-4 pb-[env(safe-area-inset-bottom,0px)]"
+      aria-label="Alugar caçamba agora no WhatsApp"
     >
       <svg
-        className="w-5 h-5 text-white flex-shrink-0 fill-current"
+        className="w-5 h-5 text-white flex-shrink-0 fill-current animate-pulse"
         viewBox="0 0 24 24"
         aria-hidden="true"
       >
         <path d={WA_ICON_PATH} />
       </svg>
-      <span className="truncate">CONSULTAR PREÇO NO WHATSAPP</span>
+      <span className="truncate">ALUGAR CAÇAMBA AGORA</span>
     </a>
   );
 }

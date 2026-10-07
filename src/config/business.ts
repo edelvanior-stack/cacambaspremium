@@ -1,9 +1,9 @@
-const WA_PREFILLED = `Olá! Vim pelo Google e preciso de uma caçamba.
+const WA_PREFILLED = `Olá! Vim pelo Google e quero alugar uma caçamba.
 
-Cidade/Bairro:
+Bairro/CEP:
 Material:
-Tamanho da caçamba:
-Para quando preciso:`;
+Tamanho:
+Preciso para:`;
 
 const WA_LINK = "https://wa.me/5541991414452";
 
@@ -43,6 +43,7 @@ export const BUSINESS = {
     {
       volume: "3m³",
       title: "Caçamba 3m³",
+      price: "A partir de R$ 199,99 em Curitiba",
       subtitle: "Pequenas Reformas",
       description: "Ideal para reformas de banheiro, cozinha ou pequenos reparos residenciais.",
       examples: ["Banheiro", "Cozinha", "Reparos"],

@@ -3,13 +3,13 @@ import { BUSINESS } from "@/config/business";
 import { trackWhatsAppClick } from "@/lib/analytics";
 
 const getSizeWhatsAppLink = (volume: string) => {
-  const text = `Olá! Vim pelo Google e gostaria de consultar o valor da caçamba de ${volume}.\n\nCidade/Bairro:\nMaterial:\nPara quando preciso:`;
+  const text = `Olá! Vim pelo Google e quero alugar uma caçamba.\n\nBairro/CEP:\nMaterial:\nTamanho: ${volume}\nPreciso para:`;
   return `${BUSINESS.whatsappLink}?text=${encodeURIComponent(text)}`;
 };
 
 export default function SizesSection() {
   const helpWhatsAppLink = `${BUSINESS.whatsappLink}?text=${encodeURIComponent(
-    "Olá, preciso de ajuda para escolher o tamanho da caçamba."
+    "Olá! Vim pelo Google e quero alugar uma caçamba.\n\nBairro/CEP:\nMaterial:\nTamanho: Ajuda para escolher\nPreciso para:"
   )}`;
 
   return (
@@ -23,8 +23,8 @@ export default function SizesSection() {
           <h2 className="font-display font-extrabold text-2xl sm:text-4xl md:text-5xl text-slate-900 mb-4 tracking-tight">
             Tamanhos de <span className="gradient-text">Caçambas</span>
           </h2>
-          <p className="text-slate-500 text-sm sm:text-base md:text-lg max-w-2xl mx-auto">
-            Escolha o tamanho ideal para a sua obra. Consulte valores pelo WhatsApp.
+          <p className="text-slate-600 text-sm sm:text-base md:text-lg max-w-2xl mx-auto font-medium">
+            3m³ a partir de R$ 199,99 em Curitiba. Demais tamanhos pelo WhatsApp.
           </p>
         </div>
 
@@ -50,6 +50,30 @@ export default function SizesSection() {
                 <p className="text-sm font-medium text-slate-500 mb-3">
                   {size.subtitle}
                 </p>
+
+                {/* Preço Real no Card */}
+                {size.volume === "3m³" ? (
+                  <div className="mb-4 p-2.5 rounded-xl bg-orange-50 border border-orange-200/60">
+                    <span className="block text-[11px] font-bold text-orange-700 uppercase tracking-wider">
+                      Valor Especial
+                    </span>
+                    <span className="text-lg font-extrabold text-orange-600 block">
+                      A partir de R$ 199,99
+                    </span>
+                    <span className="text-xs font-semibold text-slate-600">
+                      em Curitiba
+                    </span>
+                  </div>
+                ) : (
+                  <div className="mb-4 p-2.5 rounded-xl bg-slate-50 border border-slate-100">
+                    <span className="block text-[11px] font-medium text-slate-400 uppercase tracking-wider">
+                      Valor da Locação
+                    </span>
+                    <span className="text-sm font-semibold text-slate-700">
+                      Consulte no WhatsApp
+                    </span>
+                  </div>
+                )}
 
                 {/* Description */}
                 <p className="text-sm text-slate-600 leading-relaxed mb-5">
@@ -80,9 +104,9 @@ export default function SizesSection() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackWhatsAppClick(`sizes_${size.volume}`)}
-                className="w-full flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white py-3 px-4 rounded-xl text-sm font-bold transition-all shadow-md shadow-orange-500/20 hover:shadow-lg hover:shadow-orange-500/30 hover:-translate-y-0.5 cursor-pointer"
+                className="w-full flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20BD5A] text-white py-3 px-4 rounded-xl text-sm font-bold transition-all shadow-md shadow-emerald-500/20 hover:shadow-lg hover:shadow-emerald-500/30 hover:-translate-y-0.5 cursor-pointer uppercase tracking-wide"
               >
-                <span>Consultar Preço</span>
+                <span>QUERO ESTA CAÇAMBA</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </a>
             </div>
