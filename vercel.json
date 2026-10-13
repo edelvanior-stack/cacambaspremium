@@ -2,6 +2,18 @@
   "cleanUrls": true,
   "rewrites": [
     {
+      "source": "/df",
+      "destination": "/df/index.html"
+    },
+    {
+      "source": "/df/",
+      "destination": "/df/index.html"
+    },
+    {
+      "source": "/df/(.*)",
+      "destination": "/df/index.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

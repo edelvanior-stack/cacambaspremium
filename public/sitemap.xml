@@ -8,4 +8,11 @@
     <priority>1.00</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cacambaspremium.com.br/"/>
   </url>
+  <url>
+    <loc>https://cacambaspremium.com.br/df</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cacambaspremium.com.br/df"/>
+  </url>
 </urlset>
