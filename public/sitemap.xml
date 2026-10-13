@@ -15,4 +15,18 @@
     <priority>0.90</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cacambaspremium.com.br/df"/>
   </url>
+  <url>
+    <loc>https://cacambaspremium.com.br/df/politica-de-privacidade</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.50</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cacambaspremium.com.br/df/politica-de-privacidade"/>
+  </url>
+  <url>
+    <loc>https://cacambaspremium.com.br/df/termos-de-uso</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.50</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cacambaspremium.com.br/df/termos-de-uso"/>
+  </url>
 </urlset>

@@ -12,7 +12,11 @@ function dfHtmlFallbackPlugin(): Plugin {
     name: "df-html-fallback",
     configureServer(server) {
       server.middlewares.use((req, _res, next) => {
-        if (req.url === "/df" || req.url === "/df/") {
+        if (req.url === "/df/politica-de-privacidade" || req.url === "/df/politica-de-privacidade/") {
+          req.url = "/df/politica-de-privacidade/index.html";
+        } else if (req.url === "/df/termos-de-uso" || req.url === "/df/termos-de-uso/") {
+          req.url = "/df/termos-de-uso/index.html";
+        } else if (req.url === "/df" || req.url === "/df/") {
           req.url = "/df/index.html";
         }
         next();
@@ -20,7 +24,11 @@ function dfHtmlFallbackPlugin(): Plugin {
     },
     configurePreviewServer(server) {
       server.middlewares.use((req, _res, next) => {
-        if (req.url === "/df" || req.url === "/df/") {
+        if (req.url === "/df/politica-de-privacidade" || req.url === "/df/politica-de-privacidade/") {
+          req.url = "/df/politica-de-privacidade/index.html";
+        } else if (req.url === "/df/termos-de-uso" || req.url === "/df/termos-de-uso/") {
+          req.url = "/df/termos-de-uso/index.html";
+        } else if (req.url === "/df" || req.url === "/df/") {
           req.url = "/df/index.html";
         }
         next();
@@ -42,6 +50,8 @@ export default defineConfig({
       input: {
         main: path.resolve(__dirname, "index.html"),
         df: path.resolve(__dirname, "df/index.html"),
+        dfPrivacy: path.resolve(__dirname, "df/politica-de-privacidade/index.html"),
+        dfTerms: path.resolve(__dirname, "df/termos-de-uso/index.html"),
       },
     },
   },

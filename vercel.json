@@ -2,15 +2,27 @@
   "cleanUrls": true,
   "rewrites": [
     {
+      "source": "/df/politica-de-privacidade",
+      "destination": "/df/politica-de-privacidade/index.html"
+    },
+    {
+      "source": "/df/politica-de-privacidade/",
+      "destination": "/df/politica-de-privacidade/index.html"
+    },
+    {
+      "source": "/df/termos-de-uso",
+      "destination": "/df/termos-de-uso/index.html"
+    },
+    {
+      "source": "/df/termos-de-uso/",
+      "destination": "/df/termos-de-uso/index.html"
+    },
+    {
       "source": "/df",
       "destination": "/df/index.html"
     },
     {
       "source": "/df/",
-      "destination": "/df/index.html"
-    },
-    {
-      "source": "/df/(.*)",
       "destination": "/df/index.html"
     },
     {

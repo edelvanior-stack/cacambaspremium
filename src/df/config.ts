@@ -196,17 +196,23 @@ export const DF_PROOFS: DFProof[] = [];
 // Não inventar CNPJ, endereço ou telefones.
 // ------------------------------------------------------------
 export interface DFCompanyInfo {
-  cnpj?: string;
-  address?: string;
+  name: string;
+  cnpj: string;
+  addressLine1: string;
+  addressLine2: string;
+  addressFull: string;
   phone?: string;
-  privacyPolicyUrl?: string;
-  termsUrl?: string;
+  privacyPolicyUrl: string;
+  termsUrl: string;
 }
 
 export const DF_COMPANY_INFO: DFCompanyInfo = {
-  cnpj: "",
-  address: "",
+  name: "Caçambas Premium",
+  cnpj: "21.802.241/0001-24",
+  addressLine1: "QR 602, Conj. 15, Lt. 01 — Samambaia Norte",
+  addressLine2: "Brasília/DF — CEP 72322-015",
+  addressFull: "QR 602, Conj. 15, Lt. 01 — Samambaia Norte, Brasília/DF — CEP 72322-015",
   phone: WHATSAPP_DF_DISPLAY || "",
-  privacyPolicyUrl: "",
-  termsUrl: "",
+  privacyPolicyUrl: "/df/politica-de-privacidade",
+  termsUrl: "/df/termos-de-uso",
 };
