@@ -28,12 +28,15 @@ export const WHATSAPP_DF_DISPLAY = "";
  */
 export const GOOGLE_ADS_CONVERSION_DF = "";
 
-/** Eventos disparados nos CTAs de WhatsApp (gtag + dataLayer). */
+/** Eventos disparados nos CTAs e interações da página DF (gtag + dataLayer). */
 export type DFEvent =
   | "whatsapp_hero"
   | "whatsapp_region"
   | "whatsapp_size_help"
-  | "whatsapp_final";
+  | "whatsapp_final"
+  | "material_click"
+  | "region_check_start"
+  | "region_check_submit";
 
 // ------------------------------------------------------------
 // Mensagens pré-preenchidas por origem do CTA
@@ -49,6 +52,9 @@ export const DF_MESSAGES = {
 
 export const needMessage = (label: string) =>
   `Olá! Vim pelo site Caçambas Premium DF.\n\nNecessidade: ${label}\n\nGostaria de verificar disponibilidade e valor.`;
+
+export const materialMessage = (material: string) =>
+  `Olá! Preciso de uma caçamba para ${material.toLowerCase()} no DF.`;
 
 export interface QuickQuoteData {
   regiao: string;
@@ -68,30 +74,33 @@ export const quickQuoteMessage = ({ regiao, bairro, material, data }: QuickQuote
 export interface DFRegion {
   name: string;
   active: boolean;
+  featured?: boolean;
 }
 
 export const DF_REGIONS: DFRegion[] = [
-  { name: "Brasília / Plano Piloto", active: true },
-  { name: "Águas Claras", active: true },
-  { name: "Taguatinga", active: true },
-  { name: "Ceilândia", active: true },
-  { name: "Samambaia", active: true },
-  { name: "Vicente Pires", active: true },
-  { name: "Guará", active: true },
-  { name: "Gama", active: true },
-  { name: "Santa Maria", active: true },
-  { name: "Recanto das Emas", active: true },
-  { name: "Riacho Fundo", active: true },
-  { name: "Núcleo Bandeirante", active: true },
-  { name: "Park Way", active: true },
-  { name: "Arniqueira", active: true },
-  { name: "Lago Sul", active: true },
-  { name: "Lago Norte", active: true },
-  { name: "Sudoeste", active: true },
-  { name: "Noroeste", active: true },
+  { name: "Brasília / Plano Piloto", active: true, featured: true },
+  { name: "Águas Claras", active: true, featured: true },
+  { name: "Taguatinga", active: true, featured: true },
+  { name: "Ceilândia", active: true, featured: true },
+  { name: "Samambaia", active: true, featured: true },
+  { name: "Vicente Pires", active: true, featured: true },
+  { name: "Guará", active: true, featured: true },
+  { name: "Gama", active: true, featured: true },
+  { name: "Santa Maria", active: true, featured: false },
+  { name: "Recanto das Emas", active: true, featured: false },
+  { name: "Riacho Fundo", active: true, featured: false },
+  { name: "Núcleo Bandeirante", active: true, featured: false },
+  { name: "Park Way", active: true, featured: false },
+  { name: "Arniqueira", active: true, featured: false },
+  { name: "Lago Sul", active: true, featured: false },
+  { name: "Lago Norte", active: true, featured: false },
+  { name: "Sudoeste", active: true, featured: false },
+  { name: "Noroeste", active: true, featured: false },
 ];
 
 export const DF_ACTIVE_REGIONS = DF_REGIONS.filter((r) => r.active);
+export const DF_PRIMARY_REGIONS = DF_ACTIVE_REGIONS.filter((r) => r.featured);
+export const DF_SECONDARY_REGIONS = DF_ACTIVE_REGIONS.filter((r) => !r.featured);
 
 // ------------------------------------------------------------
 // Necessidade da obra (sem medidas ou preços não confirmados)
@@ -180,3 +189,24 @@ export interface DFProof {
 }
 
 export const DF_PROOFS: DFProof[] = [];
+
+// ------------------------------------------------------------
+// Dados cadastrais e legais da empresa para a operação DF.
+// VAZIO POR PADRÃO. Preencha apenas com dados comprovados do DF.
+// Não inventar CNPJ, endereço ou telefones.
+// ------------------------------------------------------------
+export interface DFCompanyInfo {
+  cnpj?: string;
+  address?: string;
+  phone?: string;
+  privacyPolicyUrl?: string;
+  termsUrl?: string;
+}
+
+export const DF_COMPANY_INFO: DFCompanyInfo = {
+  cnpj: "",
+  address: "",
+  phone: WHATSAPP_DF_DISPLAY || "",
+  privacyPolicyUrl: "",
+  termsUrl: "",
+};

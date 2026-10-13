@@ -30,12 +30,12 @@ export default function DFPage() {
 
     updateMeta(
       "description",
-      "Aluguel de caçambas para obras e reformas em Brasília e regiões do Distrito Federal. Consulte disponibilidade, prazo e orçamento pelo WhatsApp."
+      "Aluguel de caçambas para obras e reformas em Brasília e regiões do Distrito Federal. Consulte disponibilidade e orçamento."
     );
     updateMeta("og:title", "Aluguel de Caçamba em Brasília DF | Caçambas Premium", true);
     updateMeta(
       "og:description",
-      "Aluguel de caçambas para obras e reformas em Brasília e regiões do Distrito Federal. Consulte disponibilidade e orçamento pelo WhatsApp.",
+      "Aluguel de caçambas para obras e reformas em Brasília e regiões do Distrito Federal. Consulte disponibilidade e orçamento.",
       true
     );
     updateMeta("og:url", "https://cacambaspremium.com.br/df", true);

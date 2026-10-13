@@ -11,17 +11,8 @@ export default function DFCompliance() {
             <SectionHeader
               eyebrow="Responsabilidade e Normas"
               title="Descarte responsável do início ao fim."
-              lead="Resíduos da construção civil possuem regras próprias no Distrito Federal. Toda a movimentação de entulho deve observar as exigências de coleta, transporte e destinação adequadas para evitar passivos ambientais e transtornos à sua obra."
+              lead="Resíduos de construção possuem regras específicas de coleta, transporte e destinação no Distrito Federal. A contratação deve respeitar as exigências aplicáveis a cada tipo de operação."
             />
-
-            <div className="mt-8 space-y-4 text-sm leading-relaxed text-iron">
-              <p>
-                O transporte de agregados reciclados, alvenaria e sobras de obras requer planejamento logístico para que o material seja encaminhado para pontos autorizados de descarte ou reciclagem, preservando as vias urbanas do DF.
-              </p>
-              <p>
-                Nossa equipe orienta sobre a separação correta dos materiais no canteiro, assegurando que sua contratação ocorra dentro das práticas recomendadas para o Distrito Federal.
-              </p>
-            </div>
 
             {/* Espaço reservado para provas documentadas (vazio por padrão até fornecimento) */}
             {DF_PROOFS.length > 0 && (

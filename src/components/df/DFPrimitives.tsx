@@ -51,6 +51,7 @@ interface WhatsAppButtonProps {
   size?: keyof typeof SIZES;
   icon?: boolean;
   className?: string;
+  extraParams?: Record<string, unknown>;
 }
 
 /** Botão/link de WhatsApp do DF: usa somente WHATSAPP_DF e dispara 1 evento por clique. */
@@ -63,13 +64,14 @@ export function DFWhatsAppButton({
   size = "lg",
   icon = true,
   className = "",
+  extraParams,
 }: WhatsAppButtonProps) {
   return (
     <a
       href={dfWhatsAppLink(message)}
       target="_blank"
       rel="noopener noreferrer"
-      onClick={() => trackDF(event, location)}
+      onClick={() => trackDF(event, location, extraParams)}
       className={`${BASE} ${SIZES[size]} ${VARIANTS[variant]} ${className}`}
     >
       {icon && <WhatsAppIcon className="w-[18px] h-[18px] shrink-0" />}

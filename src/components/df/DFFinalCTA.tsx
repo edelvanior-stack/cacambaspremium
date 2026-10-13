@@ -27,7 +27,7 @@ export default function DFFinalCTA() {
         </h2>
 
         <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/75 sm:text-lg">
-          Envie seu endereço e o tipo de material. Em poucos minutos você recebe disponibilidade e orçamento.
+          Envie seu endereço e o tipo de material para consultar disponibilidade e valor.
         </p>
 
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -39,7 +39,7 @@ export default function DFFinalCTA() {
             size="lg"
             className="w-full sm:w-auto"
           >
-            Solicitar pelo WhatsApp
+            CONSULTAR PELO WHATSAPP
           </DFWhatsAppButton>
         </div>
 

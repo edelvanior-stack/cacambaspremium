@@ -9,7 +9,11 @@ const CONVERSION_SESSION_KEY = "cp_df_wa_conversion_sent";
  *   no máximo 1 vez por sessão (evita contagem duplicada).
  * Independente de src/lib/analytics.ts (usado pela home).
  */
-export function trackDF(event: DFEvent, location: string): void {
+export function trackDF(
+  event: DFEvent,
+  location: string,
+  extraParams?: Record<string, unknown>
+): void {
   if (typeof window === "undefined") return;
 
   let alreadyConverted = false;
@@ -19,7 +23,13 @@ export function trackDF(event: DFEvent, location: string): void {
     /* sessionStorage indisponível (modo privado antigo) */
   }
 
-  window.gtag?.("event", event, { cta_location: location, page_path: "/df" });
+  const payload: Record<string, unknown> = {
+    cta_location: location,
+    page_path: "/df",
+    ...(extraParams || {}),
+  };
+
+  window.gtag?.("event", event, payload);
 
   const sendConversion = Boolean(GOOGLE_ADS_CONVERSION_DF) && !alreadyConverted;
   if (sendConversion && window.gtag) {
@@ -34,8 +44,7 @@ export function trackDF(event: DFEvent, location: string): void {
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({
     event,
-    cta_location: location,
-    page_path: "/df",
+    ...payload,
     counted_as_conversion: sendConversion,
   });
 }

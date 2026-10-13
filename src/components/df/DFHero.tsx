@@ -26,28 +26,34 @@ export default function DFHero() {
       />
 
       <div className="mx-auto max-w-7xl px-5 pb-10 pt-10 sm:pt-14 md:pb-0 md:pt-24 lg:px-8 lg:pt-28">
-        <div className="max-w-[40rem]">
+        <div className="max-w-[42rem] lg:max-w-[46rem]">
           <p className="eyebrow flex items-center gap-3 text-signal">
             <span className="inline-block h-px w-8 bg-current" aria-hidden="true" />
             Aluguel de caçambas · Distrito Federal
           </p>
 
-          <h1 id="df-h1" className="display mt-5 text-[2.15rem] leading-[1.0] sm:text-[3.25rem] lg:text-[4.25rem]">
+          <h1 id="df-h1" className="display mt-5 text-[2rem] leading-[1.04] sm:text-[3rem] lg:text-[3.75rem] xl:text-[4.125rem]">
             Caçamba de Entulho em Brasília e Todo o DF
           </h1>
 
-          <p className="mt-5 max-w-[34rem] text-[1.0625rem] leading-relaxed text-white/75 sm:text-lg">
+          <p className="mt-5 max-w-[36rem] text-base leading-relaxed text-white/80 sm:text-lg">
             Entrega rápida para obras, reformas e limpezas.{" "}
-            <span className="text-white/90">
+            <span className="text-white">
               Informe seu endereço e receba disponibilidade e orçamento pelo WhatsApp.
             </span>
           </p>
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <DFWhatsAppButton message={DF_MESSAGES.hero} event="whatsapp_hero" location="hero" className="w-full sm:w-auto" >
+          <div className="mt-8 flex flex-col gap-3.5 sm:flex-row sm:items-center">
+            <DFWhatsAppButton
+              message={DF_MESSAGES.hero}
+              event="whatsapp_hero"
+              location="hero"
+              size="lg"
+              className="w-full sm:w-auto shadow-[0_4px_20px_rgba(255,196,0,0.25)]"
+            >
               Pedir caçamba pelo WhatsApp
             </DFWhatsAppButton>
-            <DFAnchorButton href="#consulta" className="w-full sm:w-auto">
+            <DFAnchorButton href="#consulta" size="lg" className="w-full sm:w-auto">
               Consultar minha região
             </DFAnchorButton>
           </div>

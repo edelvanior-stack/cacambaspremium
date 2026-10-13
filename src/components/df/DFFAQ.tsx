@@ -18,12 +18,12 @@ export default function DFFAQ() {
               key={item.q}
               className="group rounded-[4px] border border-line bg-white transition-colors duration-150 open:border-iron"
             >
-              <summary className="flex cursor-pointer select-none items-center justify-between gap-4 p-5 sm:p-6 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-signal">
-                <span className="flex items-center gap-3.5 text-left font-display text-base font-bold uppercase tracking-tight text-ink sm:text-lg">
-                  <span className="font-mono text-xs font-semibold text-mist">
+              <summary className="flex cursor-pointer select-none items-center justify-between gap-3 p-4 sm:p-5 lg:p-6 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-signal">
+                <span className="flex items-center gap-3 text-left font-display text-sm font-bold uppercase tracking-tight text-ink sm:text-base lg:text-lg">
+                  <span className="font-mono text-xs font-semibold text-mist shrink-0">
                     {String(idx + 1).padStart(2, "0")}
                   </span>
-                  {item.q}
+                  <span>{item.q}</span>
                 </span>
                 <span
                   className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-concrete text-iron transition-transform duration-200 group-open:rotate-180 group-open:bg-signal group-open:text-ink"
@@ -34,7 +34,7 @@ export default function DFFAQ() {
                   </svg>
                 </span>
               </summary>
-              <div className="border-t border-line/60 px-5 pb-6 pt-4 text-sm leading-relaxed text-iron sm:px-6 sm:text-base">
+              <div className="border-t border-line/60 px-4 pb-5 pt-3.5 text-sm leading-relaxed text-iron sm:px-6 sm:pb-6 sm:pt-4 sm:text-base">
                 {item.a}
               </div>
             </details>

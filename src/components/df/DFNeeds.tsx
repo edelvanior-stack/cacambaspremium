@@ -22,11 +22,20 @@ export default function DFNeeds() {
               <div>
                 <div className="flex items-center justify-between border-b border-line pb-4">
                   <span className="eyebrow text-mist">
-                    Nível 0{need.level}
+                    Perfil 0{need.level}
                   </span>
-                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-line text-xs font-bold text-iron">
-                    {need.level}
-                  </span>
+                  {/* Indicador de escala de volume */}
+                  <div className="flex items-center gap-1" aria-label={`Nível ${need.level} de volume`}>
+                    {[1, 2, 3].map((bar) => (
+                      <span
+                        key={bar}
+                        className={`h-2 w-3 rounded-[1px] transition-colors ${
+                          bar <= need.level ? "bg-signal" : "bg-line"
+                        }`}
+                        aria-hidden="true"
+                      />
+                    ))}
+                  </div>
                 </div>
 
                 <h3 className="display mt-6 text-2xl font-bold uppercase tracking-tight text-ink">
@@ -37,16 +46,16 @@ export default function DFNeeds() {
                 </p>
               </div>
 
-              <div className="mt-8 pt-4">
+              <div className="mt-8 pt-4 border-t border-line/60">
                 <a
                   href={dfWhatsAppLink(needMessage(need.title))}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackDF("whatsapp_size_help", `need_${need.id}`)}
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-[3px] border border-ink/20 bg-white py-3 font-display text-xs font-bold uppercase tracking-[0.06em] text-ink transition-colors hover:border-ink hover:bg-ink hover:text-white"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-[3px] border border-ink/20 bg-white py-3 font-display text-xs font-bold uppercase tracking-[0.06em] text-ink transition-colors hover:border-ink hover:bg-ink hover:text-white [font-stretch:92%]"
                 >
                   <WhatsAppIcon className="h-4 w-4" />
-                  <span>Consultar para este perfil</span>
+                  <span>Consultar este perfil</span>
                 </a>
               </div>
             </div>
@@ -56,7 +65,7 @@ export default function DFNeeds() {
         {/* CTA "Não sei qual preciso" */}
         <div className="mt-10 flex flex-col items-center justify-between gap-6 rounded-[4px] border border-line bg-graphite p-6 text-white sm:flex-row sm:p-8">
           <div>
-            <p className="font-display text-lg font-bold tracking-tight text-white sm:text-xl">
+            <p className="font-display text-lg font-bold tracking-tight text-white sm:text-xl uppercase">
               Não sei qual caçamba preciso
             </p>
             <p className="mt-1 text-sm text-mist">
@@ -71,7 +80,7 @@ export default function DFNeeds() {
             size="md"
             className="w-full shrink-0 sm:w-auto"
           >
-            Ajudar a escolher
+            NÃO SEI QUAL PRECISO
           </DFWhatsAppButton>
         </div>
       </div>
