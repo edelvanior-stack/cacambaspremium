@@ -5,13 +5,13 @@ Material:
 Tamanho:
 Preciso para:`;
 
-const WA_LINK = "https://wa.me/5541963491457";
+const WA_LINK = "https://wa.me/5541984594225";
 
 export const BUSINESS = {
   brand: "Caçambas Premium",
 
-  whatsapp: "5541963491457",
-  whatsappDisplay: "+55 41 96349-1457",
+  whatsapp: "5541984594225",
+  whatsappDisplay: "+55 41 98459-4225",
   whatsappLink: WA_LINK,
 
   whatsappMessage: WA_PREFILLED,
