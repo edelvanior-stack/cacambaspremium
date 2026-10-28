@@ -12,13 +12,13 @@
  * Enquanto estiver vazio, os botões abrem o WhatsApp com a mensagem já
  * preenchida e o visitante escolhe o contato manualmente.
  */
-export const WHATSAPP_DF = "";
+export const WHATSAPP_DF = "5561999535476";
 
 /**
  * Exibição opcional do número na página. Exemplo: "(61) 99999-9999".
  * Só aparece no cabeçalho, CTA final e rodapé quando preenchido.
  */
-export const WHATSAPP_DF_DISPLAY = "";
+export const WHATSAPP_DF_DISPLAY = "(61) 99953-5476";
 
 /**
  * Ação de conversão do Google Ads para a página DF.
