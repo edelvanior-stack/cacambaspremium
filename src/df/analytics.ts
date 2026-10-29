@@ -1,12 +1,25 @@
 import { GOOGLE_ADS_CONVERSION_DF, type DFEvent } from "./config";
 
-const CONVERSION_SESSION_KEY = "cp_df_wa_conversion_sent";
+/**
+ * Eventos que correspondem a um clique que ABRE o WhatsApp.
+ * Somente estes podem disparar a conversão do Google Ads.
+ * (region_check_start / region_check_submit NÃO abrem o WhatsApp por si só.)
+ */
+const WHATSAPP_OPEN_EVENTS: ReadonlySet<DFEvent> = new Set<DFEvent>([
+  "whatsapp_hero",
+  "whatsapp_region",
+  "whatsapp_size_help",
+  "whatsapp_final",
+  "material_click",
+]);
 
 /**
- * Rastreia um clique de WhatsApp na página /df.
+ * Rastreia uma interação na página /df.
  * - Evento nomeado (whatsapp_hero, whatsapp_region, ...) via gtag e dataLayer, em todo clique.
- * - Conversão do Google Ads somente se GOOGLE_ADS_CONVERSION_DF estiver configurada,
- *   no máximo 1 vez por sessão (evita contagem duplicada).
+ * - Conversão do Google Ads somente quando:
+ *   1) o evento é de abertura do WhatsApp, e
+ *   2) GOOGLE_ADS_CONVERSION_LABEL_DF estiver preenchido em config.ts.
+ *   É chamada no onClick, imediatamente antes da abertura do WhatsApp, sem bloquear o link.
  * Independente de src/lib/analytics.ts (usado pela home).
  */
 export function trackDF(
@@ -16,13 +29,6 @@ export function trackDF(
 ): void {
   if (typeof window === "undefined") return;
 
-  let alreadyConverted = false;
-  try {
-    alreadyConverted = Boolean(window.sessionStorage.getItem(CONVERSION_SESSION_KEY));
-  } catch {
-    /* sessionStorage indisponível (modo privado antigo) */
-  }
-
   const payload: Record<string, unknown> = {
     cta_location: location,
     page_path: "/df",
@@ -31,14 +37,12 @@ export function trackDF(
 
   window.gtag?.("event", event, payload);
 
-  const sendConversion = Boolean(GOOGLE_ADS_CONVERSION_DF) && !alreadyConverted;
-  if (sendConversion && window.gtag) {
-    window.gtag("event", "conversion", { send_to: GOOGLE_ADS_CONVERSION_DF });
-    try {
-      window.sessionStorage.setItem(CONVERSION_SESSION_KEY, "1");
-    } catch {
-      /* ignore */
-    }
+  const sendConversion =
+    WHATSAPP_OPEN_EVENTS.has(event) && Boolean(GOOGLE_ADS_CONVERSION_DF) && Boolean(window.gtag);
+  if (sendConversion) {
+    window.gtag!("event", "conversion", {
+      send_to: GOOGLE_ADS_CONVERSION_DF,
+    });
   }
 
   window.dataLayer = window.dataLayer || [];

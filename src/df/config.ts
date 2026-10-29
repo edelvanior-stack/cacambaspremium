@@ -21,12 +21,23 @@ export const WHATSAPP_DF = "5561999535476";
 export const WHATSAPP_DF_DISPLAY = "(61) 99953-5476";
 
 /**
- * Ação de conversão do Google Ads para a página DF.
- * Formato: "AW-XXXXXXXXXX/rotuloDaConversao".
- * Vazio = nenhuma conversão é enviada (apenas os eventos whatsapp_* abaixo).
- * Quando preenchido, no máximo 1 conversão é enviada por sessão.
+ * Google Ads da operação DF (tag base carregada somente em df/index.html).
  */
-export const GOOGLE_ADS_CONVERSION_DF = "";
+export const GOOGLE_ADS_ID_DF = "AW-18502471060";
+
+/**
+ * CONVERSION LABEL da ação de conversão "Clique no WhatsApp" (DF).
+ * Mede o clique que abre o WhatsApp — NÃO mede mensagem efetivamente enviada.
+ */
+export const GOOGLE_ADS_CONVERSION_LABEL_DF = "JGSnCNK2o64dEJSb1fZE";
+
+/**
+ * send_to final da conversão: "AW-18502471060/JGSnCNK2o64dEJSb1fZE".
+ * Disparada somente em cliques que abrem o WhatsApp (ver src/df/analytics.ts).
+ */
+export const GOOGLE_ADS_CONVERSION_DF = GOOGLE_ADS_CONVERSION_LABEL_DF
+  ? `${GOOGLE_ADS_ID_DF}/${GOOGLE_ADS_CONVERSION_LABEL_DF}`
+  : "";
 
 /** Eventos disparados nos CTAs e interações da página DF (gtag + dataLayer). */
 export type DFEvent =
