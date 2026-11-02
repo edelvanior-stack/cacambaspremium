@@ -9,8 +9,7 @@ const NAV_LINKS = [
   { label: "Tamanhos", href: "#tamanhos" },
   { label: "Como Funciona", href: "#como-funciona" },
   { label: "Regiões", href: "#regioes" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Contato", href: "#contato" },
+  { label: "Dúvidas", href: "#faq" },
 ];
 
 export default function Navbar() {

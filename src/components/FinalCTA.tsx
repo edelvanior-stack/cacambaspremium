@@ -26,7 +26,7 @@ export default function FinalCTA() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackWhatsAppClick("final_cta")}
-            className="inline-flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#20BD5A] text-white font-bold text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-5 rounded-2xl shadow-xl shadow-emerald-950/40 hover:scale-[1.02] transition-all group"
+            className="w-full sm:w-auto min-h-[56px] inline-flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#20BD5A] text-white font-bold text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-5 rounded-2xl shadow-xl shadow-emerald-950/40 hover:scale-[1.02] active:scale-[0.98] transition-all group"
           >
             <svg
               className="w-6 h-6 text-white fill-current flex-shrink-0"
@@ -35,7 +35,7 @@ export default function FinalCTA() {
             >
               <path d={WA_ICON_PATH} />
             </svg>
-            <span>CHAMAR NO WHATSAPP</span>
+            <span>Pedir orçamento no WhatsApp</span>
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </a>
 

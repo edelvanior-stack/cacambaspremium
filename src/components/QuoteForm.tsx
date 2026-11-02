@@ -1,5 +1,5 @@
-import { useState, useRef, ChangeEvent, FormEvent } from "react";
-import { X, CheckCircle2, Send, ImageIcon, ShieldCheck } from "lucide-react";
+import { useState, ChangeEvent, FormEvent } from "react";
+import { CheckCircle2, Send, ShieldCheck } from "lucide-react";
 import { trackWhatsAppClick } from "@/lib/analytics";
 import { BUSINESS } from "@/config/business";
 
@@ -53,9 +53,7 @@ export default function QuoteForm() {
   const [form, setForm] = useState<FormState>(initialForm);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [lgpd, setLgpd] = useState(false);
-  const [photoPreview, setPhotoPreview] = useState<string | null>(null);
   const [submitted, setSubmitted] = useState(false);
-  const fileRef = useRef<HTMLInputElement>(null);
 
   const set = (key: keyof FormState) => (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [key]: e.target.value });
@@ -64,26 +62,6 @@ export default function QuoteForm() {
       delete next[key];
       setErrors(next);
     }
-  };
-
-  const handlePhoto = (e: ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    if (file.size > 10 * 1024 * 1024) {
-      setErrors({ ...errors, foto: "A imagem deve ter no máximo 10MB." });
-      return;
-    }
-    setPhotoPreview(URL.createObjectURL(file));
-    if (errors.foto) {
-      const next = { ...errors };
-      delete next.foto;
-      setErrors(next);
-    }
-  };
-
-  const removePhoto = () => {
-    setPhotoPreview(null);
-    if (fileRef.current) fileRef.current.value = "";
   };
 
   const validate = () => {
@@ -127,9 +105,6 @@ export default function QuoteForm() {
       `*Data Preferida:* ${dataFormatada}`,
       `*Informações Adicionais:* ${form.info || "—"}`,
     ];
-    if (photoPreview) {
-      lines.push("", "⚠️ Envie a foto do local/entulho em seguida nesta conversa.");
-    }
 
     const msg = encodeURIComponent(lines.join("\n"));
     trackWhatsAppClick('quote_form_submit');
@@ -140,7 +115,6 @@ export default function QuoteForm() {
   const resetForm = () => {
     setForm(initialForm);
     setLgpd(false);
-    removePhoto();
     setErrors({});
     setSubmitted(false);
   };
@@ -334,49 +308,6 @@ export default function QuoteForm() {
           className={`${inputBase} border-slate-200 resize-none`}
         />
       </Field>
-
-      <div>
-        <label className="block text-xs sm:text-sm font-semibold text-slate-700 mb-1.5 sm:mb-2">
-          Foto do Local ou Entulho <span className="text-slate-400 font-normal">(opcional)</span>
-        </label>
-        {photoPreview ? (
-          <div className="relative rounded-xl overflow-hidden border border-slate-200 inline-block">
-            <img src={photoPreview} alt="Pré-visualização" className="h-28 sm:h-32 w-auto object-cover" />
-            <button
-              type="button"
-              onClick={removePhoto}
-              className="absolute top-2 right-2 w-7 h-7 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center transition-colors"
-              aria-label="Remover foto"
-            >
-              <X className="w-4 h-4" />
-            </button>
-          </div>
-        ) : (
-          <button
-            type="button"
-            onClick={() => fileRef.current?.click()}
-            className="w-full flex flex-col items-center justify-center gap-2 py-5 sm:py-6 rounded-xl border-2 border-dashed border-slate-200 hover:border-orange-400 hover:bg-orange-50/40 transition-all text-slate-400 hover:text-orange-600"
-          >
-            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-slate-100 flex items-center justify-center">
-              <ImageIcon className="w-4 h-4 sm:w-5 sm:h-5" />
-            </div>
-            <span className="text-xs sm:text-sm font-medium">Clique para anexar uma foto</span>
-            <span className="text-[10px] sm:text-xs text-slate-400">JPG ou PNG • até 10MB</span>
-          </button>
-        )}
-        <input
-          ref={fileRef}
-          type="file"
-          accept="image/*"
-          onChange={handlePhoto}
-          className="hidden"
-        />
-        {errors.foto && (
-          <p role="alert" className="mt-1.5 text-xs font-medium text-red-500">
-            {errors.foto}
-          </p>
-        )}
-      </div>
 
       <div>
         <label className="flex items-start gap-2.5 sm:gap-3 cursor-pointer group">

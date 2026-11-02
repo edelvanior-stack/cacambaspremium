@@ -228,9 +228,9 @@ export default function QuickContactSection() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackWhatsAppClick("contact_section_direct")}
-                  className="w-full bg-[#25D366] hover:bg-[#20BD5A] text-white py-3.5 px-6 rounded-xl font-bold flex items-center justify-center gap-2 transition-all shadow-lg shadow-emerald-500/25 hover:shadow-xl hover:shadow-emerald-500/35 hover:-translate-y-0.5 cursor-pointer text-sm sm:text-base group"
+                  className="w-full min-h-[56px] bg-[#25D366] hover:bg-[#20BD5A] text-white py-3.5 px-6 rounded-xl font-bold flex items-center justify-center gap-2 transition-all shadow-lg shadow-emerald-500/25 hover:shadow-xl hover:shadow-emerald-500/35 hover:-translate-y-0.5 cursor-pointer text-base group"
                 >
-                  <span>Chamar no WhatsApp</span>
+                  <span>Pedir orçamento no WhatsApp</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </a>
 
