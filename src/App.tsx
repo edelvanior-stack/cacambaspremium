@@ -1,20 +1,17 @@
-import { lazy, Suspense, useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
 import MobileWhatsAppBar from "./components/MobileWhatsAppBar";
-import ScrollReveal from "./components/ScrollReveal";
-
-const SizesSection = lazy(() => import("./components/SizesSection"));
-const PricingCTA = lazy(() => import("./components/PricingCTA"));
-const HowItWorks = lazy(() => import("./components/HowItWorks"));
-const BenefitsSection = lazy(() => import("./components/BenefitsSection"));
-const GallerySection = lazy(() => import("./components/GallerySection"));
-const AreasSection = lazy(() => import("./components/AreasSection"));
-const FAQSection = lazy(() => import("./components/FAQSection"));
-const QuickContactSection = lazy(() => import("./components/QuickContactSection"));
-const FinalCTA = lazy(() => import("./components/FinalCTA"));
-const Footer = lazy(() => import("./components/Footer"));
+import SizesSection from "./components/SizesSection";
+import PricingCTA from "./components/PricingCTA";
+import HowItWorks from "./components/HowItWorks";
+import BenefitsSection from "./components/BenefitsSection";
+import GallerySection from "./components/GallerySection";
+import AreasSection from "./components/AreasSection";
+import FAQSection from "./components/FAQSection";
+import QuickContactSection from "./components/QuickContactSection";
+import FinalCTA from "./components/FinalCTA";
+import Footer from "./components/Footer";
 
 const HERO_IMG = "/images/hero.webp";
 
@@ -34,53 +31,20 @@ const GALLERY_IMAGES = [
 ];
 
 export default function App() {
-  const [loadRest, setLoadRest] = useState(false);
-
-  useEffect(() => {
-    if (window.location.hash) {
-      setLoadRest(true);
-      return;
-    }
-
-    const trigger = () => {
-      setLoadRest(true);
-      ["scroll", "pointerdown", "touchstart", "mousemove", "keydown"].forEach((e) => {
-        window.removeEventListener(e, trigger);
-      });
-    };
-
-    ["scroll", "pointerdown", "touchstart", "mousemove", "keydown"].forEach((e) => {
-      window.addEventListener(e, trigger, { passive: true, once: true });
-    });
-
-    return () => {
-      ["scroll", "pointerdown", "touchstart", "mousemove", "keydown"].forEach((e) => {
-        window.removeEventListener(e, trigger);
-      });
-    };
-  }, []);
-
   return (
     <div className="min-h-screen bg-background text-foreground pb-14 md:pb-0">
-      <ScrollReveal active={loadRest} />
       <Navbar />
       <HeroSection heroImage={HERO_IMG} />
-      {loadRest ? (
-        <Suspense fallback={null}>
-          <SizesSection />
-          <PricingCTA />
-          <HowItWorks />
-          <BenefitsSection />
-          <GallerySection images={GALLERY_IMAGES} />
-          <AreasSection />
-          <FAQSection />
-          <QuickContactSection />
-          <FinalCTA />
-          <Footer />
-        </Suspense>
-      ) : (
-        <div className="h-64" />
-      )}
+      <SizesSection />
+      <PricingCTA />
+      <HowItWorks />
+      <BenefitsSection />
+      <GallerySection images={GALLERY_IMAGES} />
+      <AreasSection />
+      <FAQSection />
+      <QuickContactSection />
+      <FinalCTA />
+      <Footer />
       <FloatingWhatsApp />
       <MobileWhatsAppBar />
     </div>
