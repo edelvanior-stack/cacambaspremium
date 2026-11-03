@@ -71,6 +71,11 @@
   transform: none;
 }
 
+.content-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 600px;
+}
+
 /* Floating animation */
 @keyframes float {
   0%, 100% { transform: translateY(0); }
