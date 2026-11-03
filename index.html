@@ -26,9 +26,9 @@
           window.addEventListener(e, loadGtag, { once: true, passive: true });
         });
         if ('requestIdleCallback' in window) {
-          requestIdleCallback(loadGtag, { timeout: 1200 });
+          requestIdleCallback(loadGtag, { timeout: 2500 });
         } else {
-          setTimeout(loadGtag, 1200);
+          setTimeout(loadGtag, 2500);
         }
       })();
     </script>
@@ -97,13 +97,10 @@
       }
     </style>
 
-    <!-- Preconnects & Non-blocking Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <!-- Preconnects -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="preconnect" href="https://www.google-analytics.com" />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" /></noscript>
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
