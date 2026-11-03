@@ -75,7 +75,7 @@ export default function Footer() {
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-orange-400 flex-shrink-0" />
                 <a
-                  href={`tel:+5541984594225`}
+                  href={`tel:+${BUSINESS.whatsapp}`}
                   onClick={() => trackPhoneClick("footer_phone_call")}
                   className="hover:text-white transition-colors"
                 >

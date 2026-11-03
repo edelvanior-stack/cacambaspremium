@@ -1,16 +1,12 @@
-const WA_PREFILLED = `Olá! Vim pelo Google e quero alugar uma caçamba.
+const WA_PREFILLED = "Olá, quero alugar uma caçamba em Curitiba. Preciso para o dia: ";
 
-Bairro/CEP:
-Material:
-Tamanho:
-Preciso para:`;
-
-const WA_LINK = "https://wa.me/5541984594225";
+const WA_NUMBER = "5541984594225";
+const WA_LINK = `https://wa.me/${WA_NUMBER}`;
 
 export const BUSINESS = {
   brand: "Caçambas Premium",
 
-  whatsapp: "5541984594225",
+  whatsapp: WA_NUMBER,
   whatsappDisplay: "+55 41 98459-4225",
   whatsappLink: WA_LINK,
 

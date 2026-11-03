@@ -24,6 +24,12 @@ const WHATSAPP_CONVERSION_SESSION_KEY = "cp_wa_conversion_sent";
 export const trackWhatsAppClick = (source: string) => {
   if (typeof window === "undefined") return;
 
+  try {
+    (window as unknown as { __loadGtagNow?: () => void }).__loadGtagNow?.();
+  } catch {
+    /* ignore */
+  }
+
   let alreadyConverted = false;
   try {
     alreadyConverted = Boolean(window.sessionStorage?.getItem(WHATSAPP_CONVERSION_SESSION_KEY));
@@ -70,6 +76,12 @@ export const trackWhatsAppClick = (source: string) => {
  */
 export const trackPhoneClick = (source: string) => {
   if (typeof window === "undefined") return;
+
+  try {
+    (window as unknown as { __loadGtagNow?: () => void }).__loadGtagNow?.();
+  } catch {
+    /* ignore */
+  }
 
   if (window.gtag) {
     window.gtag("event", "phone_click", {

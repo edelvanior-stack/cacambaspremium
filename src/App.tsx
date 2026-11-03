@@ -1,18 +1,20 @@
+import { lazy, Suspense } from "react";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
-import SizesSection from "./components/SizesSection";
-import PricingCTA from "./components/PricingCTA";
-import HowItWorks from "./components/HowItWorks";
-import BenefitsSection from "./components/BenefitsSection";
-import GallerySection from "./components/GallerySection";
-import AreasSection from "./components/AreasSection";
-import FAQSection from "./components/FAQSection";
-import QuickContactSection from "./components/QuickContactSection";
-import FinalCTA from "./components/FinalCTA";
-import Footer from "./components/Footer";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
 import MobileWhatsAppBar from "./components/MobileWhatsAppBar";
 import ScrollReveal from "./components/ScrollReveal";
+
+const SizesSection = lazy(() => import("./components/SizesSection"));
+const PricingCTA = lazy(() => import("./components/PricingCTA"));
+const HowItWorks = lazy(() => import("./components/HowItWorks"));
+const BenefitsSection = lazy(() => import("./components/BenefitsSection"));
+const GallerySection = lazy(() => import("./components/GallerySection"));
+const AreasSection = lazy(() => import("./components/AreasSection"));
+const FAQSection = lazy(() => import("./components/FAQSection"));
+const QuickContactSection = lazy(() => import("./components/QuickContactSection"));
+const FinalCTA = lazy(() => import("./components/FinalCTA"));
+const Footer = lazy(() => import("./components/Footer"));
 
 const HERO_IMG = "/images/hero.webp";
 
@@ -37,16 +39,18 @@ export default function App() {
       <ScrollReveal />
       <Navbar />
       <HeroSection heroImage={HERO_IMG} />
-      <SizesSection />
-      <PricingCTA />
-      <HowItWorks />
-      <BenefitsSection />
-      <GallerySection images={GALLERY_IMAGES} />
-      <AreasSection />
-      <FAQSection />
-      <QuickContactSection />
-      <FinalCTA />
-      <Footer />
+      <Suspense fallback={null}>
+        <SizesSection />
+        <PricingCTA />
+        <HowItWorks />
+        <BenefitsSection />
+        <GallerySection images={GALLERY_IMAGES} />
+        <AreasSection />
+        <FAQSection />
+        <QuickContactSection />
+        <FinalCTA />
+        <Footer />
+      </Suspense>
       <FloatingWhatsApp />
       <MobileWhatsAppBar />
     </div>
