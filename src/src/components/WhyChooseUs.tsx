@@ -10,7 +10,7 @@ type Reason = {
 const REASONS: Reason[] = [
   { icon: Clock, title: "Entrega Ágil", desc: "Posicionamento e retirada da caçamba alinhados com o cronograma da sua obra." },
   { icon: DollarSign, title: "Preço Justo", desc: "Valores transparentes sem taxas escondidas. O melhor custo-benefício da região." },
-  { icon: Shield, title: "CNPJ Regularizado", desc: "Empresa constituída sob o CNPJ 08.038.618/0001-52 em atividade regular desde 2006." },
+  { icon: Shield, title: "CNPJ Regularizado", desc: "Empresa constituída sob o CNPJ 11.246.768/0001-66 em atividade regular desde 2006." },
   { icon: Leaf, title: "Destinação Responsável", desc: "Encaminhamento correto dos resíduos de construção e reformas para locais autorizados." },
   { icon: Headphones, title: "Suporte Dedicado", desc: "Atendimento direto e personalizado via WhatsApp e telefone com agilidade." },
   { icon: Truck, title: "Equipamentos Adequados", desc: "Caçambas e veículos apropriados para transporte seguro de entulhos e resíduos." },
@@ -37,7 +37,7 @@ export default function WhyChooseUs({ serviceImage }: { serviceImage: string }) 
                   </div>
                   <div>
                     <p className="font-display font-bold text-slate-900 text-xs sm:text-base leading-tight">Desde 2006</p>
-                    <p className="text-slate-500 text-[10px] sm:text-xs font-medium">CNPJ 08.038.618/0001-52</p>
+                    <p className="text-slate-500 text-[10px] sm:text-xs font-medium">CNPJ 11.246.768/0001-66</p>
                   </div>
                 </div>
               </div>

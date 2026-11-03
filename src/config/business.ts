@@ -5,6 +5,7 @@ const WA_LINK = `https://wa.me/${WA_NUMBER}`;
 
 export const BUSINESS = {
   brand: "Caçambas Premium",
+  cnpj: "11.246.768/0001-66",
 
   whatsapp: WA_NUMBER,
   whatsappDisplay: "+55 41 98459-4225",
@@ -14,12 +15,12 @@ export const BUSINESS = {
   whatsappLinkWithMessage: `${WA_LINK}?text=${encodeURIComponent(WA_PREFILLED)}`,
 
   address: {
-    street: "Rua Maria de Lourdes Kudri",
-    number: "127",
-    neighborhood: "Barreirinha",
-    city: "Curitiba",
+    street: "Rua Alcídio Ceccon",
+    number: "393, Sala 01",
+    neighborhood: "Bela Vista",
+    city: "Campina Grande do Sul",
     state: "PR",
-    postalCode: "82700-050",
+    postalCode: "83435-162",
     country: "BR",
   },
 

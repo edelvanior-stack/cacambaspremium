@@ -20,7 +20,7 @@ const FAQS = [
   },
   {
     q: "A empresa possui CNPJ ativo e registro oficial?",
-    a: "Sim! Operamos com Razão Social Helio da Rosa Junior (CNPJ: 08.038.618/0001-52), nome fantasia Jr Entulhos / Caçambas Premium. Atuamos regularmente no mercado desde 30/05/2006 (aproximadamente 20 anos de experiência) em Itajaí e região.",
+    a: "Sim! Operamos com Razão Social Helio da Rosa Junior (CNPJ: 11.246.768/0001-66), nome fantasia Jr Entulhos / Caçambas Premium. Atuamos regularmente no mercado desde 30/05/2006 (aproximadamente 20 anos de experiência) em Itajaí e região.",
   },
   {
     q: "Como solicitar uma caçamba?",

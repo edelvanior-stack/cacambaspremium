@@ -39,7 +39,7 @@ export default function Footer() {
                 <span className="text-slate-300 font-semibold">Razão / Identificação:</span> {BUSINESS.brand}
               </p>
               <p>
-                <span className="text-slate-300 font-semibold">CNPJ:</span> 08.038.618/0001-52
+                <span className="text-slate-300 font-semibold">CNPJ:</span> {BUSINESS.cnpj}
               </p>
             </div>
             <div className="mt-4">
@@ -130,7 +130,7 @@ export default function Footer() {
         <div className="border-t border-slate-800 pt-6 mt-6">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <p className="text-slate-400 text-xs sm:text-sm">
-              © {new Date().getFullYear()} {BUSINESS.brand} — CNPJ 08.038.618/0001-52. Todos os direitos reservados.
+              © {new Date().getFullYear()} {BUSINESS.brand} — CNPJ {BUSINESS.cnpj}. Todos os direitos reservados.
             </p>
             <div className="flex items-center gap-4 text-xs sm:text-sm">
               <button
@@ -164,7 +164,7 @@ export default function Footer() {
                     <span>Termos de Uso — {BUSINESS.brand}</span>
                   </div>
                   <p>
-                    <strong>1. Condições Gerais:</strong> A locação de caçambas é realizada pela empresa {BUSINESS.brand} (CNPJ: 08.038.618/0001-52), localizada na {BUSINESS.address.street}, {BUSINESS.address.number} - {BUSINESS.address.neighborhood}, {BUSINESS.address.city} - {BUSINESS.address.state}.
+                    <strong>1. Condições Gerais:</strong> A locação de caçambas é realizada pela empresa {BUSINESS.brand} (CNPJ: {BUSINESS.cnpj}), localizada na {BUSINESS.address.street}, {BUSINESS.address.number} - {BUSINESS.address.neighborhood}, {BUSINESS.address.city} - {BUSINESS.address.state}.
                   </p>
                   <p>
                     <strong>2. Permanência:</strong> O período padrão de permanência da caçamba no local da obra é de até 7 dias, acordado na confirmação do pedido. Prorrogações podem ser alinhadas pelo WhatsApp {BUSINESS.whatsappDisplay}.

@@ -41,7 +41,7 @@ export default function Footer() {
             <div className="text-xs text-slate-400 space-y-1 mb-4">
               <p><strong className="text-slate-300">Razão Social:</strong> Helio da Rosa Junior</p>
               <p><strong className="text-slate-300">Nome Fantasia:</strong> Jr Entulhos (Caçambas Premium)</p>
-              <p><strong className="text-slate-300">CNPJ:</strong> 08.038.618/0001-52</p>
+              <p><strong className="text-slate-300">CNPJ:</strong> 11.246.768/0001-66</p>
               <p><strong className="text-slate-300">Abertura:</strong> 30/05/2006 (~20 anos de atuação)</p>
             </div>
             <a
@@ -114,7 +114,7 @@ export default function Footer() {
 
         <div className="border-t border-slate-800 pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
           <p className="text-slate-500 text-xs sm:text-sm text-center sm:text-left">
-            © {new Date().getFullYear()} Jr Entulhos / Caçambas Premium (Helio da Rosa Junior - CNPJ 08.038.618/0001-52). Todos os direitos reservados.
+            © {new Date().getFullYear()} Jr Entulhos / Caçambas Premium (Helio da Rosa Junior - CNPJ 11.246.768/0001-66). Todos os direitos reservados.
           </p>
           <div className="flex items-center gap-4">
             <button

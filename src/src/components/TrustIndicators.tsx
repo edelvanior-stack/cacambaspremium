@@ -3,7 +3,7 @@ import { Award, Shield, MapPin, ThumbsUp } from "lucide-react";
 
 const STATS = [
   { icon: Award, value: 20, suffix: " Anos", label: "De Atuação (Desde 2006)" },
-  { icon: Shield, value: 2006, suffix: "", textValue: "Desde 2006", label: "CNPJ 08.038.618/0001-52" },
+  { icon: Shield, value: 2006, suffix: "", textValue: "Desde 2006", label: "CNPJ 11.246.768/0001-66" },
   { icon: MapPin, value: 0, textValue: "Itajaí - SC", label: "Sede & Região Atendida" },
   { icon: ThumbsUp, value: 0, textValue: "Direto", label: "Atendimento via WhatsApp" },
 ];
