@@ -25,15 +25,7 @@
         ['pointerdown', 'touchstart', 'scroll', 'keydown', 'click'].forEach(function(e) {
           window.addEventListener(e, loadGtag, { once: true, passive: true });
         });
-        window.addEventListener('load', function() {
-          setTimeout(function() {
-            if ('requestIdleCallback' in window) {
-              requestIdleCallback(loadGtag);
-            } else {
-              loadGtag();
-            }
-          }, 7000);
-        }, { once: true });
+
       })();
     </script>
 
