@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="pt-BR">
   <head>
-    <!-- Google tag (gtag.js) - Defered for Mobile TBT & Zero Main-Thread Blocking -->
+    <!-- Google tag (gtag.js) - Loaded on User Interaction for Zero TBT -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -25,17 +25,6 @@
         ['pointerdown', 'touchstart', 'scroll', 'keydown', 'click'].forEach(function(e) {
           window.addEventListener(e, loadGtag, { once: true, passive: true });
         });
-        if ('requestIdleCallback' in window) {
-          window.addEventListener('load', function() {
-            requestIdleCallback(function() {
-              setTimeout(loadGtag, 3500);
-            }, { timeout: 5000 });
-          });
-        } else {
-          window.addEventListener('load', function() {
-            setTimeout(loadGtag, 3500);
-          });
-        }
       })();
     </script>
 

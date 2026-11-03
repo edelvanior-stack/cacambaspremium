@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
@@ -34,23 +34,53 @@ const GALLERY_IMAGES = [
 ];
 
 export default function App() {
+  const [loadRest, setLoadRest] = useState(false);
+
+  useEffect(() => {
+    if (window.location.hash) {
+      setLoadRest(true);
+      return;
+    }
+
+    const trigger = () => {
+      setLoadRest(true);
+      ["scroll", "pointerdown", "touchstart", "mousemove", "keydown"].forEach((e) => {
+        window.removeEventListener(e, trigger);
+      });
+    };
+
+    ["scroll", "pointerdown", "touchstart", "mousemove", "keydown"].forEach((e) => {
+      window.addEventListener(e, trigger, { passive: true, once: true });
+    });
+
+    return () => {
+      ["scroll", "pointerdown", "touchstart", "mousemove", "keydown"].forEach((e) => {
+        window.removeEventListener(e, trigger);
+      });
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-background text-foreground pb-14 md:pb-0">
       <ScrollReveal />
       <Navbar />
       <HeroSection heroImage={HERO_IMG} />
-      <Suspense fallback={null}>
-        <SizesSection />
-        <PricingCTA />
-        <HowItWorks />
-        <BenefitsSection />
-        <GallerySection images={GALLERY_IMAGES} />
-        <AreasSection />
-        <FAQSection />
-        <QuickContactSection />
-        <FinalCTA />
-        <Footer />
-      </Suspense>
+      {loadRest ? (
+        <Suspense fallback={null}>
+          <SizesSection />
+          <PricingCTA />
+          <HowItWorks />
+          <BenefitsSection />
+          <GallerySection images={GALLERY_IMAGES} />
+          <AreasSection />
+          <FAQSection />
+          <QuickContactSection />
+          <FinalCTA />
+          <Footer />
+        </Suspense>
+      ) : (
+        <div className="h-64" />
+      )}
       <FloatingWhatsApp />
       <MobileWhatsAppBar />
     </div>
