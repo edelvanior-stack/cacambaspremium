@@ -35,16 +35,16 @@ export default function App() {
     <div className="min-h-screen bg-background text-foreground pb-14 md:pb-0">
       <Navbar />
       <HeroSection heroImage={HERO_IMG} />
-      <div className="content-auto"><SizesSection /></div>
-      <div className="content-auto"><PricingCTA /></div>
-      <div className="content-auto"><HowItWorks /></div>
-      <div className="content-auto"><BenefitsSection /></div>
-      <div className="content-auto"><GallerySection images={GALLERY_IMAGES} /></div>
-      <div className="content-auto"><AreasSection /></div>
-      <div className="content-auto"><FAQSection /></div>
-      <div className="content-auto"><QuickContactSection /></div>
-      <div className="content-auto"><FinalCTA /></div>
-      <div className="content-auto"><Footer /></div>
+      <SizesSection />
+      <PricingCTA />
+      <HowItWorks />
+      <BenefitsSection />
+      <GallerySection images={GALLERY_IMAGES} />
+      <AreasSection />
+      <FAQSection />
+      <QuickContactSection />
+      <FinalCTA />
+      <Footer />
       <FloatingWhatsApp />
       <MobileWhatsAppBar />
     </div>
