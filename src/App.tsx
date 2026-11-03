@@ -62,7 +62,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-background text-foreground pb-14 md:pb-0">
-      <ScrollReveal />
+      <ScrollReveal active={loadRest} />
       <Navbar />
       <HeroSection heroImage={HERO_IMG} />
       {loadRest ? (

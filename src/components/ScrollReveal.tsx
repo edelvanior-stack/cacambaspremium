@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 
-export default function ScrollReveal() {
+export default function ScrollReveal({ active = false }: { active?: boolean }) {
   useEffect(() => {
+    if (!active) return;
+
     const revealObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -14,24 +16,18 @@ export default function ScrollReveal() {
       { threshold: 0.05, rootMargin: "0px 0px 80px 0px" }
     );
 
-    const observeAll = () => {
+    const timer = setTimeout(() => {
       document.querySelectorAll(".reveal:not(.visible)").forEach((el) => {
         revealObserver.observe(el);
       });
-    };
-
-    observeAll();
-
-    const mutationObserver = new MutationObserver(() => {
-      observeAll();
-    });
-    mutationObserver.observe(document.body, { childList: true, subtree: true });
+    }, 50);
 
     return () => {
+      clearTimeout(timer);
       revealObserver.disconnect();
-      mutationObserver.disconnect();
     };
-  }, []);
+  }, [active]);
 
   return null;
 }
+
