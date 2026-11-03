@@ -37,10 +37,11 @@ export const trackWhatsAppClick = (source: string) => {
     /* ignore storage access issues */
   }
 
-  // 1. Google Ads conversion event — deduplicated per session
+  // 1. Google Ads conversion event — deduplicated per session with transport_type: 'beacon'
   if (window.gtag && !alreadyConverted) {
     window.gtag("event", "conversion", {
       send_to: GADS_CONVERSION_WHATSAPP,
+      transport_type: "beacon",
     });
     try {
       window.sessionStorage?.setItem(WHATSAPP_CONVERSION_SESSION_KEY, "1");
