@@ -1,12 +1,13 @@
-import { WHATSAPP_DF_DISPLAY, DF_COMPANY_INFO } from "@/df/config";
+import { WHATSAPP_DF_DISPLAY, WHATSAPP_DF, DF_COMPANY_INFO } from "@/df/config";
 import { DFLogo } from "./DFHeader";
+import { trackDFPhoneClick } from "@/df/analytics";
 
 export default function DFFooter() {
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="border-t border-line bg-concrete py-12 text-iron sm:py-16">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
           <div>
             <DFLogo tone="dark" />
@@ -41,9 +42,13 @@ export default function DFFooter() {
               Termos de Uso
             </a>
             {WHATSAPP_DF_DISPLAY && (
-              <span className="text-ink font-mono normal-case">
+              <a
+                href={`tel:+${WHATSAPP_DF}`}
+                onClick={() => trackDFPhoneClick("footer_phone")}
+                className="text-ink font-mono normal-case hover:text-black transition-colors"
+              >
                 {WHATSAPP_DF_DISPLAY}
-              </span>
+              </a>
             )}
           </div>
         </div>

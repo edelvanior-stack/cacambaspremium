@@ -50,22 +50,21 @@ export type DFEvent =
   | "region_check_submit";
 
 // ------------------------------------------------------------
-// Mensagens pré-preenchidas por origem do CTA
+// Mensagem pré-preenchida padrão DF (obrigatória para todos os links wa.me)
 // ------------------------------------------------------------
+export const DF_DEFAULT_MESSAGE = "Olá, quero alugar uma caçamba em Brasília. Preciso para o dia: ";
+
 export const DF_MESSAGES = {
-  hero: "Olá! Vim pelo site Caçambas Premium DF e preciso de uma caçamba.",
-  region: "Olá! Quero consultar atendimento para meu endereço no DF.",
-  sizeHelp: "Olá! Preciso de ajuda para escolher a caçamba correta.",
-  publicArea:
-    "Olá! Vou colocar a caçamba em área pública no DF e gostaria de orientação para a contratação.",
-  final: "Olá! Vim pelo site Caçambas Premium DF e quero solicitar uma caçamba.",
+  hero: DF_DEFAULT_MESSAGE,
+  region: DF_DEFAULT_MESSAGE,
+  sizeHelp: DF_DEFAULT_MESSAGE,
+  publicArea: DF_DEFAULT_MESSAGE,
+  final: DF_DEFAULT_MESSAGE,
 } as const;
 
-export const needMessage = (label: string) =>
-  `Olá! Vim pelo site Caçambas Premium DF.\n\nNecessidade: ${label}\n\nGostaria de verificar disponibilidade e valor.`;
+export const needMessage = (_label?: string) => DF_DEFAULT_MESSAGE;
 
-export const materialMessage = (material: string) =>
-  `Olá! Preciso de uma caçamba para ${material.toLowerCase()} no DF.`;
+export const materialMessage = (_material?: string) => DF_DEFAULT_MESSAGE;
 
 export interface QuickQuoteData {
   regiao: string;
@@ -74,8 +73,10 @@ export interface QuickQuoteData {
   data: string;
 }
 
-export const quickQuoteMessage = ({ regiao, bairro, material, data }: QuickQuoteData) =>
-  `Olá! Preciso de uma caçamba no DF.\n\nRegião: ${regiao}\nBairro: ${bairro}\nMaterial: ${material}\nData: ${data}\n\nGostaria de verificar disponibilidade e valor.`;
+export const quickQuoteMessage = ({ data }: QuickQuoteData) =>
+  data && data !== "A combinar"
+    ? `Olá, quero alugar uma caçamba em Brasília. Preciso para o dia: ${data}`
+    : DF_DEFAULT_MESSAGE;
 
 // ------------------------------------------------------------
 // Regiões atendidas

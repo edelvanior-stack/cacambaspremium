@@ -1,10 +1,10 @@
-import { DF_FAQ } from "@/df/config";
-import { SectionHeader } from "./DFPrimitives";
+import { DF_FAQ, DF_DEFAULT_MESSAGE } from "@/df/config";
+import { SectionHeader, DFWhatsAppButton } from "./DFPrimitives";
 
 export default function DFFAQ() {
   return (
     <section id="duvidas" className="border-b border-line bg-concrete py-16 sm:py-20 lg:py-24">
-      <div className="mx-auto max-w-4xl px-5 lg:px-8">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
           eyebrow="Tire Suas Dúvidas"
           title="Perguntas Frequentes"
@@ -16,7 +16,7 @@ export default function DFFAQ() {
           {DF_FAQ.map((item, idx) => (
             <details
               key={item.q}
-              className="group rounded-[4px] border border-line bg-white transition-colors duration-150 open:border-iron"
+              className="group rounded-xl border border-line bg-white transition-colors duration-150 open:border-iron"
             >
               <summary className="flex cursor-pointer select-none items-center justify-between gap-3 p-4 sm:p-5 lg:p-6 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-signal">
                 <span className="flex items-center gap-3 text-left font-display text-sm font-bold uppercase tracking-tight text-ink sm:text-base lg:text-lg">
@@ -39,6 +39,19 @@ export default function DFFAQ() {
               </div>
             </details>
           ))}
+        </div>
+
+        {/* Botão verde de WhatsApp ao final da seção */}
+        <div className="mt-12 flex flex-col items-center justify-center gap-3 text-center">
+          <p className="text-sm font-medium text-iron">Ainda tem dúvidas sobre a locação de caçambas no DF?</p>
+          <DFWhatsAppButton
+            message={DF_DEFAULT_MESSAGE}
+            location="faq_bottom"
+            size="lg"
+            className="w-full sm:w-auto"
+          >
+            Tirar dúvidas no WhatsApp
+          </DFWhatsAppButton>
         </div>
       </div>
     </section>

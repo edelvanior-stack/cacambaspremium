@@ -1,7 +1,7 @@
 import { useState, useRef, type FormEvent } from "react";
 import { DF_ACTIVE_REGIONS, DF_MATERIALS, quickQuoteMessage } from "@/df/config";
 import { dfWhatsAppLink } from "@/df/whatsapp";
-import { trackDF } from "@/df/analytics";
+import { trackDFWhatsAppClick } from "@/df/analytics";
 import { SectionHeader, WhatsAppIcon } from "./DFPrimitives";
 
 export default function DFQuickQuote() {
@@ -14,14 +14,13 @@ export default function DFQuickQuote() {
   const handleStart = () => {
     if (!startedTrackingRef.current) {
       startedTrackingRef.current = true;
-      trackDF("region_check_start", "quick_quote_tool");
     }
   };
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
 
-    let dataFormatada = "A combinar";
+    let dataFormatada = "";
     if (data) {
       const parts = data.split("-");
       if (parts.length === 3) {
@@ -31,28 +30,23 @@ export default function DFQuickQuote() {
       }
     }
 
-    const regiaoFinal = regiao.trim() || "A informar";
-    const materialFinal = material.trim() || "A informar";
+    const regiaoFinal = regiao.trim();
+    const materialFinal = material.trim();
 
     const message = quickQuoteMessage({
       regiao: regiaoFinal,
-      bairro: bairro.trim() || "A informar",
+      bairro: bairro.trim(),
       material: materialFinal,
       data: dataFormatada,
     });
 
-    trackDF("region_check_submit", "quick_quote_tool", {
-      regiao: regiaoFinal,
-      material: materialFinal,
-    });
-    trackDF("whatsapp_region", "quick_quote_form");
-
+    trackDFWhatsAppClick("quick_quote_form");
     window.open(dfWhatsAppLink(message), "_blank", "noopener,noreferrer");
   };
 
   return (
     <section id="consulta" className="relative border-b border-line bg-concrete py-16 sm:py-20 lg:py-24">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl">
           <SectionHeader
             eyebrow="Consulta Rápida"
@@ -62,7 +56,7 @@ export default function DFQuickQuote() {
           />
 
           {/* Ferramenta de Consulta */}
-          <div className="mt-10 overflow-hidden rounded-[4px] border border-line bg-white shadow-[0_4px_24px_rgba(12,13,15,0.06)]">
+          <div className="mt-10 overflow-hidden rounded-2xl border border-line bg-white shadow-[0_4px_24px_rgba(12,13,15,0.06)]">
             {/* Header da Ferramenta */}
             <div className="flex flex-wrap items-center justify-between gap-3 border-b border-line bg-ink px-6 py-3.5 text-white">
               <div className="flex items-center gap-2.5">
@@ -94,7 +88,7 @@ export default function DFQuickQuote() {
                         setRegiao(e.target.value);
                       }}
                       required
-                      className="w-full appearance-none rounded-[3px] border border-line bg-concrete px-4 py-3.5 text-sm font-medium text-ink transition-colors focus:border-ink focus:bg-white focus:outline-none"
+                      className="w-full appearance-none rounded-xl border border-line bg-concrete px-4 py-3.5 text-sm font-medium text-ink transition-colors focus:border-ink focus:bg-white focus:outline-none"
                     >
                       {DF_ACTIVE_REGIONS.map((r) => (
                         <option key={r.name} value={r.name}>
@@ -124,8 +118,7 @@ export default function DFQuickQuote() {
                     onFocus={handleStart}
                     onChange={(e) => setBairro(e.target.value)}
                     placeholder="Ex: SQN 308, QNA, Av. Castanheiras"
-                    required
-                    className="mt-2 w-full rounded-[3px] border border-line bg-concrete px-4 py-3.5 text-sm font-medium text-ink transition-colors placeholder:text-mist focus:border-ink focus:bg-white focus:outline-none"
+                    className="mt-2 w-full rounded-xl border border-line bg-concrete px-4 py-3.5 text-sm font-medium text-ink transition-colors placeholder:text-mist focus:border-ink focus:bg-white focus:outline-none"
                   />
                 </div>
 
@@ -145,7 +138,7 @@ export default function DFQuickQuote() {
                         setMaterial(e.target.value);
                       }}
                       required
-                      className="w-full appearance-none rounded-[3px] border border-line bg-concrete px-4 py-3.5 text-sm font-medium text-ink transition-colors focus:border-ink focus:bg-white focus:outline-none"
+                      className="w-full appearance-none rounded-xl border border-line bg-concrete px-4 py-3.5 text-sm font-medium text-ink transition-colors focus:border-ink focus:bg-white focus:outline-none"
                     >
                       {DF_MATERIALS.map((m) => (
                         <option key={m} value={m}>
@@ -175,7 +168,7 @@ export default function DFQuickQuote() {
                     value={data}
                     onFocus={handleStart}
                     onChange={(e) => setData(e.target.value)}
-                    className="mt-2 w-full rounded-[3px] border border-line bg-concrete px-4 py-3.5 text-sm font-medium text-ink transition-colors focus:border-ink focus:bg-white focus:outline-none"
+                    className="mt-2 w-full rounded-xl border border-line bg-concrete px-4 py-3.5 text-sm font-medium text-ink transition-colors focus:border-ink focus:bg-white focus:outline-none"
                   />
                 </div>
               </div>
@@ -186,9 +179,9 @@ export default function DFQuickQuote() {
                 </span>
                 <button
                   type="submit"
-                  className="group inline-flex w-full sm:w-auto items-center justify-center gap-2.5 rounded-[3px] bg-signal px-7 py-4 font-display text-sm font-bold uppercase tracking-[0.06em] text-ink transition-colors hover:bg-signal-strong focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-signal select-none [font-stretch:92%] shadow-sm"
+                  className="group inline-flex w-full sm:w-auto items-center justify-center gap-2.5 rounded-xl sm:rounded-2xl bg-[#25D366] hover:bg-[#20BD5A] px-7 py-4 min-h-[56px] font-display text-sm sm:text-base font-extrabold uppercase tracking-wide text-white transition-all active:bg-[#1DA851] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#25D366] select-none shadow-[0_4px_16px_rgba(37,211,102,0.28)] cursor-pointer"
                 >
-                  <WhatsAppIcon className="h-5 w-5 shrink-0" />
+                  <WhatsAppIcon className="h-5 w-5 sm:h-6 sm:w-6 shrink-0 fill-current" />
                   <span>CONSULTAR DISPONIBILIDADE</span>
                 </button>
               </div>

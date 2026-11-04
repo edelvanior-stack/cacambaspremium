@@ -1,7 +1,7 @@
-import { DF_MESSAGES, WHATSAPP_DF_DISPLAY } from "@/df/config";
+import { DF_DEFAULT_MESSAGE, WHATSAPP_DF_DISPLAY, WHATSAPP_DF } from "@/df/config";
 import { DFWhatsAppButton, WhatsAppIcon } from "./DFPrimitives";
 import { dfWhatsAppLink } from "@/df/whatsapp";
-import { trackDF } from "@/df/analytics";
+import { trackDFWhatsAppClick, trackDFPhoneClick } from "@/df/analytics";
 
 const NAV = [
   { label: "Como funciona", href: "#como-funciona" },
@@ -32,7 +32,7 @@ export function DFLogo({ tone = "light" }: { tone?: "light" | "dark" }) {
 export default function DFHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-white/[0.07] bg-ink/95 backdrop-blur supports-[backdrop-filter]:bg-ink/85">
-      <div className="mx-auto flex h-14 max-w-7xl items-center justify-between gap-4 px-5 lg:h-16 lg:px-8">
+      <div className="mx-auto flex h-14 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:h-16 lg:px-8">
         <a href="#topo" className="shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-signal">
           <DFLogo />
         </a>
@@ -51,26 +51,31 @@ export default function DFHeader() {
 
         <div className="flex items-center gap-4">
           {WHATSAPP_DF_DISPLAY && (
-            <span className="hidden text-sm font-medium text-white/70 xl:inline">{WHATSAPP_DF_DISPLAY}</span>
+            <a
+              href={`tel:+${WHATSAPP_DF}`}
+              onClick={() => trackDFPhoneClick("header_phone")}
+              className="hidden text-sm font-medium text-white/70 hover:text-white transition-colors xl:inline"
+            >
+              {WHATSAPP_DF_DISPLAY}
+            </a>
           )}
           <DFWhatsAppButton
-            message={DF_MESSAGES.hero}
-            event="whatsapp_hero"
+            message={DF_DEFAULT_MESSAGE}
             location="header"
             size="md"
             className="hidden sm:inline-flex"
           >
-            Pedir caçamba
+            Pedir orçamento
           </DFWhatsAppButton>
           <a
-            href={dfWhatsAppLink(DF_MESSAGES.hero)}
+            href={dfWhatsAppLink(DF_DEFAULT_MESSAGE)}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => trackDF("whatsapp_hero", "header_mobile")}
-            className="inline-flex h-10 items-center gap-2 rounded-[3px] bg-signal px-3.5 font-display text-xs font-bold uppercase tracking-[0.06em] text-ink sm:hidden"
-            aria-label="Pedir caçamba pelo WhatsApp"
+            onClick={() => trackDFWhatsAppClick("header_mobile")}
+            className="inline-flex h-10 items-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20BD5A] text-white px-3.5 font-display text-xs font-extrabold uppercase tracking-wide sm:hidden shadow-sm"
+            aria-label="Pedir orçamento no WhatsApp"
           >
-            <WhatsAppIcon className="h-4 w-4" />
+            <WhatsAppIcon className="h-4 w-4 fill-current" />
             WhatsApp
           </a>
         </div>

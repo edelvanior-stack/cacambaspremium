@@ -1,4 +1,4 @@
-import { WHATSAPP_DF } from "./config";
+import { WHATSAPP_DF, DF_DEFAULT_MESSAGE } from "./config";
 
 const digits = WHATSAPP_DF.replace(/\D/g, "");
 
@@ -7,15 +7,16 @@ export const isWhatsAppDFConfigured = digits.length >= 12;
 
 /**
  * Monta o link do WhatsApp usando EXCLUSIVAMENTE o número do DF.
- * Sem número configurado, abre o WhatsApp com a mensagem pronta
- * para o visitante escolher o contato (nunca usa o número da home).
+ * Codifica a mensagem com encodeURIComponent.
  */
-export function dfWhatsAppLink(message: string): string {
+export function dfWhatsAppLink(message: string = DF_DEFAULT_MESSAGE): string {
   const text = encodeURIComponent(message);
   return isWhatsAppDFConfigured
     ? `https://wa.me/${digits}?text=${text}`
     : `https://wa.me/?text=${text}`;
 }
+
+export const DF_WHATSAPP_LINK = dfWhatsAppLink(DF_DEFAULT_MESSAGE);
 
 if (!isWhatsAppDFConfigured && typeof window !== "undefined" && window.location.hostname === "localhost") {
   console.warn("[Caçambas Premium DF] WHATSAPP_DF ainda não foi configurado em src/df/config.ts");

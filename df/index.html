@@ -1,14 +1,40 @@
 <!doctype html>
 <html lang="pt-BR">
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18502471060"></script>
+    <!-- Google tag (gtag.js) - Loaded on User Interaction and requestIdleCallback for Zero TBT & Guaranteed Conversion -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'AW-18502471060');
+
+      (function() {
+        var loaded = false;
+        function loadGtag() {
+          if (loaded) return;
+          loaded = true;
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18502471060';
+          document.head.appendChild(s);
+          ['pointerdown', 'touchstart', 'scroll', 'keydown', 'click'].forEach(function(e) {
+            window.removeEventListener(e, loadGtag, { passive: true });
+          });
+        }
+        window.__loadGtagNow = loadGtag;
+        ['pointerdown', 'touchstart', 'scroll', 'keydown', 'click'].forEach(function(e) {
+          window.addEventListener(e, loadGtag, { once: true, passive: true });
+        });
+        if ('requestIdleCallback' in window) {
+          window.addEventListener('load', function() {
+            requestIdleCallback(loadGtag, { timeout: 1500 });
+          });
+        } else {
+          window.addEventListener('load', function() {
+            setTimeout(loadGtag, 1500);
+          });
+        }
+      })();
     </script>
 
     <meta charset="UTF-8" />

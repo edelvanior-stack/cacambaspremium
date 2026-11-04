@@ -1,10 +1,10 @@
-import { DF_PRIMARY_REGIONS, DF_SECONDARY_REGIONS, DF_MESSAGES } from "@/df/config";
+import { DF_PRIMARY_REGIONS, DF_SECONDARY_REGIONS, DF_DEFAULT_MESSAGE } from "@/df/config";
 import { DFWhatsAppButton, SectionHeader } from "./DFPrimitives";
 
 export default function DFAreas() {
   return (
     <section id="regioes" className="border-b border-line bg-white py-16 sm:py-20 lg:py-24">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
           eyebrow="Cobertura Geográfica"
           title="Atendimento em Brasília e diversas regiões do DF"
@@ -26,7 +26,7 @@ export default function DFAreas() {
             {DF_PRIMARY_REGIONS.map((region) => (
               <div
                 key={region.name}
-                className="group relative flex flex-col justify-between rounded-[4px] border border-line bg-concrete p-4 transition-all duration-150 hover:border-ink hover:bg-white hover:shadow-sm"
+                className="group relative flex flex-col justify-between rounded-xl border border-line bg-concrete p-4 transition-all duration-150 hover:border-ink hover:bg-white hover:shadow-sm"
               >
                 <div className="flex items-center justify-between">
                   <span className="font-display text-[11px] font-extrabold uppercase tracking-wider text-signal-strong">
@@ -57,7 +57,7 @@ export default function DFAreas() {
             {DF_SECONDARY_REGIONS.map((region) => (
               <div
                 key={region.name}
-                className="group flex items-center justify-between rounded-[3px] border border-line/70 bg-white px-3.5 py-3 transition-colors hover:border-iron"
+                className="group flex items-center justify-between rounded-lg border border-line/70 bg-white px-3.5 py-3 transition-colors hover:border-iron"
               >
                 <span className="text-xs font-semibold text-iron group-hover:text-ink">
                   {region.name}
@@ -68,8 +68,8 @@ export default function DFAreas() {
           </div>
         </div>
 
-        {/* Bloco: Não encontrou sua região? */}
-        <div className="mt-12 flex flex-col items-center justify-between gap-6 rounded-[4px] border border-line bg-concrete p-6 sm:flex-row sm:p-8">
+        {/* Bloco: Não encontrou sua região? com botão verde ao final da seção */}
+        <div className="mt-12 flex flex-col items-center justify-between gap-6 rounded-2xl border border-line bg-concrete p-6 sm:flex-row sm:p-8">
           <div>
             <p className="font-display text-lg font-bold uppercase tracking-tight text-ink sm:text-xl">
               Não encontrou sua região?
@@ -79,14 +79,12 @@ export default function DFAreas() {
             </p>
           </div>
           <DFWhatsAppButton
-            message={DF_MESSAGES.region}
-            event="whatsapp_region"
+            message={DF_DEFAULT_MESSAGE}
             location="areas_bottom"
-            variant="dark"
             size="md"
             className="w-full shrink-0 sm:w-auto"
           >
-            CONSULTAR MEU ENDEREÇO
+            Consultar meu endereço
           </DFWhatsAppButton>
         </div>
       </div>

@@ -1,82 +1,100 @@
-import { DF_MESSAGES } from "@/df/config";
+import { DF_DEFAULT_MESSAGE } from "@/df/config";
 import { DFAnchorButton, DFWhatsAppButton } from "./DFPrimitives";
 
-const TRUST = ["Atendimento no DF", "Entrega e retirada", "Orçamento rápido", "Destinação responsável"];
+const TRUST = [
+  "Brasília e DF",
+  "Permanência conforme regras locais",
+  "Entrega e retirada pontuais",
+  "Atendimento direto",
+];
 
 export default function DFHero() {
   return (
     <section id="topo" aria-labelledby="df-h1" className="relative isolate overflow-hidden bg-ink text-white">
+      {/* Background picture optimized with mobile & desktop WebP */}
       <picture>
-        <source media="(max-width: 767px)" srcSet="/images/df/df-hero-mobile.webp" width={640} height={800} type="image/webp" />
+        <source
+          media="(max-width: 767px)"
+          srcSet="/images/df/df-hero-mobile.webp"
+          width={640}
+          height={800}
+          type="image/webp"
+        />
         <img
           src="/images/df/df-hero.webp"
-          alt="Caçamba de entulho posicionada em rua residencial de Brasília"
+          alt="Aluguel de Caçamba em Brasília e DF - Caçambas Premium"
           width={1376}
           height={768}
           fetchPriority="high"
           loading="eager"
           decoding="async"
-          className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
+          className="absolute inset-0 -z-20 h-full w-full object-cover object-[center_35%] sm:object-center"
         />
       </picture>
-      {/* Overlays para legibilidade: vertical no mobile, lateral no desktop */}
+
+      {/* Dark overlay for contrast */}
       <div
-        className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(12,13,15,0.82)_0%,rgba(12,13,15,0.72)_45%,rgba(12,13,15,0.92)_100%)] md:bg-[linear-gradient(90deg,rgba(12,13,15,0.94)_0%,rgba(12,13,15,0.82)_38%,rgba(12,13,15,0.25)_75%,rgba(12,13,15,0.1)_100%)]"
+        className="absolute inset-0 -z-10 bg-slate-950/80 sm:bg-slate-950/75"
         aria-hidden="true"
       />
 
-      <div className="mx-auto max-w-7xl px-5 pb-10 pt-10 sm:pt-14 md:pb-0 md:pt-24 lg:px-8 lg:pt-28">
-        <div className="max-w-[42rem] lg:max-w-[46rem]">
-          <p className="eyebrow flex items-center gap-3 text-signal">
-            <span className="inline-block h-px w-8 bg-current" aria-hidden="true" />
-            Aluguel de caçambas · Distrito Federal
-          </p>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-8 pb-10 sm:pt-16 sm:pb-16 md:pt-20 md:pb-20">
+        <div className="max-w-3xl">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-sm px-3 sm:px-4 py-1 sm:py-1.5 mb-3 sm:mb-4 border border-white/10">
+            <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="text-white text-xs sm:text-sm font-semibold tracking-wide">
+              Atendimento pelo WhatsApp
+            </span>
+          </div>
 
-          <h1 id="df-h1" className="display mt-5 text-[2rem] leading-[1.04] sm:text-[3rem] lg:text-[3.75rem] xl:text-[4.125rem]">
-            Caçamba de Entulho em Brasília e Todo o DF
+          {/* H1 Oficial Obrigatório */}
+          <h1
+            id="df-h1"
+            className="font-display font-extrabold text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-white leading-[1.12] mb-3 sm:mb-4 tracking-tight"
+          >
+            Aluguel de{" "}
+            <span className="text-signal">Caçamba</span>{" "}
+            em Brasília e DF
           </h1>
 
-          <p className="mt-5 max-w-[36rem] text-base leading-relaxed text-white/80 sm:text-lg">
-            Entrega rápida para obras, reformas e limpezas.{" "}
-            <span className="text-white">
-              Informe seu endereço e receba disponibilidade e orçamento pelo WhatsApp.
-            </span>
+          {/* Linha abaixo obrigatória com preço, permanência e regiões */}
+          <p className="text-white/95 text-xs sm:text-sm md:text-base leading-relaxed mb-5 sm:mb-6 font-medium bg-black/40 backdrop-blur-sm p-3.5 sm:p-4 rounded-xl border border-white/10">
+            Orçamento sob consulta pelo WhatsApp | Permanência conforme legislação do DF | Atendemos Brasília, Plano Piloto, Águas Claras, Taguatinga, Ceilândia, Samambaia, Guará e região
           </p>
 
-          <div className="mt-8 flex flex-col gap-3.5 sm:flex-row sm:items-center">
+          {/* Botão verde do Hero - largura total no mobile e min-h-[56px] */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
             <DFWhatsAppButton
-              message={DF_MESSAGES.hero}
-              event="whatsapp_hero"
-              location="hero"
+              message={DF_DEFAULT_MESSAGE}
+              location="hero_primary"
               size="lg"
-              className="w-full sm:w-auto shadow-[0_4px_20px_rgba(255,196,0,0.25)]"
+              className="w-full sm:w-auto"
             >
-              Pedir caçamba pelo WhatsApp
+              Pedir orçamento no WhatsApp
             </DFWhatsAppButton>
-            <DFAnchorButton href="#consulta" size="lg" className="w-full sm:w-auto">
-              Consultar minha região
+            <DFAnchorButton
+              href="#regioes"
+              size="lg"
+              className="w-full sm:w-auto"
+            >
+              Ver Regiões Atendidas
             </DFAnchorButton>
           </div>
-        </div>
-      </div>
 
-      {/* Trust bar */}
-      <div className="border-t border-white/10 md:mt-24 lg:mt-28">
-        <ul className="mx-auto grid max-w-7xl grid-cols-2 gap-px bg-white/10 md:grid-cols-4">
-          {TRUST.map((item) => (
-            <li
-              key={item}
-              className="flex items-center gap-3 bg-ink/90 px-5 py-4 text-[0.8125rem] font-medium text-white/85 sm:text-sm md:bg-ink/75 md:py-6 md:backdrop-blur-sm lg:px-8"
-            >
-              <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-signal/15 text-signal" aria-hidden="true">
-                <svg viewBox="0 0 12 12" className="h-2.5 w-2.5" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M2 6.2l2.5 2.3L10 3.2" />
-                </svg>
-              </span>
-              {item}
-            </li>
-          ))}
-        </ul>
+          {/* Destaques rápidos */}
+          <div className="flex flex-wrap gap-2 sm:gap-3">
+            {TRUST.map((item) => (
+              <div
+                key={item}
+                className="flex items-center gap-1.5 sm:gap-2 bg-white/10 backdrop-blur-sm px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg border border-white/5 text-white/90 text-[11px] sm:text-xs font-medium"
+              >
+                <span className="h-1.5 w-1.5 rounded-full bg-signal" aria-hidden="true" />
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

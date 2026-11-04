@@ -1,5 +1,6 @@
-import { DF_MESSAGES, WHATSAPP_DF_DISPLAY } from "@/df/config";
+import { DF_DEFAULT_MESSAGE, WHATSAPP_DF_DISPLAY, WHATSAPP_DF } from "@/df/config";
 import { DFWhatsAppButton } from "./DFPrimitives";
+import { trackDFPhoneClick } from "@/df/analytics";
 
 export default function DFFinalCTA() {
   return (
@@ -15,7 +16,7 @@ export default function DFFinalCTA() {
         aria-hidden="true"
       />
 
-      <div className="relative mx-auto max-w-5xl px-5 text-center lg:px-8">
+      <div className="relative mx-auto max-w-5xl px-4 sm:px-6 text-center lg:px-8">
         <p className="eyebrow inline-flex items-center gap-3 text-signal">
           <span className="inline-block h-px w-8 bg-current" aria-hidden="true" />
           Atendimento Direto
@@ -27,19 +28,17 @@ export default function DFFinalCTA() {
         </h2>
 
         <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/75 sm:text-lg">
-          Envie seu endereço e o tipo de material para consultar disponibilidade e valor.
+          Envie seu endereço e o tipo de material para consultar disponibilidade e orçamento rápido no WhatsApp.
         </p>
 
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <DFWhatsAppButton
-            message={DF_MESSAGES.final}
-            event="whatsapp_final"
+            message={DF_DEFAULT_MESSAGE}
             location="final_cta"
-            variant="signal"
             size="lg"
             className="w-full sm:w-auto"
           >
-            CONSULTAR PELO WHATSAPP
+            Pedir orçamento no WhatsApp
           </DFWhatsAppButton>
         </div>
 
@@ -49,9 +48,13 @@ export default function DFFinalCTA() {
             Atendimento rápido · Brasília e região
           </span>
           {WHATSAPP_DF_DISPLAY && (
-            <span className="text-white/60">
+            <a
+              href={`tel:+${WHATSAPP_DF}`}
+              onClick={() => trackDFPhoneClick("final_cta_phone")}
+              className="text-white/70 hover:text-white transition-colors"
+            >
               Contato: {WHATSAPP_DF_DISPLAY}
-            </span>
+            </a>
           )}
         </div>
       </div>

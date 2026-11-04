@@ -1,10 +1,10 @@
-import { DF_MESSAGES, DF_PROOFS } from "@/df/config";
+import { DF_DEFAULT_MESSAGE, DF_PROOFS } from "@/df/config";
 import { DFWhatsAppButton, SectionHeader } from "./DFPrimitives";
 
 export default function DFCompliance() {
   return (
     <section id="conformidade" className="border-b border-line bg-white py-16 sm:py-20 lg:py-24">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Lado esquerdo: texto institucional sério */}
           <div>
@@ -18,7 +18,7 @@ export default function DFCompliance() {
             {DF_PROOFS.length > 0 && (
               <div className="mt-8 grid grid-cols-2 gap-4 border-t border-line pt-6">
                 {DF_PROOFS.map((proof) => (
-                  <div key={proof.label} className="rounded-[3px] bg-concrete p-4">
+                  <div key={proof.label} className="rounded-xl bg-concrete p-4">
                     <span className="font-display text-xl font-bold text-ink">{proof.value}</span>
                     <span className="mt-1 block text-xs text-mist">{proof.label}</span>
                   </div>
@@ -28,7 +28,7 @@ export default function DFCompliance() {
           </div>
 
           {/* Lado direito: foto real da operação de caçamba em Brasília */}
-          <div className="relative overflow-hidden rounded-[4px] border border-line bg-concrete shadow-[0_8px_30px_rgba(12,13,15,0.06)]">
+          <div className="relative overflow-hidden rounded-2xl border border-line bg-concrete shadow-[0_8px_30px_rgba(12,13,15,0.06)]">
             <picture>
               <source media="(max-width: 640px)" srcSet="/images/df/df-operacao-720.webp" type="image/webp" />
               <img
@@ -47,8 +47,8 @@ export default function DFCompliance() {
           </div>
         </div>
 
-        {/* Bloco educativo: Vai colocar a caçamba em área pública? */}
-        <div className="mt-16 rounded-[4px] border border-line bg-graphite p-7 text-white sm:p-10 lg:p-12">
+        {/* Bloco educativo: Vai colocar a caçamba em área pública? com botão verde ao final da seção */}
+        <div className="mt-16 rounded-2xl border border-line bg-graphite p-7 text-white sm:p-10 lg:p-12">
           <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
             <div className="max-w-2xl">
               <span className="eyebrow text-signal">
@@ -67,14 +67,12 @@ export default function DFCompliance() {
 
             <div className="w-full shrink-0 lg:w-auto">
               <DFWhatsAppButton
-                message={DF_MESSAGES.publicArea}
-                event="whatsapp_region"
-                location="compliance_public_area"
-                variant="signal"
+                message={DF_DEFAULT_MESSAGE}
+                location="compliance_bottom"
                 size="lg"
                 className="w-full lg:w-auto"
               >
-                Orientar contratação
+                Orientar contratação no WhatsApp
               </DFWhatsAppButton>
             </div>
           </div>

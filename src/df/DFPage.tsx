@@ -48,12 +48,6 @@ export default function DFPage() {
       document.head.appendChild(canonical);
     }
     canonical.href = "https://cacambaspremium.com.br/df";
-
-    // Track pageview on GA / gtag
-    window.gtag?.("event", "page_view", {
-      page_title: document.title,
-      page_path: "/df",
-    });
   }, []);
 
   return (
