@@ -27,7 +27,9 @@
         });
         if ('requestIdleCallback' in window) {
           window.addEventListener('load', function() {
-            requestIdleCallback(loadGtag);
+            setTimeout(function() {
+              requestIdleCallback(loadGtag);
+            }, 6000);
           });
         }
       })();
