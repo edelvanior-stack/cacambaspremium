@@ -10,7 +10,7 @@ export default function DFNeeds() {
         <SectionHeader
           eyebrow="Orientação por Tipo de Obra"
           title="Qual é a necessidade da sua obra?"
-          lead="Identifique o perfil da sua reforma para indicarmos a solução correta de caçamba. Sem medidas ou valores estimados sem avaliação."
+          lead="Identifique o perfil da sua reforma para indicarmos a solução correta de caçamba. Caçamba de 3m³."
         />
 
         <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">

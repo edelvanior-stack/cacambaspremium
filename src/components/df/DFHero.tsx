@@ -2,10 +2,10 @@ import { DF_DEFAULT_MESSAGE } from "@/df/config";
 import { DFAnchorButton, DFWhatsAppButton } from "./DFPrimitives";
 
 const TRUST = [
+  "Caçamba de 3m³",
   "Brasília e DF",
   "Permanência conforme regras locais",
   "Entrega e retirada pontuais",
-  "Atendimento direto",
 ];
 
 export default function DFHero() {
@@ -51,16 +51,21 @@ export default function DFHero() {
           {/* H1 Oficial Obrigatório */}
           <h1
             id="df-h1"
-            className="font-display font-extrabold text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-white leading-[1.12] mb-3 sm:mb-4 tracking-tight"
+            className="font-display font-extrabold text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-white leading-[1.12] mb-2 sm:mb-3 tracking-tight"
           >
             Aluguel de{" "}
             <span className="text-signal">Caçamba</span>{" "}
             em Brasília e DF
           </h1>
 
-          {/* Linha abaixo obrigatória com preço, permanência e regiões */}
-          <p className="text-white/95 text-xs sm:text-sm md:text-base leading-relaxed mb-5 sm:mb-6 font-medium bg-black/40 backdrop-blur-sm p-3.5 sm:p-4 rounded-xl border border-white/10">
-            Orçamento sob consulta pelo WhatsApp | Permanência conforme legislação do DF | Atendemos Brasília, Plano Piloto, Águas Claras, Taguatinga, Ceilândia, Samambaia, Guará e região
+          {/* Linha de apoio logo abaixo do H1 */}
+          <p className="text-signal font-display font-bold text-sm sm:text-lg md:text-xl mb-3 sm:mb-4 tracking-tight">
+            Disk Entulho e aluguel de caçamba em Brasília e em todo o DF.
+          </p>
+
+          {/* Linha abaixo com medida, orçamento, permanência e regiões */}
+          <p className="text-white/95 text-xs sm:text-sm md:text-base leading-relaxed mb-4 sm:mb-6 font-medium bg-black/40 backdrop-blur-sm p-3 sm:p-4 rounded-xl border border-white/10">
+            Caçamba de 3m³ | Orçamento sob consulta pelo WhatsApp | Permanência conforme legislação do DF | Atendemos Brasília, Plano Piloto, Águas Claras, Taguatinga, Ceilândia, Samambaia, Guará e região
           </p>
 
           {/* Botão verde do Hero - largura total no mobile e min-h-[56px] */}

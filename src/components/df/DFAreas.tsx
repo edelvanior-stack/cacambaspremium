@@ -68,8 +68,14 @@ export default function DFAreas() {
           </div>
         </div>
 
-        {/* Bloco: Não encontrou sua região? com botão verde ao final da seção */}
-        <div className="mt-12 flex flex-col items-center justify-between gap-6 rounded-2xl border border-line bg-concrete p-6 sm:flex-row sm:p-8">
+        {/* Bloco: Entorno do DF e Demais Regiões com botão verde ao final da seção */}
+        <div className="mt-10 rounded-xl border border-line/80 bg-concrete/60 p-5 sm:p-6">
+          <p className="text-sm font-medium leading-relaxed text-ink">
+            Também atendemos o Entorno do DF, como Valparaíso de Goiás, Cidade Ocidental, Novo Gama, Águas Lindas de Goiás, Luziânia e Santo Antônio do Descoberto, sob consulta de endereço.
+          </p>
+        </div>
+
+        <div className="mt-6 flex flex-col items-center justify-between gap-6 rounded-2xl border border-line bg-concrete p-6 sm:flex-row sm:p-8">
           <div>
             <p className="font-display text-lg font-bold uppercase tracking-tight text-ink sm:text-xl">
               Não encontrou sua região?

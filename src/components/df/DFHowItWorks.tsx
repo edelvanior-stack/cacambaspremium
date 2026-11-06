@@ -26,7 +26,7 @@ export default function DFHowItWorks() {
         <SectionHeader
           eyebrow="Processo Direto"
           title="Sua obra limpa sem complicação."
-          lead="Três passos transparentes para locação e destinação no Distrito Federal, sem burocracia e com atendimento direto pelo WhatsApp."
+          lead="Três passos transparentes de disk entulho para locação e destinação de caçamba no Distrito Federal, sem burocracia e com atendimento direto pelo WhatsApp."
         />
 
         {/* 3 passos */}

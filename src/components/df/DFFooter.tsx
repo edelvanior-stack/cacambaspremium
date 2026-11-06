@@ -55,7 +55,7 @@ export default function DFFooter() {
 
         <div className="mt-10 flex flex-col items-start justify-between gap-4 border-t border-line pt-6 text-[11px] text-mist sm:flex-row sm:items-center">
           <p>© {currentYear} Caçambas Premium · CNPJ: {DF_COMPANY_INFO.cnpj} · Operação Distrito Federal. Todos os direitos reservados.</p>
-          <p className="text-mist">Atendimento exclusivo DF via WhatsApp.</p>
+          <p className="text-mist">Atendimento em Brasília, DF e Entorno via WhatsApp.</p>
         </div>
       </div>
     </footer>

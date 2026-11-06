@@ -108,6 +108,8 @@ export const DF_REGIONS: DFRegion[] = [
   { name: "Lago Norte", active: true, featured: false },
   { name: "Sudoeste", active: true, featured: false },
   { name: "Noroeste", active: true, featured: false },
+  { name: "Sobradinho", active: true, featured: false },
+  { name: "Planaltina", active: true, featured: false },
 ];
 
 export const DF_ACTIVE_REGIONS = DF_REGIONS.filter((r) => r.active);
@@ -165,7 +167,7 @@ export const DF_MATERIALS: string[] = [
 export const DF_FAQ: { q: string; a: string }[] = [
   {
     q: "Quanto custa alugar uma caçamba no DF?",
-    a: "O preço depende do endereço, tipo de material e condições da operação. Envie sua localização pelo WhatsApp para receber o orçamento.",
+    a: "O valor depende da região de entrega, do tipo de material e do tempo de permanência. Você recebe o orçamento direto no WhatsApp antes de contratar.",
   },
   {
     q: "Vocês atendem minha região?",
