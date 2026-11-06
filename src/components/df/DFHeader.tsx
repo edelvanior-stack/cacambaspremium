@@ -8,6 +8,7 @@ const NAV = [
   { label: "Regiões", href: "#regioes" },
   { label: "Materiais", href: "#materiais" },
   { label: "Dúvidas", href: "#duvidas" },
+  { label: "Valores", href: "#valores" },
 ];
 
 export function DFLogo({ tone = "light" }: { tone?: "light" | "dark" }) {

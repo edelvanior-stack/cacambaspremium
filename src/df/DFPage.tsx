@@ -2,6 +2,7 @@ import DFHeader from "@/components/df/DFHeader";
 import DFHero from "@/components/df/DFHero";
 import DFQuickQuote from "@/components/df/DFQuickQuote";
 import DFNeeds from "@/components/df/DFNeeds";
+import DFPricing from "@/components/df/DFPricing";
 import DFHowItWorks from "@/components/df/DFHowItWorks";
 import DFAreas from "@/components/df/DFAreas";
 import DFMaterials from "@/components/df/DFMaterials";
@@ -19,6 +20,7 @@ export default function DFPage() {
         <DFHero />
         <DFQuickQuote />
         <DFNeeds />
+        <DFPricing />
         <DFHowItWorks />
         <DFAreas />
         <DFMaterials />

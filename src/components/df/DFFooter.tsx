@@ -35,6 +35,9 @@ export default function DFFooter() {
             <a href="#duvidas" className="hover:text-ink transition-colors">
               Dúvidas
             </a>
+            <a href="#valores" className="hover:text-ink transition-colors">
+              Valores
+            </a>
             <a href="/df/politica-de-privacidade" className="hover:text-ink transition-colors text-iron/90">
               Política de Privacidade
             </a>

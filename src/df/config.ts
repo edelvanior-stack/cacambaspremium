@@ -66,6 +66,23 @@ export const needMessage = (_label?: string) => DF_DEFAULT_MESSAGE;
 
 export const materialMessage = (_material?: string) => DF_DEFAULT_MESSAGE;
 
+export interface DFSizePricing {
+  size: number;
+  label: string;
+  price: string;
+}
+
+export const DF_SIZES_PRICING: DFSizePricing[] = [
+  { size: 3, label: "Caçamba 3m³", price: "R$ 199,99" },
+  { size: 4, label: "Caçamba 4m³", price: "R$ 249,99" },
+  { size: 5, label: "Caçamba 5m³", price: "R$ 299,99" },
+  { size: 7, label: "Caçamba 7m³", price: "R$ 370,00" },
+  { size: 10, label: "Caçamba 10m³", price: "R$ 499,99" },
+];
+
+export const sizePricingMessage = (size: number) =>
+  `Olá, vim pelo Google e quero alugar uma caçamba de ${size}m³ em Brasília. Preciso para o dia: `;
+
 export interface QuickQuoteData {
   regiao: string;
   bairro: string;
@@ -167,7 +184,7 @@ export const DF_MATERIALS: string[] = [
 export const DF_FAQ: { q: string; a: string }[] = [
   {
     q: "Quanto custa alugar uma caçamba no DF?",
-    a: "O valor depende da região de entrega, do tipo de material e do tempo de permanência. Você recebe o orçamento direto no WhatsApp antes de contratar.",
+    a: "Temos caçambas de 3m³ por R$ 199,99, 4m³ por R$ 249,99, 5m³ por R$ 299,99, 7m³ por R$ 370,00 e 10m³ por R$ 499,99. Peça pelo WhatsApp e confirme disponibilidade e entrega para o seu endereço.",
   },
   {
     q: "Vocês atendem o Entorno do DF?",

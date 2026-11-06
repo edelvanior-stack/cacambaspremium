@@ -2,6 +2,7 @@ import { DF_DEFAULT_MESSAGE } from "@/df/config";
 import { DFAnchorButton, DFWhatsAppButton } from "./DFPrimitives";
 
 const TRUST = [
+  "A partir de R$ 199,99",
   "Caçamba de 3m³",
   "Brasília e DF",
   "Entorno do DF",
@@ -66,7 +67,7 @@ export default function DFHero() {
 
           {/* Linha abaixo com medida, orçamento, permanência e regiões */}
           <p className="text-white/95 text-xs sm:text-sm md:text-base leading-relaxed mb-4 sm:mb-6 font-medium bg-black/45 p-3 sm:p-4 rounded-xl border border-white/10">
-            Caçamba de 3m³ | Orçamento sob consulta pelo WhatsApp | Permanência conforme legislação do DF | Atendemos Brasília, Plano Piloto, Águas Claras, Taguatinga, Ceilândia, Samambaia, Guará e região, incluindo o Entorno do DF
+            Caçamba de 3m³ | Caçambas a partir de R$ 199,99 | Permanência conforme legislação do DF | Atendemos Brasília, Plano Piloto, Águas Claras, Taguatinga, Ceilândia, Samambaia, Guará e região, incluindo o Entorno do DF
           </p>
 
           {/* Botão verde do Hero - largura total no mobile e min-h-[56px] */}
