@@ -3,6 +3,7 @@
 /* Escaneia SOMENTE os arquivos da página DF (não inclui classes da home) */
 @source "./";
 @source "../components/df";
+@source "../../df/index.html";
 
 @theme {
   --color-ink: #0c0d0f;
@@ -23,16 +24,14 @@
 /* Tipografia de títulos: grotesca semi-condensada, peso alto, espaçamento justo */
 @utility display {
   font-family: var(--font-display);
-  font-stretch: 84%;
   letter-spacing: -0.022em;
-  font-weight: 750;
+  font-weight: 800;
 }
 
 /* Rótulos/eyebrows: caixa alta espaçada */
 @utility eyebrow {
   font-family: var(--font-display);
-  font-stretch: 90%;
-  font-weight: 650;
+  font-weight: 700;
   font-size: 0.75rem;
   line-height: 1rem;
   letter-spacing: 0.16em;
@@ -57,7 +56,6 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
   }
 
   ::selection {

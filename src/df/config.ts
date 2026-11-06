@@ -52,7 +52,7 @@ export type DFEvent =
 // ------------------------------------------------------------
 // Mensagem pré-preenchida padrão DF (obrigatória para todos os links wa.me)
 // ------------------------------------------------------------
-export const DF_DEFAULT_MESSAGE = "Olá, quero alugar uma caçamba em Brasília. Preciso para o dia: ";
+export const DF_DEFAULT_MESSAGE = "Olá, vim pelo Google e quero alugar uma caçamba em Brasília. Preciso para o dia: ";
 
 export const DF_MESSAGES = {
   hero: DF_DEFAULT_MESSAGE,
@@ -75,7 +75,7 @@ export interface QuickQuoteData {
 
 export const quickQuoteMessage = ({ data }: QuickQuoteData) =>
   data && data !== "A combinar"
-    ? `Olá, quero alugar uma caçamba em Brasília. Preciso para o dia: ${data}`
+    ? `Olá, vim pelo Google e quero alugar uma caçamba em Brasília. Preciso para o dia: ${data}`
     : DF_DEFAULT_MESSAGE;
 
 // ------------------------------------------------------------
@@ -168,6 +168,18 @@ export const DF_FAQ: { q: string; a: string }[] = [
   {
     q: "Quanto custa alugar uma caçamba no DF?",
     a: "O valor depende da região de entrega, do tipo de material e do tempo de permanência. Você recebe o orçamento direto no WhatsApp antes de contratar.",
+  },
+  {
+    q: "Vocês atendem o Entorno do DF?",
+    a: "Sim. Atendemos o Entorno do DF, como Valparaíso de Goiás, Cidade Ocidental, Novo Gama, Águas Lindas de Goiás, Luziânia e Santo Antônio do Descoberto, sob consulta de endereço.",
+  },
+  {
+    q: "Como peço o orçamento da caçamba?",
+    a: "Chame no WhatsApp e informe o endereço, o tipo de material e para quando precisa. Você recebe disponibilidade e valores antes de contratar.",
+  },
+  {
+    q: "Posso pedir caçamba para uma obra pequena ou reforma?",
+    a: "Sim. Atendemos obras pequenas, médias e grandes volumes. Fale com a equipe e ajudamos a escolher a opção certa para o seu caso.",
   },
   {
     q: "Vocês atendem minha região?",

@@ -20,7 +20,7 @@ export function DFLogo({ tone = "light" }: { tone?: "light" | "dark" }) {
         <path d="M9.5 15h13" stroke="#FFC400" strokeWidth="1.6" />
       </svg>
       <span className="flex items-baseline gap-2 leading-none">
-        <span className="font-display text-[0.95rem] font-extrabold uppercase tracking-[0.04em] [font-stretch:86%]">
+        <span className="font-display text-[0.95rem] font-extrabold uppercase tracking-[0.04em]">
           Caçambas Premium
         </span>
         <span className="font-display text-[0.7rem] font-bold uppercase tracking-[0.18em] text-signal">DF</span>
@@ -31,7 +31,7 @@ export function DFLogo({ tone = "light" }: { tone?: "light" | "dark" }) {
 
 export default function DFHeader() {
   return (
-    <header className="sticky top-0 z-40 border-b border-white/[0.07] bg-ink/95 backdrop-blur supports-[backdrop-filter]:bg-ink/85">
+    <header className="sticky top-0 z-40 border-b border-white/[0.07] bg-ink">
       <div className="mx-auto flex h-14 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:h-16 lg:px-8">
         <a href="#topo" className="shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-signal">
           <DFLogo />

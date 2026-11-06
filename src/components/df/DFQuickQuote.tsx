@@ -60,7 +60,7 @@ export default function DFQuickQuote() {
             {/* Header da Ferramenta */}
             <div className="flex flex-wrap items-center justify-between gap-3 border-b border-line bg-ink px-6 py-3.5 text-white">
               <div className="flex items-center gap-2.5">
-                <span className="flex h-2 w-2 rounded-full bg-signal animate-pulse" aria-hidden="true" />
+                <span className="flex h-2 w-2 rounded-full bg-signal" aria-hidden="true" />
                 <span className="font-display text-xs font-bold uppercase tracking-[0.14em] text-signal">
                   Consulta de Disponibilidade DF
                 </span>
