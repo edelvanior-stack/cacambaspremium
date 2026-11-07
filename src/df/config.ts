@@ -52,7 +52,8 @@ export type DFEvent =
 // ------------------------------------------------------------
 // Mensagem pré-preenchida padrão DF (obrigatória para todos os links wa.me)
 // ------------------------------------------------------------
-export const DF_DEFAULT_MESSAGE = "Olá, vim pelo Google e quero alugar uma caçamba em Brasília. Preciso para o dia: ";
+export const DF_DEFAULT_MESSAGE =
+  "Olá, vim pelo Google e quero alugar uma caçamba em Brasília. Pode me passar disponibilidade e valor?";
 
 export const DF_MESSAGES = {
   hero: DF_DEFAULT_MESSAGE,
@@ -81,7 +82,7 @@ export const DF_SIZES_PRICING: DFSizePricing[] = [
 ];
 
 export const sizePricingMessage = (size: number) =>
-  `Olá, vim pelo Google e quero alugar uma caçamba de ${size}m³ em Brasília. Preciso para o dia: `;
+  `Olá, vim pelo Google e quero alugar uma caçamba de ${size}m³ em Brasília. Pode me passar disponibilidade?`;
 
 export interface QuickQuoteData {
   regiao: string;
@@ -90,10 +91,24 @@ export interface QuickQuoteData {
   data: string;
 }
 
-export const quickQuoteMessage = ({ data }: QuickQuoteData) =>
-  data && data !== "A combinar"
-    ? `Olá, vim pelo Google e quero alugar uma caçamba em Brasília. Preciso para o dia: ${data}`
-    : DF_DEFAULT_MESSAGE;
+export const quickQuoteMessage = ({ regiao, bairro, material, data }: QuickQuoteData) => {
+  const details: string[] = [];
+  if (regiao) {
+    details.push(bairro ? `Região: ${regiao} (${bairro})` : `Região: ${regiao}`);
+  } else if (bairro) {
+    details.push(`Local: ${bairro}`);
+  }
+  if (material) {
+    details.push(`Material: ${material}`);
+  }
+  if (data && data !== "A combinar") {
+    details.push(`Data desejada: ${data}`);
+  }
+  if (details.length === 0) {
+    return DF_DEFAULT_MESSAGE;
+  }
+  return `Olá, vim pelo Google e quero alugar uma caçamba em Brasília (${details.join(", ")}). Pode me passar disponibilidade e valor?`;
+};
 
 // ------------------------------------------------------------
 // Regiões atendidas

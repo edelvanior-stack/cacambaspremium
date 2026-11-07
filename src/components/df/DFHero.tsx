@@ -1,5 +1,6 @@
-import { DF_DEFAULT_MESSAGE } from "@/df/config";
-import { DFAnchorButton, DFWhatsAppButton } from "./DFPrimitives";
+import { DF_DEFAULT_MESSAGE, WHATSAPP_DF } from "@/df/config";
+import { trackDFPhoneClick } from "@/df/analytics";
+import { DFAnchorButton, DFWhatsAppButton, PhoneIcon } from "./DFPrimitives";
 
 const TRUST = [
   "A partir de R$ 199,99",
@@ -70,8 +71,8 @@ export default function DFHero() {
             Caçamba de 3m³ | Caçambas a partir de R$ 199,99 | Permanência conforme legislação do DF | Atendemos Brasília, Plano Piloto, Águas Claras, Taguatinga, Ceilândia, Samambaia, Guará e região, incluindo o Entorno do DF
           </p>
 
-          {/* Botão verde do Hero - largura total no mobile e min-h-[56px] */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-5 sm:mb-8">
+          {/* Botão verde do Hero - largura total no mobile e min-h-[56px], com botão secundário "Ligar agora" */}
+          <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-2.5 sm:gap-4 mb-5 sm:mb-8">
             <DFWhatsAppButton
               message={DF_DEFAULT_MESSAGE}
               location="hero_primary"
@@ -80,13 +81,23 @@ export default function DFHero() {
             >
               Pedir orçamento no WhatsApp
             </DFWhatsAppButton>
-            <DFAnchorButton
-              href="#regioes"
-              size="lg"
-              className="w-full sm:w-auto"
-            >
-              Ver Regiões Atendidas
-            </DFAnchorButton>
+            <div className="grid grid-cols-2 gap-2.5 sm:contents">
+              <a
+                href={`tel:+${WHATSAPP_DF}`}
+                onClick={() => trackDFPhoneClick("hero_phone")}
+                className="group inline-flex h-12 sm:h-14 min-h-[48px] sm:min-h-[56px] w-full sm:w-auto items-center justify-center gap-2 rounded-xl sm:rounded-2xl border border-white/35 bg-white/10 hover:border-white hover:bg-white/15 px-3 sm:px-6 font-display text-xs sm:text-base font-extrabold uppercase tracking-wide text-white transition-all duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white select-none cursor-pointer"
+              >
+                <PhoneIcon className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+                <span>Ligar agora</span>
+              </a>
+              <DFAnchorButton
+                href="#regioes"
+                size="lg"
+                className="w-full sm:w-auto !h-12 sm:!h-14 !min-h-[48px] sm:!min-h-[56px] !px-3 sm:!px-6 !text-xs sm:!text-base"
+              >
+                Ver Regiões Atendidas
+              </DFAnchorButton>
+            </div>
           </div>
 
           {/* Destaques rápidos */}
