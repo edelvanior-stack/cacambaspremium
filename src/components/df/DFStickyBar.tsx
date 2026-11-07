@@ -11,16 +11,16 @@ export default function DFStickyBar() {
         target="_blank"
         rel="noopener noreferrer"
         onClick={() => trackDFWhatsAppClick("mobile_bottom_bar")}
-        className="flex-1 min-h-[56px] h-14 flex items-center justify-center gap-2 bg-[#25D366] active:bg-[#20BD5A] text-white font-extrabold text-xs sm:text-sm tracking-wide px-3"
+        className="flex-1 min-w-0 min-h-[56px] h-14 flex items-center justify-center gap-1.5 bg-[#25D366] active:bg-[#20BD5A] text-white font-extrabold text-xs tracking-tight px-2.5"
         aria-label="Pedir orçamento no WhatsApp"
       >
         <WhatsAppIcon className="w-5 h-5 text-white shrink-0 fill-current" />
-        <span>Pedir orçamento no WhatsApp</span>
+        <span className="truncate">Pedir orçamento no WhatsApp</span>
       </a>
       <a
         href={`tel:+${WHATSAPP_DF}`}
         onClick={() => trackDFPhoneClick("mobile_bottom_bar_phone")}
-        className="shrink-0 min-h-[56px] h-14 flex items-center justify-center gap-1.5 bg-ink active:bg-steel text-white font-display font-extrabold text-xs uppercase tracking-wide px-3.5 border-l border-white/15"
+        className="shrink-0 min-h-[56px] h-14 flex items-center justify-center gap-1.5 bg-ink active:bg-steel text-white font-display font-extrabold text-xs uppercase tracking-wide px-3 border-l border-white/15"
         aria-label="Ligar agora"
       >
         <PhoneIcon className="w-4 h-4 text-signal shrink-0" />

@@ -60,14 +60,15 @@ export default function DFHeader() {
               {WHATSAPP_DF_DISPLAY}
             </a>
           )}
-          <DFWhatsAppButton
-            message={DF_DEFAULT_MESSAGE}
-            location="header"
-            size="md"
-            className="hidden sm:inline-flex"
-          >
-            Pedir orçamento
-          </DFWhatsAppButton>
+          <span className="hidden sm:inline-flex">
+            <DFWhatsAppButton
+              message={DF_DEFAULT_MESSAGE}
+              location="header"
+              size="md"
+            >
+              Pedir orçamento
+            </DFWhatsAppButton>
+          </span>
           <a
             href={dfWhatsAppLink(DF_DEFAULT_MESSAGE)}
             target="_blank"
