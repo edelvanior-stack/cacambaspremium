@@ -12,24 +12,30 @@ function dfHtmlFallbackPlugin(): Plugin {
     name: "df-html-fallback",
     configureServer(server) {
       server.middlewares.use((req, _res, next) => {
-        if (req.url === "/df/politica-de-privacidade" || req.url === "/df/politica-de-privacidade/") {
+        const cleanUrl = req.url?.split("?")[0];
+        if (cleanUrl === "/df/politica-de-privacidade" || cleanUrl === "/df/politica-de-privacidade/") {
           req.url = "/df/politica-de-privacidade/index.html";
-        } else if (req.url === "/df/termos-de-uso" || req.url === "/df/termos-de-uso/") {
+        } else if (cleanUrl === "/df/termos-de-uso" || cleanUrl === "/df/termos-de-uso/") {
           req.url = "/df/termos-de-uso/index.html";
-        } else if (req.url === "/df" || req.url === "/df/") {
+        } else if (cleanUrl === "/df" || cleanUrl === "/df/") {
           req.url = "/df/index.html";
+        } else if (cleanUrl === "/sc" || cleanUrl === "/sc/") {
+          req.url = "/sc/index.html";
         }
         next();
       });
     },
     configurePreviewServer(server) {
       server.middlewares.use((req, _res, next) => {
-        if (req.url === "/df/politica-de-privacidade" || req.url === "/df/politica-de-privacidade/") {
+        const cleanUrl = req.url?.split("?")[0];
+        if (cleanUrl === "/df/politica-de-privacidade" || cleanUrl === "/df/politica-de-privacidade/") {
           req.url = "/df/politica-de-privacidade/index.html";
-        } else if (req.url === "/df/termos-de-uso" || req.url === "/df/termos-de-uso/") {
+        } else if (cleanUrl === "/df/termos-de-uso" || cleanUrl === "/df/termos-de-uso/") {
           req.url = "/df/termos-de-uso/index.html";
-        } else if (req.url === "/df" || req.url === "/df/") {
+        } else if (cleanUrl === "/df" || cleanUrl === "/df/") {
           req.url = "/df/index.html";
+        } else if (cleanUrl === "/sc" || cleanUrl === "/sc/") {
+          req.url = "/sc/index.html";
         }
         next();
       });
@@ -52,6 +58,7 @@ export default defineConfig({
         df: path.resolve(__dirname, "df/index.html"),
         dfPrivacy: path.resolve(__dirname, "df/politica-de-privacidade/index.html"),
         dfTerms: path.resolve(__dirname, "df/termos-de-uso/index.html"),
+        sc: path.resolve(__dirname, "sc/index.html"),
       },
     },
   },

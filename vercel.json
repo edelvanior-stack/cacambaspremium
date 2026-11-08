@@ -26,6 +26,14 @@
       "destination": "/df/index.html"
     },
     {
+      "source": "/sc",
+      "destination": "/sc/index.html"
+    },
+    {
+      "source": "/sc/",
+      "destination": "/sc/index.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

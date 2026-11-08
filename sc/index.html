@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <!-- Global Tracking Setup (dataLayer, Consent Mode, gtag & URL Attribution Persistence) -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        'ad_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted',
+        'analytics_storage': 'granted'
+      });
+      gtag('js', new Date());
+
+      (function() {
+        try {
+          var params = new URLSearchParams(window.location.search);
+          var keys = ['gclid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+          var stored = {};
+          try {
+            stored = JSON.parse(sessionStorage.getItem('cp_sc_attribution') || '{}');
+          } catch (e) {}
+          var hasNew = false;
+          keys.forEach(function(k) {
+            var v = params.get(k);
+            if (v) {
+              stored[k] = v;
+              hasNew = true;
+            }
+          });
+          if (hasNew) {
+            sessionStorage.setItem('cp_sc_attribution', JSON.stringify(stored));
+          }
+          window.dataLayer.push(Object.assign({ event: 'sc_page_view', page_path: '/sc', region: 'SC' }, stored));
+        } catch (e) {}
+
+        var loaded = false;
+        function loadGtag() {
+          if (loaded) return;
+          loaded = true;
+          ['pointerdown', 'touchstart', 'scroll', 'keydown', 'click'].forEach(function(e) {
+            window.removeEventListener(e, loadGtag, { passive: true });
+          });
+        }
+        window.__loadGtagNow = loadGtag;
+        ['pointerdown', 'touchstart', 'scroll', 'keydown', 'click'].forEach(function(e) {
+          window.addEventListener(e, loadGtag, { once: true, passive: true });
+        });
+      })();
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="pt-BR" />
+    <meta name="author" content="Caçambas Premium" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Preload ONLY Hero Image (Mobile & Desktop) -->
+    <link
+      rel="preload"
+      as="image"
+      href="/images/sc/sc-hero-mobile.webp"
+      type="image/webp"
+      media="(max-width: 767px)"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="/images/sc/sc-hero.webp"
+      type="image/webp"
+      media="(min-width: 768px)"
+      fetchpriority="high"
+    />
+
+    <!-- Preload Critical Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="https://fonts.gstatic.com/s/archivo/v25/k3kPo8UDI-1M0wlSV9XAw6lQkqWY8Q82sLydOxKsv4Rn.woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2"
+      crossorigin
+    />
+    <style>
+      @font-face {
+        font-family: 'Archivo';
+        font-style: normal;
+        font-weight: 700 800;
+        font-stretch: 100%;
+        font-display: optional;
+        src: url('https://fonts.gstatic.com/s/archivo/v25/k3kPo8UDI-1M0wlSV9XAw6lQkqWY8Q82sLydOxKsv4Rn.woff2') format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400 700;
+        font-display: optional;
+        src: url('https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2') format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+    </style>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <meta name="theme-color" content="#FFC400" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://cacambaspremium.com.br/sc" />
+
+    <!-- SEO Meta Tags -->
+    <title>Aluguel de Caçamba em Camboriú e Região | Caçambas Premium</title>
+    <meta
+      name="description"
+      content="Aluguel de caçamba em Camboriú, Balneário Camboriú, Itajaí, Navegantes, Itapema, Penha, Piçarras e região. Consulte disponibilidade pelo WhatsApp."
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Aluguel de Caçamba em Camboriú e Região | Caçambas Premium" />
+    <meta
+      property="og:description"
+      content="Aluguel de caçamba em Camboriú, Balneário Camboriú, Itajaí, Navegantes, Itapema, Penha, Piçarras e região. Consulte disponibilidade pelo WhatsApp."
+    />
+    <meta property="og:url" content="https://cacambaspremium.com.br/sc" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Caçambas Premium SC" />
+    <meta property="og:image" content="https://cacambaspremium.com.br/images/sc/sc-hero.webp" />
+    <meta property="og:image:width" content="1376" />
+    <meta property="og:image:height" content="768" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Aluguel de Caçamba em Camboriú e Região | Caçambas Premium" />
+    <meta
+      name="twitter:description"
+      content="Aluguel de caçamba em Camboriú, Balneário Camboriú, Itajaí, Navegantes, Itapema, Penha, Piçarras e região. Consulte disponibilidade pelo WhatsApp."
+    />
+    <meta name="twitter:image" content="https://cacambaspremium.com.br/images/sc/sc-hero.webp" />
+
+    <!-- Schema.org - Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Caçambas Premium",
+      "taxID": "30.985.157/0001-84",
+      "url": "https://cacambaspremium.com.br/sc",
+      "logo": "https://cacambaspremium.com.br/favicon.svg",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+55 47 99208-9548",
+        "contactType": "customer service",
+        "availableLanguage": "pt-BR"
+      }
+    }
+    </script>
+
+    <!-- Schema.org - LocalBusiness SC -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Caçambas Premium",
+      "taxID": "30.985.157/0001-84",
+      "description": "Aluguel de caçamba em Camboriú, Balneário Camboriú, Itajaí, Navegantes, Itapema, Penha, Piçarras e região. Consulte disponibilidade pelo WhatsApp.",
+      "url": "https://cacambaspremium.com.br/sc",
+      "telephone": "+55 47 99208-9548",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rua Padre Antonio Dias 342, Centro",
+        "addressLocality": "Camboriú",
+        "addressRegion": "SC",
+        "postalCode": "88340-419",
+        "addressCountry": "BR"
+      },
+      "areaServed": [
+        "Camboriú",
+        "Balneário Camboriú",
+        "Itajaí",
+        "Navegantes",
+        "Itapema",
+        "Penha",
+        "Balneário Piçarras",
+        "Brusque"
+      ],
+      "serviceType": "Locação de Caçambas para Obras, Reformas e Retirada de Entulho",
+      "sameAs": [
+        "https://wa.me/5547992089548"
+      ]
+    }
+    </script>
+
+    <!-- Schema.org - FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quanto custa alugar uma caçamba?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "O valor depende da cidade, endereço, material e operação necessária. Consulte pelo WhatsApp."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Vocês atendem Balneário Camboriú?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Consulte disponibilidade para seu endereço em Balneário Camboriú."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Vocês atendem Itajaí?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Consulte disponibilidade para seu endereço em Itajaí."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qual tamanho de caçamba preciso?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Informe o tipo de material e o volume aproximado para receber orientação."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Pode colocar terra?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Consulte antes da reserva devido ao peso e às condições de transporte."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Pode colocar gesso?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Consulte antes, pois materiais específicos podem exigir operação diferenciada."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Vocês entregam no mesmo dia?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A disponibilidade depende da cidade, horário e operação. Consulte pelo WhatsApp."
+          }
+        }
+      ]
+    }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/sc/main.tsx"></script>
+  </body>
+</html>
