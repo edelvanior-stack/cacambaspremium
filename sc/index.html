@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="pt-BR">
   <head>
-    <!-- Global Tracking Setup (dataLayer, Consent Mode, gtag & URL Attribution Persistence) -->
+    <!-- Google tag (gtag.js) - AW-18493696857 (Santa Catarina /sc) -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -12,6 +12,7 @@
         'analytics_storage': 'granted'
       });
       gtag('js', new Date());
+      gtag('config', 'AW-18493696857');
 
       (function() {
         try {
@@ -39,6 +40,12 @@
         function loadGtag() {
           if (loaded) return;
           loaded = true;
+          if (!document.querySelector('script[src*="googletagmanager.com/gtag/js?id=AW-18493696857"]')) {
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18493696857';
+            document.head.appendChild(s);
+          }
           ['pointerdown', 'touchstart', 'scroll', 'keydown', 'click'].forEach(function(e) {
             window.removeEventListener(e, loadGtag, { passive: true });
           });
@@ -47,6 +54,9 @@
         ['pointerdown', 'touchstart', 'scroll', 'keydown', 'click'].forEach(function(e) {
           window.addEventListener(e, loadGtag, { once: true, passive: true });
         });
+        window.addEventListener('load', function() {
+          setTimeout(loadGtag, 1200);
+        }, { once: true });
       })();
     </script>
 

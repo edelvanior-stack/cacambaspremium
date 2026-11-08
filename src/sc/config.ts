@@ -8,6 +8,22 @@ export const WHATSAPP_SC = "5547992089548";
 export const WHATSAPP_SC_DISPLAY = "47 99208-9548";
 export const WHATSAPP_SC_BASE_URL = "https://wa.me/5547992089548";
 
+/**
+ * Google Ads da operação SC (tag base carregada em sc/index.html).
+ */
+export const GOOGLE_ADS_ID_SC = "AW-18493696857";
+
+/**
+ * Rótulo da conversão "Contato no whatsapp" (SC).
+ */
+export const GOOGLE_ADS_CONVERSION_LABEL_SC = "p5MFCPz4wbQdENnWvfJE";
+
+/**
+ * send_to final da conversão do Google Ads para /sc:
+ * "AW-18493696857/p5MFCPz4wbQdENnWvfJE"
+ */
+export const GOOGLE_ADS_CONVERSION_SC = `${GOOGLE_ADS_ID_SC}/${GOOGLE_ADS_CONVERSION_LABEL_SC}`;
+
 export interface SCCompanyInfo {
   name: string;
   cnpj: string;

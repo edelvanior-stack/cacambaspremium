@@ -1,14 +1,15 @@
 // ============================================================
 // ANALYTICS & TRACKING — Caçambas Premium Santa Catarina (/sc)
-// Preserva Google Ads, GTM, Consent Mode, dataLayer, gclid e UTMs.
-// Eventos específicos:
-// - sc_whatsapp_click
-// - sc_hero_whatsapp
-// - sc_city_click
-// - sc_material_click
-// - sc_quote_click
-// Sem disparo de conversão duplicada na mesma sessão.
+// Handler central único para todos os CTAs de WhatsApp da rota /sc.
+// Fluxo em cada clique real de WhatsApp:
+// 1. usuário clica no CTA
+// 2. dispara eventos internos sc_whatsapp_click + sc_*
+// 3. dispara UMA conversão Google Ads (AW-18493696857/p5MFCPz4wbQdENnWvfJE)
+// 4. abre o WhatsApp normalmente (sem callback bloqueante)
+// Preserva gclid, utm_source, utm_medium, utm_campaign, utm_term, utm_content.
 // ============================================================
+
+import { GOOGLE_ADS_CONVERSION_SC } from "./config";
 
 export type SCContextEvent =
   | "sc_hero_whatsapp"
@@ -16,7 +17,6 @@ export type SCContextEvent =
   | "sc_material_click"
   | "sc_quote_click";
 
-const SC_CONVERSION_SESSION_KEY = "cp_sc_wa_conversion_sent";
 const SC_ATTRIBUTION_SESSION_KEY = "cp_sc_attribution";
 
 const TRACKED_PARAMS = [
@@ -36,6 +36,9 @@ export interface SCAttribution {
   utm_term?: string;
   utm_content?: string;
 }
+
+/** Evita disparo duplo no mesmo clique físico */
+let lastClickTimestamp = 0;
 
 /**
  * Captura e preserva gclid e UTMs da URL na sessão para envio no dataLayer e gtag.
@@ -63,12 +66,6 @@ export function captureSCAttribution(): SCAttribution {
     }
     if (updated) {
       window.sessionStorage?.setItem(SC_ATTRIBUTION_SESSION_KEY, JSON.stringify(stored));
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: "sc_attribution_captured",
-        page_path: "/sc",
-        ...stored,
-      });
     }
   } catch {
     /* ignore */
@@ -78,10 +75,12 @@ export function captureSCAttribution(): SCAttribution {
 }
 
 /**
- * Registra clique em qualquer CTA de WhatsApp da rota /sc:
- * - Dispara 'sc_whatsapp_click' e o evento específico de contexto ('sc_hero_whatsapp', 'sc_city_click', 'sc_material_click' ou 'sc_quote_click')
- * - Garante deduplicação por sessão (counted_as_conversion = true apenas no 1º clique da sessão)
- * - Inclui gclid e UTMs preservados
+ * Handler central único para TODOS os CTAs reais de WhatsApp da rota /sc:
+ * 1. Garante que a tag AW-18493696857 esteja carregada (uma única vez)
+ * 2. Dispara os eventos internos sc_whatsapp_click e sc_* (hero, city, material, quote)
+ * 3. Dispara UMA conversão do Google Ads:
+ *    gtag('event', 'conversion', { 'send_to': 'AW-18493696857/p5MFCPz4wbQdENnWvfJE' })
+ * 4. Não bloqueia a abertura do WhatsApp
  */
 export function trackSCWhatsAppClick(
   contextEvent: SCContextEvent,
@@ -89,6 +88,13 @@ export function trackSCWhatsAppClick(
   extra?: Record<string, string>
 ): void {
   if (typeof window === "undefined") return;
+
+  // Proteção contra duplo disparo no mesmo clique
+  const now = Date.now();
+  if (now - lastClickTimestamp < 150) {
+    return;
+  }
+  lastClickTimestamp = now;
 
   try {
     (window as unknown as { __loadGtagNow?: () => void }).__loadGtagNow?.();
@@ -98,22 +104,11 @@ export function trackSCWhatsAppClick(
 
   const attribution = captureSCAttribution();
 
-  let alreadyConverted = false;
-  try {
-    alreadyConverted = Boolean(window.sessionStorage?.getItem(SC_CONVERSION_SESSION_KEY));
-    if (!alreadyConverted) {
-      window.sessionStorage?.setItem(SC_CONVERSION_SESSION_KEY, "1");
-    }
-  } catch {
-    /* ignore */
-  }
-
   const basePayload: Record<string, unknown> = {
     event_category: "contact",
     event_label: label,
     page_path: "/sc",
     region: "SC",
-    counted_as_conversion: !alreadyConverted,
     transport_type: "beacon",
     ...attribution,
     ...(extra || {}),
@@ -121,17 +116,22 @@ export function trackSCWhatsAppClick(
 
   window.dataLayer = window.dataLayer || [];
 
-  // 1. Evento geral de clique no WhatsApp SC (deduplicado via counted_as_conversion)
+  // 1. Eventos internos sc_* (preservados)
   window.gtag?.("event", "sc_whatsapp_click", basePayload);
   window.dataLayer.push({
     event: "sc_whatsapp_click",
     ...basePayload,
   });
 
-  // 2. Evento específico de contexto (sc_hero_whatsapp, sc_city_click, sc_material_click, sc_quote_click)
   window.gtag?.("event", contextEvent, basePayload);
   window.dataLayer.push({
     event: contextEvent,
     ...basePayload,
+  });
+
+  // 2. Conversão Google Ads — exatamente UMA chamada por clique real de WhatsApp
+  window.gtag?.("event", "conversion", {
+    send_to: GOOGLE_ADS_CONVERSION_SC,
+    transport_type: "beacon",
   });
 }
