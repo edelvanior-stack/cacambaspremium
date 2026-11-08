@@ -25,9 +25,9 @@ export default function SCHero() {
         />
       </picture>
 
-      {/* Dark overlay for high contrast */}
+      {/* Dark overlay for high contrast while showcasing sunset skyline */}
       <div
-        className="absolute inset-0 -z-10 bg-slate-950/82 sm:bg-slate-950/76"
+        className="absolute inset-0 -z-10 bg-slate-950/75 sm:bg-slate-950/70"
         aria-hidden="true"
       />
 

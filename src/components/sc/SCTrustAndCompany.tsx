@@ -46,14 +46,10 @@ export default function SCTrustAndCompany() {
               Informações cadastrais e endereço de referência da operação em Santa Catarina:
             </p>
 
-            <dl className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 border-t border-line pt-5 text-sm">
+            <dl className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3 border-t border-line pt-5 text-sm">
               <div className="rounded-xl bg-concrete p-4">
-                <dt className="text-xs font-bold uppercase tracking-wider text-mist">Razão / Marca</dt>
+                <dt className="text-xs font-bold uppercase tracking-wider text-mist">Marca</dt>
                 <dd className="mt-1 font-display text-base font-extrabold text-ink">{SC_COMPANY_INFO.name}</dd>
-              </div>
-              <div className="rounded-xl bg-concrete p-4">
-                <dt className="text-xs font-bold uppercase tracking-wider text-mist">CNPJ</dt>
-                <dd className="mt-1 font-mono text-base font-bold text-ink">{SC_COMPANY_INFO.cnpj}</dd>
               </div>
               <div className="rounded-xl bg-concrete p-4">
                 <dt className="text-xs font-bold uppercase tracking-wider text-mist">Endereço</dt>

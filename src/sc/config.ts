@@ -259,7 +259,7 @@ export const SC_TRUST_ITEMS: SCTrustItem[] = [
   },
   {
     title: "Dados empresariais transparentes",
-    description: "CNPJ, endereço físico em Camboriú - SC e canal oficial de atendimento claramente informados.",
+    description: "Endereço físico em Camboriú - SC e canal oficial de atendimento claramente informados.",
   },
 ];
 
