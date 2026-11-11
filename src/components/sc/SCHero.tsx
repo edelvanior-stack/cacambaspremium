@@ -1,5 +1,5 @@
-import { SC_HERO_MESSAGE, SC_HERO_CITIES_LINE } from "@/sc/config";
-import { SCAnchorButton, SCWhatsAppButton } from "./SCPrimitives";
+import { SC_HERO_MESSAGE, SC_HERO_CITIES_LINE, SC_PRICE_DISCLAIMER } from "@/sc/config";
+import { SCWhatsAppButton } from "./SCPrimitives";
 
 export default function SCHero() {
   return (
@@ -15,7 +15,7 @@ export default function SCHero() {
         />
         <img
           src="/images/sc/sc-hero.webp"
-          alt="Aluguel de Caçamba em Camboriú e Região - Caçambas Premium"
+          alt="Aluguel de Caçamba em Santa Catarina - Caçambas Premium"
           width={1376}
           height={768}
           fetchPriority="high"
@@ -25,37 +25,47 @@ export default function SCHero() {
         />
       </picture>
 
-      {/* Dark overlay for high contrast while showcasing sunset skyline */}
+      {/* Dark overlay for high contrast */}
       <div
-        className="absolute inset-0 -z-10 bg-slate-950/75 sm:bg-slate-950/70"
+        className="absolute inset-0 -z-10 bg-slate-950/80 sm:bg-slate-950/75"
         aria-hidden="true"
       />
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-6 pb-8 sm:pt-16 sm:pb-16 lg:pt-20 lg:pb-20">
+      <div className="mx-auto max-w-7xl px-3.5 sm:px-6 lg:px-8 pt-4 pb-6 sm:pt-14 sm:pb-16 lg:pt-16 lg:pb-18">
         <div className="max-w-3xl">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 sm:px-4 py-1 sm:py-1.5 mb-3 sm:mb-4 border border-white/10">
-            <span className="h-2 w-2 rounded-full bg-emerald-400" aria-hidden="true" />
-            <span className="text-white text-xs sm:text-sm font-semibold tracking-wide">
-              Atendimento em Camboriú e Região • WhatsApp
-            </span>
-          </div>
-
-          {/* 1. H1 Obrigatório */}
+          {/* 1. H1 Obrigatório — Aluguel de Caçamba em Santa Catarina */}
           <h1
             id="sc-h1"
-            className="font-display font-extrabold text-[1.75rem] sm:text-4xl md:text-5xl lg:text-6xl text-white leading-[1.12] mb-3 sm:mb-4 tracking-tight"
+            className="font-display font-extrabold text-[1.45rem] min-[360px]:text-[1.65rem] sm:text-4xl md:text-5xl lg:text-6xl text-white uppercase leading-[1.1] mb-2.5 sm:mb-4 tracking-tight"
           >
-            Aluguel de <span className="text-signal">Caçamba</span> em Camboriú e Região
+            Aluguel de Caçamba em <span className="text-signal">Santa Catarina</span>
           </h1>
 
-          {/* Subtítulo Obrigatório */}
-          <p className="text-white/95 text-sm sm:text-lg md:text-xl leading-relaxed mb-5 sm:mb-7 font-medium max-w-2xl">
-            Caçambas para obras, reformas e retirada de entulho com atendimento em Camboriú, Balneário Camboriú, Itajaí e região.
+          {/* 2. Destaque Principal — Caçambas a partir de R$199,99 */}
+          <div className="mb-3 sm:mb-5 rounded-xl sm:rounded-2xl border-2 border-signal bg-black/70 px-3.5 py-2.5 sm:px-5 sm:py-4 shadow-[0_8px_24px_rgba(0,0,0,0.4)] inline-block w-full sm:w-auto">
+            <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+              <span className="font-display text-sm min-[360px]:text-base sm:text-2xl font-extrabold uppercase tracking-wide text-white">
+                Caçambas a partir de
+              </span>
+              <span className="font-display text-2xl min-[360px]:text-[1.75rem] sm:text-4xl font-extrabold tracking-tight text-signal">
+                R$199,99
+              </span>
+            </div>
+            <p className="mt-1 text-white/95 text-xs sm:text-base font-medium leading-snug">
+              Consulte disponibilidade e valor para sua região.
+            </p>
+            <p className="mt-1 text-[11px] sm:text-xs text-white/75 leading-snug">
+              {SC_PRICE_DISCLAIMER}
+            </p>
+          </div>
+
+          {/* 3. Regiões atendidas visíveis antes/junto ao CTA */}
+          <p className="text-xs sm:text-sm font-semibold leading-snug text-white/95 bg-black/50 px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl border border-white/15 mb-3.5 sm:mb-5">
+            {SC_HERO_CITIES_LINE}
           </p>
 
-          {/* CTAs Principal e Secundário */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-5 sm:mb-7">
+          {/* 4. CTA Principal — Pedir Orçamento no WhatsApp */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
             <SCWhatsAppButton
               message={SC_HERO_MESSAGE}
               contextEvent="sc_hero_whatsapp"
@@ -63,22 +73,9 @@ export default function SCHero() {
               size="lg"
               className="w-full sm:w-auto"
             >
-              Consultar Disponibilidade no WhatsApp
+              Pedir Orçamento no WhatsApp
             </SCWhatsAppButton>
-
-            <SCAnchorButton
-              href="#servicos"
-              size="lg"
-              className="w-full sm:w-auto !h-12 sm:!h-14 !min-h-[48px] sm:!min-h-[56px]"
-            >
-              Ver Serviços
-            </SCAnchorButton>
           </div>
-
-          {/* Linha de cidades abaixo do CTA */}
-          <p className="text-xs sm:text-sm font-semibold tracking-wide text-signal/95 bg-black/45 px-3.5 py-2.5 rounded-xl border border-white/10 inline-block">
-            {SC_HERO_CITIES_LINE}
-          </p>
         </div>
       </div>
     </section>

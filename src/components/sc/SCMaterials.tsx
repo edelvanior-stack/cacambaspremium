@@ -52,7 +52,7 @@ export default function SCMaterials() {
                 </div>
 
                 <div className="mt-4 pt-3 border-t border-line/60 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-ink group-hover:text-[#25D366]">
-                  <span>Consultar Material</span>
+                  <span>Pedir Orçamento</span>
                   <span aria-hidden="true">→</span>
                 </div>
               </a>
@@ -72,7 +72,7 @@ export default function SCMaterials() {
             size="lg"
             className="w-full sm:w-auto"
           >
-            Consultar Material
+            Pedir Orçamento no WhatsApp
           </SCWhatsAppButton>
         </div>
       </div>

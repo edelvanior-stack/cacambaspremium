@@ -43,12 +43,12 @@ export default function SCHowItWorks() {
         >
           <div className="flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-center">
             <div className="max-w-2xl">
-              <span className="eyebrow text-signal">Programação Regional</span>
+              <span className="eyebrow text-signal">Programação Regional • A partir de R$199,99</span>
               <h3 className="display mt-2 text-2xl sm:text-3xl font-extrabold uppercase tracking-tight text-white">
                 Precisa de uma caçamba hoje ou nos próximos dias?
               </h3>
               <p className="mt-2 text-sm sm:text-base text-white/80">
-                Consulte a disponibilidade para seu endereço.
+                Consulte disponibilidade e valor para sua região pelo WhatsApp.
               </p>
             </div>
 
@@ -60,7 +60,7 @@ export default function SCHowItWorks() {
                 size="lg"
                 className="w-full lg:w-auto"
               >
-                Ver Disponibilidade
+                Consultar Disponibilidade
               </SCWhatsAppButton>
             </div>
           </div>

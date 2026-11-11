@@ -31,6 +31,12 @@ export default function SCFooter() {
 
           <div className="md:col-span-6 flex flex-col items-start md:items-end justify-between gap-5">
             <div className="flex flex-wrap gap-4 text-xs font-semibold uppercase tracking-wider text-white/75">
+              <a href="#orcamento" className="hover:text-white transition-colors">
+                Orçamento
+              </a>
+              <a href="#cidades" className="hover:text-white transition-colors">
+                Cidades
+              </a>
               <a href="#servicos" className="hover:text-white transition-colors">
                 Serviços
               </a>
@@ -39,12 +45,6 @@ export default function SCFooter() {
               </a>
               <a href="#materiais" className="hover:text-white transition-colors">
                 Materiais
-              </a>
-              <a href="#como-funciona" className="hover:text-white transition-colors">
-                Como Funciona
-              </a>
-              <a href="#cidades" className="hover:text-white transition-colors">
-                Cidades
               </a>
               <a href="#duvidas" className="hover:text-white transition-colors">
                 FAQ
@@ -59,7 +59,7 @@ export default function SCFooter() {
               className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20BD5A] px-5 py-3 font-display text-xs sm:text-sm font-extrabold uppercase tracking-wide text-white transition-colors"
             >
               <WhatsAppIcon className="h-4 w-4 shrink-0 fill-current" />
-              <span>WhatsApp: {SC_COMPANY_INFO.whatsappDisplay}</span>
+              <span>Pedir Orçamento no WhatsApp</span>
             </a>
           </div>
         </div>

@@ -43,7 +43,7 @@ export default function SCFAQ() {
 
         <div className="mt-10 flex flex-col items-center justify-center gap-3 text-center">
           <p className="text-sm font-medium text-iron">
-            Precisa confirmar disponibilidade para o seu endereço em Santa Catarina?
+            Precisa confirmar disponibilidade e valor para o seu endereço em Santa Catarina?
           </p>
           <SCWhatsAppButton
             message={SC_QUOTE_MESSAGE}
@@ -52,7 +52,7 @@ export default function SCFAQ() {
             size="lg"
             className="w-full sm:w-auto"
           >
-            Consultar Disponibilidade no WhatsApp
+            Pedir Orçamento no WhatsApp
           </SCWhatsAppButton>
         </div>
       </div>

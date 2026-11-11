@@ -11,11 +11,11 @@ export default function SCStickyBar() {
         target="_blank"
         rel="noopener noreferrer"
         onClick={() => trackSCWhatsAppClick("sc_quote_click", "mobile_sticky_bar")}
-        className="w-full min-h-[56px] h-14 flex items-center justify-center gap-2 bg-[#25D366] active:bg-[#20BD5A] text-white font-display font-extrabold text-xs sm:text-sm uppercase tracking-wide px-4"
-        aria-label="Consultar Disponibilidade no WhatsApp"
+        className="w-full min-h-[56px] h-14 flex items-center justify-center gap-2 bg-[#25D366] active:bg-[#20BD5A] text-white font-display font-extrabold text-xs sm:text-sm uppercase tracking-wide px-3"
+        aria-label="Pedir Orçamento no WhatsApp"
       >
         <WhatsAppIcon className="w-5 h-5 text-white shrink-0 fill-current" />
-        <span className="truncate">Consultar Disponibilidade no WhatsApp</span>
+        <span className="truncate">Pedir Orçamento no WhatsApp</span>
       </a>
     </div>
   );

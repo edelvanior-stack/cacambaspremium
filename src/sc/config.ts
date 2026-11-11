@@ -52,28 +52,31 @@ export const SC_COMPANY_INFO: SCCompanyInfo = {
 // Mensagens de WhatsApp contextualizadas (todas usam 5547992089548)
 // ------------------------------------------------------------
 export const SC_HERO_MESSAGE =
-  "Olá, preciso de uma caçamba em Santa Catarina. Gostaria de consultar disponibilidade.\n\nCidade:\nBairro:\nMaterial:\nQuando preciso:";
+  "Olá! Vim pelo Google e quero pedir orçamento de caçamba em Santa Catarina (a partir de R$199,99). Gostaria de consultar disponibilidade e valor para minha região.";
 
 export const SC_SIZE_MESSAGE =
-  "Olá, gostaria de consultar o tamanho de caçamba disponível para minha necessidade em Santa Catarina. Posso informar o material e o volume aproximado?";
+  "Olá! Vim pelo Google e gostaria de pedir orçamento e consultar o tamanho de caçamba disponível em Santa Catarina.";
 
 export const SC_URGENCY_MESSAGE =
-  "Olá, preciso de uma caçamba para hoje ou para os próximos dias. Gostaria de consultar a disponibilidade para meu endereço.";
+  "Olá! Vim pelo Google e preciso de uma caçamba em Santa Catarina. Gostaria de consultar disponibilidade e valor para meu endereço.";
 
 export const SC_QUOTE_MESSAGE =
-  "Olá, gostaria de consultar disponibilidade de caçamba em Camboriú e região.";
+  "Olá! Vim pelo Google e quero pedir orçamento de caçamba em Santa Catarina. Gostaria de consultar disponibilidade e valor.";
 
 export const scCityMessage = (city: string) =>
-  `Olá, gostaria de consultar disponibilidade de caçamba em ${city}.`;
+  `Olá! Vim pelo Google e quero pedir orçamento de caçamba em ${city}. Gostaria de consultar disponibilidade e valor para minha região.`;
 
 export const scMaterialMessage = (material: string) =>
-  `Olá, gostaria de consultar disponibilidade de caçamba em Santa Catarina para o material: ${material}.`;
+  `Olá! Vim pelo Google e quero pedir orçamento de caçamba em Santa Catarina para o material: ${material}.`;
 
 // ------------------------------------------------------------
-// 1. Hero — Linha de cidades abaixo do CTA
+// 1. Hero — Linha de cidades e preço
 // ------------------------------------------------------------
 export const SC_HERO_CITIES_LINE =
-  "Camboriú • Balneário Camboriú • Itajaí • Navegantes • Itapema • Penha • Piçarras • Brusque";
+  "Atendimento em Camboriú, Balneário Camboriú, Itajaí, Navegantes, Itapema, Penha, Balneário Piçarras e Brusque.";
+
+export const SC_PRICE_DISCLAIMER =
+  "O valor pode variar conforme cidade, tamanho, material e disponibilidade.";
 
 // ------------------------------------------------------------
 // 2. Necessidades (4 cards com mensagens específicas)
@@ -92,36 +95,36 @@ export const SC_NEEDS: SCNeedCard[] = [
     title: "Caçamba para obra",
     description:
       "Locação de caçamba estacionária para construções residenciais, comerciais e etapas de alvenaria ou fundação.",
-    ctaLabel: "Consultar para Obra",
+    ctaLabel: "Pedir Orçamento no WhatsApp",
     message:
-      "Olá, preciso de uma caçamba para obra em Santa Catarina. Gostaria de consultar disponibilidade para meu endereço.",
+      "Olá! Vim pelo Google e quero pedir orçamento de caçamba para obra em Santa Catarina. Gostaria de consultar disponibilidade e valor.",
   },
   {
     id: "reforma",
     title: "Caçamba para reforma",
     description:
       "Atendimento para reformas de casas, apartamentos, lojas e condomínios com recolhimento organizado de resíduos.",
-    ctaLabel: "Consultar para Reforma",
+    ctaLabel: "Pedir Orçamento no WhatsApp",
     message:
-      "Olá, preciso de uma caçamba para reforma em Santa Catarina. Gostaria de consultar disponibilidade para meu endereço.",
+      "Olá! Vim pelo Google e quero pedir orçamento de caçamba para reforma em Santa Catarina. Gostaria de consultar disponibilidade e valor.",
   },
   {
     id: "entulho",
     title: "Retirada de entulho",
     description:
       "Coleta de caliça, restos de concreto, tijolos, pisos, azulejos e materiais gerados durante demolições ou melhorias.",
-    ctaLabel: "Solicitar Retirada",
+    ctaLabel: "Pedir Orçamento no WhatsApp",
     message:
-      "Olá, preciso de uma caçamba para retirada de entulho em Santa Catarina. Gostaria de consultar disponibilidade para meu endereço.",
+      "Olá! Vim pelo Google e quero pedir orçamento de caçamba para retirada de entulho em Santa Catarina. Gostaria de consultar disponibilidade e valor.",
   },
   {
     id: "terreno",
     title: "Limpeza de terreno",
     description:
       "Apoio para limpeza e organização de lotes, quintais e áreas antes de iniciar a construção ou após obras.",
-    ctaLabel: "Consultar para Terreno",
+    ctaLabel: "Pedir Orçamento no WhatsApp",
     message:
-      "Olá, preciso de uma caçamba para limpeza de terreno em Santa Catarina. Gostaria de consultar disponibilidade para meu endereço.",
+      "Olá! Vim pelo Google e quero pedir orçamento de caçamba para limpeza de terreno em Santa Catarina. Gostaria de consultar disponibilidade e valor.",
   },
 ];
 
@@ -198,49 +201,49 @@ export const SC_CITIES: SCCityCard[] = [
     name: "Camboriú",
     tag: "Base Operacional",
     description:
-      "Aluguel de caçamba em Camboriú para obras, reformas e retirada de entulho. Consulte disponibilidade para seu endereço.",
+      "Aluguel de caçamba em Camboriú a partir de R$199,99 para obras, reformas e retirada de entulho. Solicite orçamento para sua região.",
   },
   {
     name: "Balneário Camboriú",
     tag: "Atendimento Regional",
     description:
-      "Atendemos Balneário Camboriú na locação de caçambas para reformas residenciais, comerciais e obras civis. Consulte disponibilidade para sua rua ou condomínio.",
+      "Atendemos Balneário Camboriú na locação de caçambas a partir de R$199,99 para reformas residenciais, comerciais e obras civis. Solicite orçamento para sua região.",
   },
   {
     name: "Itajaí",
     tag: "Atendimento Regional",
     description:
-      "Atendimento em Itajaí com caçambas estacionárias para coleta de caliça, restos de alvenaria e limpeza de canteiros. Consulte disponibilidade no seu bairro.",
+      "Atendimento em Itajaí com caçambas estacionárias a partir de R$199,99 para coleta de caliça, restos de alvenaria e limpeza de canteiros. Solicite orçamento para sua região.",
   },
   {
     name: "Navegantes",
     tag: "Atendimento Regional",
     description:
-      "Locação de caçamba de entulho com atendimento em Navegantes para construções, ampliações e limpeza de lotes. Consulte disponibilidade para o local da obra.",
+      "Locação de caçamba de entulho com atendimento em Navegantes a partir de R$199,99 para construções, ampliações e limpeza de lotes. Solicite orçamento para sua região.",
   },
   {
     name: "Itapema",
     tag: "Atendimento Regional",
     description:
-      "Atendemos Itapema com caçambas para recolhimento de resíduos de construção e reformas em geral. Consulte disponibilidade informando seu endereço.",
+      "Atendemos Itapema com caçambas a partir de R$199,99 para recolhimento de resíduos de construção e reformas em geral. Solicite orçamento para sua região.",
   },
   {
     name: "Penha",
     tag: "Atendimento Regional",
     description:
-      "Disk entulho e aluguel de caçamba com atendimento em Penha para obras residenciais, reformas e organização de terrenos. Consulte disponibilidade na região.",
+      "Disk entulho e aluguel de caçamba com atendimento em Penha a partir de R$199,99 para obras residenciais, reformas e organização de terrenos. Solicite orçamento para sua região.",
   },
   {
     name: "Balneário Piçarras",
     tag: "Atendimento Regional",
     description:
-      "Atendimento em Balneário Piçarras para retirada de entulho de obra, cerâmica, tijolos e reformas. Consulte disponibilidade para entrega no seu endereço.",
+      "Atendimento em Balneário Piçarras a partir de R$199,99 para retirada de entulho de obra, cerâmica, tijolos e reformas. Solicite orçamento para sua região.",
   },
   {
     name: "Brusque",
     tag: "Atendimento Regional",
     description:
-      "Aluguel de caçamba com atendimento em Brusque para obras comerciais, residenciais e reformas. Consulte disponibilidade conforme localização e material.",
+      "Aluguel de caçamba com atendimento em Brusque a partir de R$199,99 para obras comerciais, residenciais e reformas. Solicite orçamento para sua região.",
   },
 ];
 
@@ -285,7 +288,7 @@ export const SC_TRUST_ITEMS: SCTrustItem[] = [
 export const SC_FAQ: { q: string; a: string }[] = [
   {
     q: "Quanto custa alugar uma caçamba?",
-    a: "O valor depende da cidade, endereço, material e operação necessária. Consulte pelo WhatsApp.",
+    a: "Temos caçambas a partir de R$199,99. O valor pode variar conforme cidade, tamanho, material e disponibilidade. Consulte pelo WhatsApp.",
   },
   {
     q: "Vocês atendem Balneário Camboriú?",

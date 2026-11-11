@@ -75,7 +75,7 @@ export default function SCTrustAndCompany() {
                 size="lg"
                 className="w-full sm:w-auto"
               >
-                Falar com a Equipe no WhatsApp
+                Pedir Orçamento no WhatsApp
               </SCWhatsAppButton>
             </div>
           </div>

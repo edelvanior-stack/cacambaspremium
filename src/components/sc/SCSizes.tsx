@@ -1,4 +1,4 @@
-import { SC_SIZE_MESSAGE } from "@/sc/config";
+import { SC_SIZE_MESSAGE, SC_PRICE_DISCLAIMER } from "@/sc/config";
 import { SCWhatsAppButton, SectionHeader } from "./SCPrimitives";
 
 const VOLUME_PROFILES = [
@@ -24,26 +24,26 @@ const VOLUME_PROFILES = [
 
 export default function SCSizes() {
   return (
-    <section id="tamanhos" className="border-b border-line bg-concrete py-14 sm:py-20 lg:py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-12">
+    <section id="tamanhos" className="border-b border-line bg-white py-12 sm:py-20 lg:py-24">
+      <div className="mx-auto max-w-7xl px-3.5 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-6">
             <SectionHeader
               eyebrow="Orientação de Capacidade"
               title="Diferentes tamanhos de caçamba conforme a sua obra"
-              lead="Existem diferentes opções de caçamba estacionária para atender desde pequenas reformas até construções completas e limpeza de terrenos."
+              lead="Opções de caçamba estacionária a partir de R$199,99 para atender desde pequenas reformas até construções completas e limpeza de terrenos."
             />
 
-            <div className="mt-6 rounded-2xl border-l-4 border-signal bg-white p-5 sm:p-6 shadow-sm">
+            <div className="mt-6 rounded-2xl border-l-4 border-signal bg-concrete p-5 sm:p-6 shadow-sm">
               <p className="text-sm sm:text-base font-semibold leading-relaxed text-ink">
                 Informe o volume aproximado do material e ajudamos a identificar a opção disponível para sua necessidade.
               </p>
               <p className="mt-2 text-xs sm:text-sm text-iron">
-                A disponibilidade de cada modelo varia conforme a cidade, o tipo de resíduo e as condições de acesso no local da entrega.
+                {SC_PRICE_DISCLAIMER}
               </p>
             </div>
 
-            <div className="mt-7">
+            <div className="mt-6">
               <SCWhatsAppButton
                 message={SC_SIZE_MESSAGE}
                 contextEvent="sc_quote_click"
@@ -51,7 +51,7 @@ export default function SCSizes() {
                 size="lg"
                 className="w-full sm:w-auto"
               >
-                Consultar Tamanho no WhatsApp
+                Pedir Orçamento no WhatsApp
               </SCWhatsAppButton>
             </div>
           </div>
@@ -60,7 +60,7 @@ export default function SCSizes() {
             {VOLUME_PROFILES.map((profile, idx) => (
               <div
                 key={profile.title}
-                className="rounded-2xl border border-line bg-white p-5 sm:p-6 shadow-[0_2px_12px_rgba(12,13,15,0.03)]"
+                className="rounded-2xl border border-line bg-concrete p-5 sm:p-6 shadow-[0_2px_12px_rgba(12,13,15,0.03)]"
               >
                 <div className="flex items-center justify-between">
                   <span className="eyebrow text-iron">{profile.tag}</span>

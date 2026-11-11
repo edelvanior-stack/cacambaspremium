@@ -4,11 +4,11 @@ import { trackSCWhatsAppClick } from "@/sc/analytics";
 import { SCWhatsAppButton, WhatsAppIcon } from "./SCPrimitives";
 
 const NAV = [
+  { label: "Orçamento", href: "#orcamento" },
+  { label: "Cidades", href: "#cidades" },
   { label: "Serviços", href: "#servicos" },
   { label: "Tamanhos", href: "#tamanhos" },
   { label: "Materiais", href: "#materiais" },
-  { label: "Como funciona", href: "#como-funciona" },
-  { label: "Cidades", href: "#cidades" },
   { label: "Dúvidas", href: "#duvidas" },
 ];
 
@@ -73,7 +73,7 @@ export default function SCHeader() {
               label="header_cta"
               size="md"
             >
-              Consultar no WhatsApp
+              Pedir Orçamento no WhatsApp
             </SCWhatsAppButton>
           </span>
           <a
@@ -82,10 +82,10 @@ export default function SCHeader() {
             rel="noopener noreferrer"
             onClick={() => trackSCWhatsAppClick("sc_quote_click", "header_mobile_cta")}
             className="inline-flex h-9 items-center gap-1.5 rounded-xl bg-[#25D366] hover:bg-[#20BD5A] text-white px-2.5 font-display text-[11px] font-extrabold uppercase tracking-wide sm:hidden shadow-sm shrink-0"
-            aria-label="Consultar Disponibilidade no WhatsApp"
+            aria-label="Pedir Orçamento no WhatsApp"
           >
             <WhatsAppIcon className="h-3.5 w-3.5 fill-current shrink-0" />
-            <span>WhatsApp</span>
+            <span>Orçamento</span>
           </a>
         </div>
       </div>
