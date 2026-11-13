@@ -13,10 +13,12 @@
         function loadGtag() {
           if (loaded) return;
           loaded = true;
-          var s = document.createElement('script');
-          s.async = true;
-          s.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18502471060';
-          document.head.appendChild(s);
+          if (!document.querySelector('script[src*="googletagmanager.com/gtag/js?id=AW-18502471060"]')) {
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18502471060';
+            document.head.appendChild(s);
+          }
           ['pointerdown', 'touchstart', 'scroll', 'keydown', 'click'].forEach(function(e) {
             window.removeEventListener(e, loadGtag, { passive: true });
           });

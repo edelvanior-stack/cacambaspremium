@@ -11,6 +11,12 @@ import { GOOGLE_ADS_CONVERSION_DF, type DFEvent } from "./config";
  */
 const DF_WHATSAPP_CONVERSION_SESSION_KEY = "cp_df_wa_conversion_sent";
 
+/** Evita disparo duplo no mesmo clique físico (debounce) */
+let lastClickTimestamp = 0;
+
+/** Trava em memória complementar ao sessionStorage para garantir 1 conversão por sessão */
+let conversionSentInMemory = false;
+
 /**
  * Track WhatsApp CTA click for /df:
  * - Fires Google Ads conversion AW-18502471060/JGSnCNK2o64dEJSb1fZE with session deduplication.
@@ -21,30 +27,40 @@ const DF_WHATSAPP_CONVERSION_SESSION_KEY = "cp_df_wa_conversion_sent";
 export const trackDFWhatsAppClick = (source: string) => {
   if (typeof window === "undefined") return;
 
+  // Proteção contra clique duplo físico (debounce)
+  const now = Date.now();
+  if (now - lastClickTimestamp < 500) {
+    return;
+  }
+  lastClickTimestamp = now;
+
   try {
     (window as unknown as { __loadGtagNow?: () => void }).__loadGtagNow?.();
   } catch {
     /* ignore */
   }
 
-  let alreadyConverted = false;
+  let alreadyConverted = conversionSentInMemory;
   try {
-    alreadyConverted = Boolean(window.sessionStorage?.getItem(DF_WHATSAPP_CONVERSION_SESSION_KEY));
+    if (window.sessionStorage?.getItem(DF_WHATSAPP_CONVERSION_SESSION_KEY) === "1") {
+      alreadyConverted = true;
+    }
   } catch {
     /* ignore storage issues */
   }
 
   // 1. Google Ads conversion event — deduplicated per session with transport_type: 'beacon'
   if (window.gtag && !alreadyConverted && GOOGLE_ADS_CONVERSION_DF) {
-    window.gtag("event", "conversion", {
-      send_to: GOOGLE_ADS_CONVERSION_DF,
-      transport_type: "beacon",
-    });
+    conversionSentInMemory = true;
     try {
       window.sessionStorage?.setItem(DF_WHATSAPP_CONVERSION_SESSION_KEY, "1");
     } catch {
       /* ignore */
     }
+    window.gtag("event", "conversion", {
+      send_to: GOOGLE_ADS_CONVERSION_DF,
+      transport_type: "beacon",
+    });
   }
 
   // 2. GA4 event: whatsapp_click (fires on every click)
