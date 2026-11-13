@@ -48,8 +48,8 @@ const BASE =
   "group inline-flex items-center justify-center gap-2.5 rounded-xl sm:rounded-2xl font-display font-extrabold uppercase tracking-wide transition-all duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 select-none cursor-pointer";
 
 const SIZES = {
-  md: "h-12 min-h-[48px] px-5 text-xs sm:text-sm",
-  lg: "h-14 min-h-[56px] px-6 sm:px-8 text-sm sm:text-base",
+  md: "h-12 min-h-[48px] px-4 sm:px-5 text-xs sm:text-sm",
+  lg: "h-14 min-h-[56px] px-4 sm:px-8 text-xs min-[360px]:text-sm sm:text-base",
 } as const;
 
 interface WhatsAppButtonProps {

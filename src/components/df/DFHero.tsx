@@ -81,19 +81,19 @@ export default function DFHero() {
             >
               Pedir orçamento no WhatsApp
             </DFWhatsAppButton>
-            <div className="grid grid-cols-2 gap-2.5 sm:contents">
+            <div className="grid grid-cols-2 gap-2 sm:contents">
               <a
                 href={`tel:+${WHATSAPP_DF}`}
                 onClick={() => trackDFPhoneClick("hero_phone")}
-                className="group inline-flex h-12 sm:h-14 min-h-[48px] sm:min-h-[56px] w-full sm:w-auto items-center justify-center gap-2 rounded-xl sm:rounded-2xl border border-white/35 bg-white/10 hover:border-white hover:bg-white/15 px-3 sm:px-6 font-display text-xs sm:text-base font-extrabold uppercase tracking-wide text-white transition-all duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white select-none cursor-pointer"
+                className="group inline-flex h-12 sm:h-14 min-h-[48px] sm:min-h-[56px] w-full sm:w-auto items-center justify-center gap-1.5 sm:gap-2 rounded-xl sm:rounded-2xl border border-white/35 bg-white/10 hover:border-white hover:bg-white/15 px-2 min-[360px]:px-3 sm:px-6 font-display text-[11px] min-[360px]:text-xs sm:text-base font-extrabold uppercase tracking-wide text-white transition-all duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white select-none cursor-pointer text-center"
               >
-                <PhoneIcon className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+                <PhoneIcon className="w-3.5 h-3.5 sm:w-5 sm:h-5 shrink-0" />
                 <span>Ligar agora</span>
               </a>
               <DFAnchorButton
                 href="#regioes"
                 size="lg"
-                className="w-full sm:w-auto !h-12 sm:!h-14 !min-h-[48px] sm:!min-h-[56px] !px-3 sm:!px-6 !text-xs sm:!text-base"
+                className="w-full sm:w-auto !h-12 sm:!h-14 !min-h-[48px] sm:!min-h-[56px] !px-2 min-[360px]:!px-3 sm:!px-6 !text-[11px] min-[360px]:!text-xs sm:!text-base"
               >
                 Ver Regiões Atendidas
               </DFAnchorButton>

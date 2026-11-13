@@ -14,7 +14,7 @@ import DFStickyBar from "@/components/df/DFStickyBar";
 
 export default function DFPage() {
   return (
-    <div className="min-h-screen bg-white text-ink selection:bg-signal selection:text-ink pb-20 sm:pb-0 font-sans antialiased">
+    <div className="min-h-screen bg-white text-ink selection:bg-signal selection:text-ink pb-20 sm:pb-0 font-sans antialiased overflow-x-hidden">
       <DFHeader />
       <main id="conteudo">
         <DFHero />

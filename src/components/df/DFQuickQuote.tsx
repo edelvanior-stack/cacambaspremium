@@ -179,7 +179,7 @@ export default function DFQuickQuote() {
                 </span>
                 <button
                   type="submit"
-                  className="group inline-flex w-full sm:w-auto items-center justify-center gap-2.5 rounded-xl sm:rounded-2xl bg-[#25D366] hover:bg-[#20BD5A] px-7 py-4 min-h-[56px] font-display text-sm sm:text-base font-extrabold uppercase tracking-wide text-white transition-all active:bg-[#1DA851] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#25D366] select-none shadow-[0_4px_16px_rgba(37,211,102,0.28)] cursor-pointer"
+                  className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 sm:gap-2.5 rounded-xl sm:rounded-2xl bg-[#25D366] hover:bg-[#20BD5A] px-4 sm:px-7 py-4 min-h-[56px] font-display text-xs sm:text-base font-extrabold uppercase tracking-wide text-white transition-all active:bg-[#1DA851] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#25D366] select-none shadow-[0_4px_16px_rgba(37,211,102,0.28)] cursor-pointer"
                 >
                   <WhatsAppIcon className="h-5 w-5 sm:h-6 sm:w-6 shrink-0 fill-current" />
                   <span>CONSULTAR DISPONIBILIDADE</span>
