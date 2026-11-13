@@ -1,6 +1,6 @@
 const WA_PREFILLED = "Olá, quero alugar uma caçamba em Curitiba. Preciso para o dia: ";
 
-const WA_NUMBER = "5541984594225";
+const WA_NUMBER = "554197946609";
 const WA_LINK = `https://wa.me/${WA_NUMBER}`;
 
 export const BUSINESS = {
@@ -8,7 +8,7 @@ export const BUSINESS = {
   cnpj: "11.246.768/0001-66",
 
   whatsapp: WA_NUMBER,
-  whatsappDisplay: "+55 41 98459-4225",
+  whatsappDisplay: "(41) 9794-6609",
   whatsappLink: WA_LINK,
 
   whatsappMessage: WA_PREFILLED,
