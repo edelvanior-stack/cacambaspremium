@@ -8,9 +8,9 @@ export default function DFNeeds() {
     <section id="necessidade" className="border-b border-line bg-white py-16 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
-          eyebrow="Orientação por Tipo de Obra"
+          eyebrow="Caçamba para Construção e Reforma"
           title="Qual é a necessidade da sua obra?"
-          lead="Identifique o perfil da sua reforma para indicarmos a solução correta de caçamba. Caçamba de 3m³."
+          lead="Identifique o perfil da sua obra ou reforma para indicarmos a caçamba de entulho certa no DF. Caçamba de 3m³ até 10m³."
         />
 
         <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">

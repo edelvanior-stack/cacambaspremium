@@ -3,37 +3,51 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://cacambaspremium.com.br/</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cacambaspremium.com.br/"/>
   </url>
   <url>
     <loc>https://cacambaspremium.com.br/df</loc>
-    <lastmod>2026-10-12</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
+    <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cacambaspremium.com.br/df"/>
   </url>
   <url>
+    <loc>https://cacambaspremium.com.br/valor/orcamento</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cacambaspremium.com.br/valor/orcamento"/>
+  </url>
+  <url>
+    <loc>https://cacambaspremium.com.br/entorno/cacamba</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cacambaspremium.com.br/entorno/cacamba"/>
+  </url>
+  <url>
+    <loc>https://cacambaspremium.com.br/sc</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cacambaspremium.com.br/sc"/>
+  </url>
+  <url>
     <loc>https://cacambaspremium.com.br/df/politica-de-privacidade</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
+    <priority>0.40</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cacambaspremium.com.br/df/politica-de-privacidade"/>
   </url>
   <url>
     <loc>https://cacambaspremium.com.br/df/termos-de-uso</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
+    <priority>0.40</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cacambaspremium.com.br/df/termos-de-uso"/>
-  </url>
-  <url>
-    <loc>https://cacambaspremium.com.br/sc</loc>
-    <lastmod>2026-11-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://cacambaspremium.com.br/sc"/>
   </url>
 </urlset>

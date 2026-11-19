@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="pt-BR">
   <head>
-    <!-- Google tag (gtag.js) - Loaded on User Interaction and requestIdleCallback for Zero TBT & Guaranteed Conversion -->
+    <!-- Google tag (gtag.js) - Loaded on User Interaction and Idle Callback for Zero TBT & Guaranteed Conversion -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -27,6 +27,13 @@
         ['pointerdown', 'touchstart', 'scroll', 'keydown', 'click'].forEach(function(e) {
           window.addEventListener(e, loadGtag, { once: true, passive: true });
         });
+        window.addEventListener('load', function() {
+          if ('requestIdleCallback' in window) {
+            window.requestIdleCallback(loadGtag, { timeout: 3000 });
+          } else {
+            window.setTimeout(loadGtag, 2500);
+          }
+        }, { once: true });
       })();
     </script>
 
@@ -35,10 +42,8 @@
     <meta name="robots" content="index, follow" />
     <meta name="language" content="pt-BR" />
     <meta name="author" content="Caçambas Premium" />
-    
-    <!-- Security -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    
+
     <!-- Preload LCP Hero Image (Mobile & Desktop) -->
     <link
       rel="preload"
@@ -105,11 +110,7 @@
     <title>Aluguel de Caçamba em Brasília e DF | Disk Entulho</title>
     <meta
       name="description"
-      content="Caçamba de entulho em Brasília e DF a partir de R$ 199,99. Orçamento rápido pelo WhatsApp, entrega e retirada pontuais. Disk Entulho."
-    />
-    <meta
-      name="keywords"
-      content="aluguel de caçamba brasília, caçamba de entulho brasília, aluguel de caçamba df, disk entulho brasília, container de entulho df, caçamba perto de mim, aluguel de container brasília"
+      content="Aluguel de caçamba de entulho em Brasília, DF e Entorno a partir de R$ 199,99. Locação de caçambas de 3m³ a 10m³ para obras e reformas. Orçamento no WhatsApp."
     />
 
     <!-- Open Graph -->
@@ -117,7 +118,7 @@
     <meta property="og:title" content="Aluguel de Caçamba em Brasília e DF | Disk Entulho" />
     <meta
       property="og:description"
-      content="Caçamba de entulho em Brasília e DF a partir de R$ 199,99. Orçamento rápido pelo WhatsApp, entrega e retirada pontuais. Disk Entulho."
+      content="Aluguel de caçamba de entulho em Brasília, DF e Entorno a partir de R$ 199,99. Locação de caçambas de 3m³ a 10m³ para obras e reformas. Orçamento no WhatsApp."
     />
     <meta property="og:url" content="https://cacambaspremium.com.br/df" />
     <meta property="og:locale" content="pt_BR" />
@@ -131,7 +132,7 @@
     <meta name="twitter:title" content="Aluguel de Caçamba em Brasília e DF | Disk Entulho" />
     <meta
       name="twitter:description"
-      content="Caçamba de entulho em Brasília e DF a partir de R$ 199,99. Orçamento rápido pelo WhatsApp, entrega e retirada pontuais. Disk Entulho."
+      content="Aluguel de caçamba de entulho em Brasília, DF e Entorno a partir de R$ 199,99. Locação de caçambas de 3m³ a 10m³ para obras e reformas. Orçamento no WhatsApp."
     />
     <meta name="twitter:image" content="https://cacambaspremium.com.br/images/df/og-df.jpg" />
 
@@ -141,12 +142,14 @@
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "Caçambas Premium",
+      "taxID": "21.802.241/0001-24",
       "url": "https://cacambaspremium.com.br/df",
       "logo": "https://cacambaspremium.com.br/favicon.svg",
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+55 61 99953-5476",
         "contactType": "customer service",
+        "areaServed": "BR-DF",
         "availableLanguage": "pt-BR"
       }
     }
@@ -158,7 +161,9 @@
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "Caçambas Premium - Distrito Federal",
-      "description": "Locação de caçambas de entulho e resíduos da construção civil em Brasília e Regiões Administrativas do Distrito Federal.",
+      "taxID": "21.802.241/0001-24",
+      "image": "https://cacambaspremium.com.br/images/df/og-df.jpg",
+      "description": "Aluguel e locação de caçambas de entulho para obras, reformas e construções em Brasília, Regiões Administrativas do Distrito Federal e Entorno do DF.",
       "url": "https://cacambaspremium.com.br/df",
       "telephone": "+55 61 99953-5476",
       "priceRange": "R$ 199,99 - R$ 499,99",
@@ -178,13 +183,41 @@
         "Sobradinho", "Planaltina", "Valparaíso de Goiás", "Cidade Ocidental",
         "Novo Gama", "Águas Lindas de Goiás", "Luziânia", "Santo Antônio do Descoberto"
       ],
-      "serviceType": "Locação de Caçambas de Entulho",
-      "serviceArea": {
-        "@type": "GeoShape",
-        "name": "Brasília, Distrito Federal e Entorno"
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Aluguel de Caçambas de Entulho no DF",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Caçamba 3m³" }, "price": "199.99", "priceCurrency": "BRL" },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Caçamba 4m³" }, "price": "249.99", "priceCurrency": "BRL" },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Caçamba 5m³" }, "price": "299.99", "priceCurrency": "BRL" },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Caçamba 7m³" }, "price": "370.00", "priceCurrency": "BRL" },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Caçamba 10m³" }, "price": "499.99", "priceCurrency": "BRL" }
+        ]
       },
       "sameAs": [
         "https://wa.me/5561999535476"
+      ]
+    }
+    </script>
+
+    <!-- Schema.org - BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Caçambas Premium",
+          "item": "https://cacambaspremium.com.br/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Aluguel de Caçamba em Brasília e DF",
+          "item": "https://cacambaspremium.com.br/df"
+        }
       ]
     }
     </script>
@@ -272,7 +305,18 @@
     </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div style="min-height:100vh;background:#0c0d0f;color:#ffffff;font-family:Inter,system-ui,-apple-system,sans-serif;">
+        <main style="max-width:1280px;margin:0 auto;padding:48px 16px;">
+          <p style="color:#ffc400;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:0.12em;">Disk Entulho DF · Atendimento pelo WhatsApp</p>
+          <h1 style="font-family:Archivo,Inter,system-ui,sans-serif;font-weight:800;font-size:36px;line-height:1.12;margin:12px 0;">Aluguel de Caçamba de Entulho em Brasília e DF</h1>
+          <p style="font-size:16px;line-height:1.5;max-width:720px;color:#e5e7eb;">Disk Entulho e locação de caçamba no DF para obras, reformas e construções. Caçambas de 3m³ a 10m³ a partir de R$ 199,99. Atendimento em Brasília, Regiões Administrativas do DF e Entorno.</p>
+          <p style="margin-top:24px;">
+            <a href="https://wa.me/5561999535476?text=Ol%C3%A1%2C%20vim%20pelo%20Google%20e%20quero%20alugar%20uma%20ca%C3%A7amba%20em%20Bras%C3%ADlia.%20Pode%20me%20passar%20disponibilidade%20e%20valor%3F" rel="noopener noreferrer" style="display:inline-block;background:#25D366;color:#ffffff;font-weight:800;padding:16px 28px;border-radius:12px;text-decoration:none;">Pedir orçamento no WhatsApp</a>
+          </p>
+        </main>
+      </div>
+    </div>
     <script type="module" src="/src/df/main.tsx"></script>
   </body>
 </html>

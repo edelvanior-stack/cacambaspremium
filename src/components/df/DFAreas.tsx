@@ -1,5 +1,13 @@
-import { DF_PRIMARY_REGIONS, DF_SECONDARY_REGIONS, DF_DEFAULT_MESSAGE } from "@/df/config";
-import { DFWhatsAppButton, SectionHeader } from "./DFPrimitives";
+import {
+  DF_PRIMARY_REGIONS,
+  DF_SECONDARY_REGIONS,
+  DF_ENTORNO_CITIES,
+  DF_DEFAULT_MESSAGE,
+  cityWhatsAppMessage,
+} from "@/df/config";
+import { dfWhatsAppLink } from "@/df/whatsapp";
+import { trackDFWhatsAppClick } from "@/df/analytics";
+import { DFWhatsAppButton, SectionHeader, WhatsAppIcon } from "./DFPrimitives";
 
 export default function DFAreas() {
   return (
@@ -7,8 +15,8 @@ export default function DFAreas() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
           eyebrow="Cobertura Geográfica"
-          title="Atendimento em Brasília e diversas regiões do DF"
-          lead="Disponibilizamos caçambas para obras residenciais e comerciais no Distrito Federal. A confirmação de entrega depende da rota e das condições de acesso do local."
+          title="Aluguel de caçamba em Brasília, DF e Entorno"
+          lead="Atendemos obras residenciais, reformas e construções nas Regiões Administrativas do Distrito Federal e cidades do Entorno. A confirmação de entrega depende da rota e das condições de acesso do endereço."
         />
 
         {/* 1. Regiões Principais (Maior Volume de Obras) */}
@@ -46,7 +54,7 @@ export default function DFAreas() {
         <div className="mt-10">
           <div className="flex items-center justify-between border-b border-line pb-3">
             <h3 className="font-display text-xs font-bold uppercase tracking-[0.14em] text-iron">
-              Outras Regiões Atendidas
+              Outras Regiões Atendidas no DF
             </h3>
             <span className="text-[11px] font-medium text-mist">
               {DF_SECONDARY_REGIONS.length} regiões adicionais
@@ -68,11 +76,47 @@ export default function DFAreas() {
           </div>
         </div>
 
-        {/* Bloco: Entorno do DF e Demais Regiões com botão verde ao final da seção */}
-        <div className="mt-10 rounded-xl border border-line/80 bg-concrete/60 p-5 sm:p-6">
-          <p className="text-sm font-medium leading-relaxed text-ink">
-            Também atendemos o Entorno do DF, como Valparaíso de Goiás, Cidade Ocidental, Novo Gama, Águas Lindas de Goiás, Luziânia e Santo Antônio do Descoberto, sob consulta de endereço.
-          </p>
+        {/* 3. Bloco dedicado ao Entorno do DF com links diretos */}
+        <div className="mt-10 rounded-2xl border border-line bg-concrete/70 p-6 sm:p-8">
+          <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end border-b border-line pb-4">
+            <div>
+              <span className="eyebrow text-iron">Entorno do DF · Sob Consulta de Endereço</span>
+              <h3 className="display mt-2 text-xl font-extrabold uppercase tracking-tight text-ink sm:text-2xl">
+                Disk Entulho e Caçamba no Entorno do DF
+              </h3>
+            </div>
+            <a
+              href="/entorno/cacamba"
+              className="shrink-0 font-display text-xs sm:text-sm font-extrabold uppercase tracking-wide text-ink underline decoration-signal decoration-2 underline-offset-4 hover:text-black"
+            >
+              Ver página do Entorno do DF →
+            </a>
+          </div>
+
+          <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {DF_ENTORNO_CITIES.map((city) => (
+              <a
+                key={city.slug}
+                href={dfWhatsAppLink(cityWhatsAppMessage(city.name))}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackDFWhatsAppClick(`df_areas_entorno_${city.slug}`)}
+                className="group flex items-center justify-between rounded-xl border border-line bg-white px-4 py-3.5 transition-all hover:border-[#25D366] hover:shadow-sm"
+                aria-label={`Solicitar orçamento de caçamba em ${city.name} pelo WhatsApp`}
+              >
+                <div>
+                  <span className="block font-display text-sm font-bold uppercase tracking-tight text-ink">
+                    {city.name}
+                  </span>
+                  <span className="text-[11px] text-iron">{city.keywordTitle}</span>
+                </div>
+                <span className="inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-iron group-hover:text-[#25D366] shrink-0">
+                  <WhatsAppIcon className="h-3.5 w-3.5 fill-current" />
+                  <span>Cotar</span>
+                </span>
+              </a>
+            ))}
+          </div>
         </div>
 
         <div className="mt-6 flex flex-col items-center justify-between gap-6 rounded-2xl border border-line bg-concrete p-6 sm:flex-row sm:p-8">
@@ -81,7 +125,7 @@ export default function DFAreas() {
               Não encontrou sua região?
             </p>
             <p className="mt-1 text-sm text-iron">
-              Atendemos condomínios e outras áreas do Distrito Federal sob consulta prévia de endereço.
+              Atendemos condomínios, áreas residenciais e comerciais do Distrito Federal e Entorno sob consulta prévia de endereço.
             </p>
           </div>
           <DFWhatsAppButton

@@ -1,9 +1,11 @@
 @import "tailwindcss" source(none);
 
-/* Escaneia SOMENTE os arquivos da página DF (não inclui classes da home) */
+/* Escaneia SOMENTE os arquivos da operação DF (não inclui classes da home PR nem SC) */
 @source "./";
 @source "../components/df";
 @source "../../df/index.html";
+@source "../../valor/orcamento/index.html";
+@source "../../entorno/cacamba/index.html";
 
 @theme {
   --color-ink: #0c0d0f;

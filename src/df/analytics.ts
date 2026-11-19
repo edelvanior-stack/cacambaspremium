@@ -1,11 +1,12 @@
 // ============================================================
-// ANALYTICS & TRACKING - Caçambas Premium (Brasília e DF - /df)
+// ANALYTICS & TRACKING - Caçambas Premium (Brasília, DF e Entorno)
+// Usado em: /df, /valor/orcamento e /entorno/cacamba
 // ============================================================
 
 import { GOOGLE_ADS_CONVERSION_DF, type DFEvent } from "./config";
 
 /**
- * Deduplication session key for DF:
+ * Deduplication session key for DF operation:
  * Only the first WhatsApp click per visitor session fires the Google Ads conversion.
  * Every click still pushes to dataLayer & GA4 for full-funnel visibility.
  */
@@ -17,9 +18,22 @@ let lastClickTimestamp = 0;
 /** Trava em memória complementar ao sessionStorage para garantir 1 conversão por sessão */
 let conversionSentInMemory = false;
 
+function currentPagePath(): string {
+  if (typeof window === "undefined") return "/df";
+  return window.location.pathname || "/df";
+}
+
+function ensureGtagLoaded(): void {
+  try {
+    (window as unknown as { __loadGtagNow?: () => void }).__loadGtagNow?.();
+  } catch {
+    /* ignore */
+  }
+}
+
 /**
- * Track WhatsApp CTA click for /df:
- * - Fires Google Ads conversion AW-18502471060/JGSnCNK2o64dEJSb1fZE with session deduplication.
+ * Track WhatsApp CTA click for DF operation (/df, /valor/orcamento, /entorno/cacamba):
+ * - Fires Google Ads conversion AW-18502471060/JGSnCNK2o64dEJSb1fZE ONCE per session.
  * - Pushes 'whatsapp_click' to GA4 / gtag and dataLayer on EVERY click.
  * - Uses transport_type: "beacon" so navigation does not cancel the hit.
  * - Dispatches immediately on click.
@@ -34,12 +48,9 @@ export const trackDFWhatsAppClick = (source: string) => {
   }
   lastClickTimestamp = now;
 
-  try {
-    (window as unknown as { __loadGtagNow?: () => void }).__loadGtagNow?.();
-  } catch {
-    /* ignore */
-  }
+  ensureGtagLoaded();
 
+  const pagePath = currentPagePath();
   let alreadyConverted = conversionSentInMemory;
   try {
     if (window.sessionStorage?.getItem(DF_WHATSAPP_CONVERSION_SESSION_KEY) === "1") {
@@ -68,6 +79,7 @@ export const trackDFWhatsAppClick = (source: string) => {
     window.gtag("event", "whatsapp_click", {
       event_category: "contact",
       event_label: source,
+      page_path: pagePath,
       transport_type: "beacon",
     });
   }
@@ -79,28 +91,27 @@ export const trackDFWhatsAppClick = (source: string) => {
     category: "conversion",
     action: "click",
     label: source,
+    page_path: pagePath,
     counted_as_conversion: !alreadyConverted,
   });
 };
 
 /**
- * Track Phone click (tel: link) for /df:
+ * Track Phone click (tel: link) for DF operation:
  * - Fires 'phone_click' event ONLY.
  * - DOES NOT fire the WhatsApp Google Ads conversion.
  */
 export const trackDFPhoneClick = (source: string) => {
   if (typeof window === "undefined") return;
 
-  try {
-    (window as unknown as { __loadGtagNow?: () => void }).__loadGtagNow?.();
-  } catch {
-    /* ignore */
-  }
+  ensureGtagLoaded();
+  const pagePath = currentPagePath();
 
   if (window.gtag) {
     window.gtag("event", "phone_click", {
       event_category: "contact",
       event_label: source,
+      page_path: pagePath,
       transport_type: "beacon",
     });
   }
@@ -111,6 +122,40 @@ export const trackDFPhoneClick = (source: string) => {
     category: "contact",
     action: "click",
     label: source,
+    page_path: pagePath,
+  });
+};
+
+/**
+ * Track quote form interaction/submission in GA4 & dataLayer ONLY.
+ * DOES NOT fire a duplicate Google Ads conversion (the conversion is fired
+ * exclusively via trackDFWhatsAppClick when opening WhatsApp).
+ */
+export const trackDFQuoteFormEvent = (
+  eventName: "quote_form_start" | "quote_form_submit",
+  source: string,
+  extraParams?: Record<string, unknown>
+) => {
+  if (typeof window === "undefined") return;
+
+  ensureGtagLoaded();
+  const pagePath = currentPagePath();
+  const payload: Record<string, unknown> = {
+    event_category: "quote_form",
+    event_label: source,
+    page_path: pagePath,
+    transport_type: "beacon",
+    ...(extraParams || {}),
+  };
+
+  if (window.gtag) {
+    window.gtag("event", eventName, payload);
+  }
+
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: eventName,
+    ...payload,
   });
 };
 
@@ -127,7 +172,7 @@ const WHATSAPP_OPEN_EVENTS: ReadonlySet<string> = new Set<string>([
 ]);
 
 /**
- * Rastreia uma interação na página /df (compatibilidade retroativa).
+ * Rastreia uma interação na operação DF (compatibilidade retroativa).
  */
 export function trackDF(
   event: DFEvent | string,
@@ -136,11 +181,7 @@ export function trackDF(
 ): void {
   if (typeof window === "undefined") return;
 
-  try {
-    (window as unknown as { __loadGtagNow?: () => void }).__loadGtagNow?.();
-  } catch {
-    /* ignore */
-  }
+  ensureGtagLoaded();
 
   const isWhatsApp = WHATSAPP_OPEN_EVENTS.has(event);
   if (isWhatsApp) {
@@ -150,7 +191,7 @@ export function trackDF(
 
   const payload: Record<string, unknown> = {
     cta_location: location,
-    page_path: "/df",
+    page_path: currentPagePath(),
     ...(extraParams || {}),
   };
 

@@ -1,7 +1,12 @@
 import { useState, useRef, type FormEvent } from "react";
-import { DF_ACTIVE_REGIONS, DF_MATERIALS, quickQuoteMessage } from "@/df/config";
+import {
+  DF_ACTIVE_REGIONS,
+  DF_ENTORNO_CITIES,
+  DF_MATERIALS,
+  quickQuoteMessage,
+} from "@/df/config";
 import { dfWhatsAppLink } from "@/df/whatsapp";
-import { trackDFWhatsAppClick } from "@/df/analytics";
+import { trackDFWhatsAppClick, trackDFQuoteFormEvent } from "@/df/analytics";
 import { SectionHeader, WhatsAppIcon } from "./DFPrimitives";
 
 export default function DFQuickQuote() {
@@ -14,6 +19,7 @@ export default function DFQuickQuote() {
   const handleStart = () => {
     if (!startedTrackingRef.current) {
       startedTrackingRef.current = true;
+      trackDFQuoteFormEvent("quote_form_start", "df_quick_quote");
     }
   };
 
@@ -40,6 +46,10 @@ export default function DFQuickQuote() {
       data: dataFormatada,
     });
 
+    trackDFQuoteFormEvent("quote_form_submit", "df_quick_quote", {
+      selected_region: regiaoFinal,
+      selected_material: materialFinal,
+    });
     trackDFWhatsAppClick("quick_quote_form");
     window.open(dfWhatsAppLink(message), "_blank", "noopener,noreferrer");
   };
@@ -50,8 +60,8 @@ export default function DFQuickQuote() {
         <div className="mx-auto max-w-3xl">
           <SectionHeader
             eyebrow="Consulta Rápida"
-            title="Veja se atendemos sua região"
-            lead="Consulte sua região em poucos segundos. Informe sua localização e os detalhes da obra para receber disponibilidade e orçamento direto no WhatsApp."
+            title="Veja se atendemos sua região no DF ou Entorno"
+            lead="Informe sua cidade ou região administrativa e o tipo de material da obra para receber disponibilidade e orçamento rápido direto no WhatsApp."
             align="center"
           />
 
@@ -62,20 +72,20 @@ export default function DFQuickQuote() {
               <div className="flex items-center gap-2.5">
                 <span className="flex h-2 w-2 rounded-full bg-signal" aria-hidden="true" />
                 <span className="font-display text-xs font-bold uppercase tracking-[0.14em] text-signal">
-                  Consulta de Disponibilidade DF
+                  Consulta de Disponibilidade DF e Entorno
                 </span>
               </div>
-              <span className="text-xs font-medium text-white/70">
-                Consulte sua região em poucos segundos.
+              <span className="text-xs font-medium text-white/75">
+                Orçamento sem cadastro longo
               </span>
             </div>
 
             <form onSubmit={handleSubmit} className="p-6 sm:p-8 lg:p-10">
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6">
-                {/* 01 Região Administrativa */}
+                {/* 01 Região Administrativa / Cidade */}
                 <div>
                   <label htmlFor="df-regiao" className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-iron">
-                    <span>Região administrativa</span>
+                    <span>Região do DF ou cidade do Entorno</span>
                     <span className="font-mono text-[10px] text-mist">01</span>
                   </label>
                   <div className="relative mt-2">
@@ -90,11 +100,20 @@ export default function DFQuickQuote() {
                       required
                       className="w-full appearance-none rounded-xl border border-line bg-concrete px-4 py-3.5 text-sm font-medium text-ink transition-colors focus:border-ink focus:bg-white focus:outline-none"
                     >
-                      {DF_ACTIVE_REGIONS.map((r) => (
-                        <option key={r.name} value={r.name}>
-                          {r.name}
-                        </option>
-                      ))}
+                      <optgroup label="Brasília e Regiões do DF">
+                        {DF_ACTIVE_REGIONS.map((r) => (
+                          <option key={r.name} value={r.name}>
+                            {r.name}
+                          </option>
+                        ))}
+                      </optgroup>
+                      <optgroup label="Entorno do DF (sob consulta)">
+                        {DF_ENTORNO_CITIES.map((c) => (
+                          <option key={c.slug} value={c.name}>
+                            {c.name} (GO)
+                          </option>
+                        ))}
+                      </optgroup>
                       <option value="Outra região do DF">Outra região do DF</option>
                     </select>
                     <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3.5 text-iron" aria-hidden="true">
@@ -108,7 +127,7 @@ export default function DFQuickQuote() {
                 {/* 02 Bairro / Quadra */}
                 <div>
                   <label htmlFor="df-bairro" className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-iron">
-                    <span>Bairro ou quadra</span>
+                    <span>Bairro, setor ou quadra</span>
                     <span className="font-mono text-[10px] text-mist">02</span>
                   </label>
                   <input
@@ -117,7 +136,7 @@ export default function DFQuickQuote() {
                     value={bairro}
                     onFocus={handleStart}
                     onChange={(e) => setBairro(e.target.value)}
-                    placeholder="Ex: SQN 308, QNA, Av. Castanheiras"
+                    placeholder="Ex: SQN 308, QNA, Jardim Ingá, Etapa A"
                     className="mt-2 w-full rounded-xl border border-line bg-concrete px-4 py-3.5 text-sm font-medium text-ink transition-colors placeholder:text-mist focus:border-ink focus:bg-white focus:outline-none"
                   />
                 </div>
@@ -174,8 +193,8 @@ export default function DFQuickQuote() {
               </div>
 
               <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-line pt-6 sm:flex-row">
-                <span className="text-xs text-mist text-center sm:text-left">
-                  Sem cadastro longo. Resposta direta com orçamento no WhatsApp.
+                <span className="text-xs text-iron text-center sm:text-left">
+                  Sem cadastro longo. Resposta direta com disponibilidade e orçamento no WhatsApp.
                 </span>
                 <button
                   type="submit"

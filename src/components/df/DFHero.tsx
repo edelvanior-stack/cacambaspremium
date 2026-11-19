@@ -4,11 +4,11 @@ import { DFAnchorButton, DFWhatsAppButton, PhoneIcon } from "./DFPrimitives";
 
 const TRUST = [
   "A partir de R$ 199,99",
-  "Caçamba de 3m³",
-  "Brasília e DF",
-  "Entorno do DF",
+  "Caçambas de 3m³ a 10m³",
+  "Obras, reformas e construções",
+  "Brasília, DF e Entorno",
+  "Retirada e destinação adequada",
   "Permanência conforme regras locais",
-  "Entrega e retirada pontuais",
 ];
 
 export default function DFHero() {
@@ -25,7 +25,7 @@ export default function DFHero() {
         />
         <img
           src="/images/df/df-hero.webp"
-          alt="Aluguel de Caçamba em Brasília e DF - Caçambas Premium"
+          alt="Aluguel de caçamba de entulho em Brasília e DF para obras e reformas - Caçambas Premium"
           width={1376}
           height={768}
           fetchPriority="high"
@@ -41,38 +41,38 @@ export default function DFHero() {
         aria-hidden="true"
       />
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-6 pb-8 sm:pt-16 sm:pb-16 md:pt-20 md:pb-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-6 pb-8 sm:pt-14 sm:pb-16 md:pt-18 md:pb-20">
         <div className="max-w-3xl">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 sm:px-4 py-1 sm:py-1.5 mb-2.5 sm:mb-4 border border-white/10">
             <div className="w-2 h-2 rounded-full bg-emerald-400" />
             <span className="text-white text-xs sm:text-sm font-semibold tracking-wide">
-              Atendimento pelo WhatsApp
+              Disk Entulho DF · Orçamento rápido pelo WhatsApp
             </span>
           </div>
 
-          {/* H1 Oficial Obrigatório */}
+          {/* H1 Oficial */}
           <h1
             id="df-h1"
             className="font-display font-extrabold text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-white leading-[1.12] mb-2 sm:mb-3 tracking-tight"
           >
             Aluguel de{" "}
-            <span className="text-signal">Caçamba</span>{" "}
+            <span className="text-signal">Caçamba de Entulho</span>{" "}
             em Brasília e DF
           </h1>
 
           {/* Linha de apoio logo abaixo do H1 */}
           <p className="text-signal font-display font-bold text-sm sm:text-lg md:text-xl mb-2.5 sm:mb-4 tracking-tight">
-            Disk Entulho e aluguel de caçamba em Brasília e em todo o DF.
+            Disk Entulho e locação de caçamba no DF para obras, reformas e construções.
           </p>
 
-          {/* Linha abaixo com medida, orçamento, permanência e regiões */}
+          {/* Linha com oferta, medidas, destinação e cobertura DF + Entorno */}
           <p className="text-white/95 text-xs sm:text-sm md:text-base leading-relaxed mb-4 sm:mb-6 font-medium bg-black/45 p-3 sm:p-4 rounded-xl border border-white/10">
-            Caçamba de 3m³ | Caçambas a partir de R$ 199,99 | Permanência conforme legislação do DF | Atendemos Brasília, Plano Piloto, Águas Claras, Taguatinga, Ceilândia, Samambaia, Guará e região, incluindo o Entorno do DF
+            Caçamba de 3m³ a 10m³ a partir de R$ 199,99 | Retirada e destinação adequada de entulho | Permanência conforme legislação do DF | Atendemos Brasília, Plano Piloto, Águas Claras, Taguatinga, Ceilândia, Samambaia, Guará e região, incluindo o Entorno do DF
           </p>
 
-          {/* Botão verde do Hero - largura total no mobile e min-h-[56px], com botão secundário "Ligar agora" */}
-          <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-2.5 sm:gap-4 mb-5 sm:mb-8">
+          {/* CTAs principais */}
+          <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-2.5 sm:gap-4 mb-5 sm:mb-7">
             <DFWhatsAppButton
               message={DF_DEFAULT_MESSAGE}
               location="hero_primary"
@@ -91,17 +91,17 @@ export default function DFHero() {
                 <span>Ligar agora</span>
               </a>
               <DFAnchorButton
-                href="#regioes"
+                href="#valores"
                 size="lg"
                 className="w-full sm:w-auto !h-12 sm:!h-14 !min-h-[48px] sm:!min-h-[56px] !px-2 min-[360px]:!px-3 sm:!px-6 !text-[11px] min-[360px]:!text-xs sm:!text-base"
               >
-                Ver Regiões Atendidas
+                Ver Valores
               </DFAnchorButton>
             </div>
           </div>
 
           {/* Destaques rápidos */}
-          <div className="flex flex-wrap gap-1.5 sm:gap-3">
+          <div className="flex flex-wrap gap-1.5 sm:gap-2.5 mb-4">
             {TRUST.map((item) => (
               <div
                 key={item}
@@ -111,6 +111,16 @@ export default function DFHero() {
                 <span>{item}</span>
               </div>
             ))}
+          </div>
+
+          {/* Atalhos diretos para páginas dedicadas do Hub DF */}
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-white/80">
+            <a href="/valor/orcamento" className="underline decoration-signal/70 underline-offset-4 hover:text-signal transition-colors">
+              Guia de valores e orçamento →
+            </a>
+            <a href="/entorno/cacamba" className="underline decoration-signal/70 underline-offset-4 hover:text-signal transition-colors">
+              Atendimento no Entorno do DF →
+            </a>
           </div>
         </div>
       </div>

@@ -10,8 +10,8 @@ export default function DFCompliance() {
           <div>
             <SectionHeader
               eyebrow="Responsabilidade e Normas"
-              title="Descarte responsável do início ao fim."
-              lead="Resíduos de construção possuem regras específicas de coleta, transporte e destinação no Distrito Federal. A contratação deve respeitar as exigências aplicáveis a cada tipo de operação."
+              title="Retirada e destinação adequada de entulho no DF."
+              lead="Resíduos da construção civil possuem regras específicas de coleta, transporte e destinação no Distrito Federal. Nossa operação realiza a entrega, retirada e encaminhamento conforme as exigências aplicáveis a cada tipo de resíduo."
             />
 
             {/* Espaço reservado para provas documentadas (vazio por padrão até fornecimento) */}
